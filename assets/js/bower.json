@@ -1,0 +1,11 @@
+{
+  "name": "js",
+  "version": "0.0.0",
+  "authors": [
+    "juneril <pi.juneril@gmail.com>"
+  ],
+  "license": "MIT",
+  "dependencies": {
+    "eonasdan-bootstrap-datetimepicker": "~4.15.35"
+  }
+}
