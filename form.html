@@ -4,7 +4,7 @@
 <head>
     <meta charset="utf-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>DSS</title>
+    <title>Free Bootstrap Admin Template : Binary Admin</title>
     <!-- BOOTSTRAP STYLES-->
     <link href="assets/css/bootstrap.css" rel="stylesheet" />
     <!-- FONTAWESOME STYLES-->
@@ -12,7 +12,8 @@
     <!-- CUSTOM STYLES-->
     <link href="assets/css/custom.css" rel="stylesheet" />
     <!-- GOOGLE FONTS-->
-    <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
+    <link href="assets/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <linkhref="assets/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
 </head>
 
 <body>
@@ -40,11 +41,9 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                         <img src="assets/img/find_user.png" class="user-image img-responsive" />
                     </li>
                     <li>
-                        <a href="index.html"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
+                        <a class="active-menu" href="index.html"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
                     </li>
-                    <li>
-                        <a href="ui.html"><i class="fa fa-desktop fa-3x"></i> UI Elements</a>
-                    </li>
+                   
                     <li>
                         <a href="tab-panel.html"><i class="fa fa-qrcode fa-3x"></i> Tabs & Panels</a>
                     </li>
@@ -75,12 +74,10 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
                                     <li>
                                         <a href="#">Third Level Link</a>
                                     </li>
-
                                 </ul>
-                               
                             </li>
                         </ul>
-                      </li>  
+                    </li>
                     <li>
                         <a href="heatmap.html"><i class="fa fa-square-o fa-3x"></i>Heat Map</a>
                     </li>
@@ -92,196 +89,94 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>Forms Page</h2>
-                        <h5>Welcome Jhon Deo , Love to see you back. </h5>
+                        <h2 class="text-center">Child Information</h2>
+                        
                     </div>
                 </div>
                 <!-- /. ROW  -->
                 <hr />
                 <div class="row">
-                    <div class="col-md-12">
+                    <div class="col-md-12 ">
                         <!-- Form Elements -->
                         <div class="panel panel-default">
-                            <div class="panel-heading">
-                                Form Element Examples
-                            </div>
+                            
                             <div class="panel-body">
                                 <div class="row">
+                                <div class="col-md-3"></div>
                                     <div class="col-md-6">
-                                        <h3>Basic Form Examples</h3>
                                         <form role="form">
                                             <div class="form-group">
-                                                <label>Name</label>
-                                                <input class="form-control" placeholder="PLease Enter Your Name Here" />
+                                                <label>First Name</label>
+                                                <input class="form-control" placeholder="Your First Name here" />
+                                            </div>
+                                            <div class="form-group">
+                                                <label>Last Name</label>
+                                                <input class="form-control" placeholder="Your Last Name here" />
                                             </div>
                                             <div class="form-group">
                                                 <label>Address</label>
-                                                <input class="form-control" placeholder="PLease Enter Your Address Here" />
+                                                <input class="form-control" placeholder="Your Complete Addres here" />
                                             </div>
                                             <div class="form-group">
-                                                <label>Brgy:</label>
+                                                <label>Barrangay</label>
                                                 <select class="form-control">
-                                                    <option>Brgy 1</option>
-                                                    <option>Brgy 2</option>
+                                                    <option>Dian-ay</option>
+                                                    <option>Magsaysay</option>
+                                                    <option>Tamlang</option>
+                                                    <option>Malasibog</option>
+                                                    <option>Paitan</option>
                                                 </select>
                                             </div>
                                             <div class="form-group">
-                                                <label>Gender</label>
-                                                <select class="form-control">
-                                                    <option>MALE</option>
-                                                    <option>FEMALE</option>
-                                                </select>
-                                            </div>
-                                            <div class="form-group">
-                                                <div class='input-group date' id='datetimepicker1'>
+                                                <div class='input-group date' id='datetimepicker8'>
                                                     <input type='text' class="form-control" />
                                                     <span class="input-group-addon">
-                                                    <span class="glyphicon glyphicon-calendar"></span>
+                                                <span class="fa fa-calendar">
+                                                </span>
                                                     </span>
                                                 </div>
                                             </div>
                                             <div class="form-group">
-                                                <label>Weight</label>
-                                                <input class="form-control" placeholder="Enter weight here" />
+                                                <div class="row">
+                                                <div class="col-md-4">
+                                                    
+                                                    <label>Heigth</label>
+                                                    <input class="form-control" placeholder="input height" />
+                                                </div>
+                                                <div class="col-md-4">
+                                                    
+                                                    <label>Weigth</label>
+                                                    <input class="form-control" placeholder="input weight" />
+                                                </div>
+                                                 <div class="col-md-4">
+                                                    
+                                                    <label>months</label>
+                                                    <input class="form-control" placeholder="input number of months" />
+                                                </div>
+                                                </div>
                                             </div>
-                                            <div class="form-group">
-                                                <label>Height</label>
-                                                <input class="form-control" placeholder="Enter height here" />
-                                            </div>
-                                            <div class="form-group">
-                                                <label>Status</label>
-                                                <input class="form-control" placeholder="status" />
+                                            <div class="form-group ">
+                                                <label>Gender:</label>
+                                                <div class="radio ">
+                                                    <label>
+                                                        <input type="radio" name="optionsRadios" id="optionsRadios1" value="Male" checked />Male
+                                                    </label>
+                                                </div>
+                                                <div class="radio ">
+                                                    <label>
+                                                        <input type="radio" name="optionsRadios" id="optionsRadios2" value="Female" />Female
+                                                    </label>
+                                                </div>
                                             </div>
                                             <button type="submit" class="btn btn-default">Submit Button</button>
                                             <button type="reset" class="btn btn-primary">Reset Button</button>
                                         </form>
-                                        <br />
-                                        <h3>With radio & checkboxes</h3>
-                                        <form>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">
-        <input type="checkbox" />
-      </span>
-                                                <input type="text" class="form-control" />
-                                            </div>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">
-        <input type="radio" />
-      </span>
-                                                <input type="text" class="form-control" />
-                                            </div>
-                                        </form>
                                     </div>
-                                    <div class="col-md-6">
-                                        <h3>Disabled Form State Examples</h3>
-                                        <form role="form">
-                                            <fieldset disabled="disabled">
-                                                <div class="form-group">
-                                                    <label for="disabledSelect">Disabled input</label>
-                                                    <input class="form-control" id="disabledInput" type="text" placeholder="Disabled input" disabled />
-                                                </div>
-                                                <div class="form-group">
-                                                    <label for="disabledSelect">Disabled select </label>
-                                                    <select id="disabledSelect" class="form-control">
-                                                        <option>Disabled select</option>
-                                                    </select>
-                                                </div>
-                                                <div class="checkbox">
-                                                    <label>
-                                                        <input type="checkbox" />Disabled Checkbox
-                                                    </label>
-                                                </div>
-                                                <button type="submit" class="btn btn-primary">Disabled Button</button>
-                                            </fieldset>
-                                        </form>
-                                        <h3>Validation State Examples</h3>
-                                        <form role="form">
-                                            <div class="form-group has-success">
-                                                <label class="control-label" for="inputSuccess">Input with success</label>
-                                                <input type="text" class="form-control" id="inputSuccess">
-                                            </div>
-                                            <div class="form-group has-warning">
-                                                <label class="control-label" for="inputWarning">Input with warning</label>
-                                                <input type="text" class="form-control" id="inputWarning">
-                                            </div>
-                                            <div class="form-group has-error">
-                                                <label class="control-label" for="inputError">Input with error</label>
-                                                <input type="text" class="form-control" id="inputError">
-                                            </div>
-                                        </form>
-                                        <h3>Input Group Examples</h3>
-                                        <form role="form">
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">@</span>
-                                                <input type="text" class="form-control" placeholder="Username">
-                                            </div>
-                                            <div class="form-group input-group">
-                                                <input type="text" class="form-control">
-                                                <span class="input-group-addon">.00</span>
-                                            </div>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon"><i class="fa fa-eur"></i>
-                                            </span>
-                                                <input type="text" class="form-control" placeholder="Font Awesome Icon">
-                                            </div>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">$</span>
-                                                <input type="text" class="form-control">
-                                                <span class="input-group-addon">.00</span>
-                                            </div>
-                                            <div class="form-group input-group">
-                                                <input type="text" class="form-control">
-                                                <span class="input-group-btn">
-                                                <button class="btn btn-default" type="button"><i class="fa fa-search"></i>
-                                                </button>
-                                            </span>
-                                            </div>
-                                        </form>
-                                        <h3>Different Size Input Groups</h3>
-                                        <form role="form">
-                                            <div class=" form-group input-group input-group-lg">
-                                                <span class="input-group-addon">@</span>
-                                                <input type="text" class="form-control" placeholder="Username" />
-                                            </div>
-                                            <div class="form-group input-group">
-                                                <span class="input-group-addon">@</span>
-                                                <input type="text" class="form-control" placeholder="Username" />
-                                            </div>
-                                            <div class="form-group input-group input-group-sm">
-                                                <span class="input-group-addon">@</span>
-                                                <input type="text" class="form-control" placeholder="Username" />
-                                            </div>
-                                        </form>
-                                        <h3>Different Size Input Groups</h3>
-                                        <form role="form">
-                                            <div class="input-group">
-                                                <span class="form-group input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-                                                <input type="text" class="form-control" />
-                                            </div>
-                                            <br />
-                                            <div class="input-group">
-                                                <input type="text" class="form-control" />
-                                                <span class="form-group input-group-btn">
-        <button class="btn btn-default" type="button">Go!</button>
-      </span>
-                                            </div>
-                                        </form>
-                                    </div>
+
                                 </div>
                             </div>
                         </div>
                         <!-- End Form Elements -->
-                    </div>
-                </div>
-                <!-- /. ROW  -->
-                <div class="row">
-                    <div class="col-md-12">
-                        <h3>More Customization</h3>
-                        <p>
-                            For more customization for this template or its components please visit official bootstrap website i.e getbootstrap.com or <a href="http://getbootstrap.com/components/" target="_blank">click here</a> . We hope you will enjoy our template. This template is easy to use, light weight and made with love by binarycart.com
-                        </p>
                     </div>
                 </div>
                 <!-- /. ROW  -->
@@ -298,12 +193,24 @@ font-size: 16px;"> Last access : 30 May 2014 &nbsp; <a href="#" class="btn btn-d
     <script src="assets/js/bootstrap.min.js"></script>
     <!-- METISMENU SCRIPTS -->
     <script src="assets/js/jquery.metisMenu.js"></script>
-
+    <!-- CUSTOM SCRIPTS -->
+      <script src="assets/js/custom.js"></script>
+    <!-- bower -->
+    <script src="assets/bower_components/jquery/dist/jquery.min.js"></script>
+    <script src="assets/bower_components/moment/min/moment.min.js"></script>
+    <script src="assets/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <script type="text/javascript">
-            $(function () {
-                $('#datetimepicker1').datetimepicker();
-            });
-        </script>
+    $(function() {
+        $('#datetimepicker8').datetimepicker({
+            icons: {
+                time: "fa fa-clock-o",
+                date: "fa fa-calendar",
+                up: "fa fa-arrow-up",
+                down: "fa fa-arrow-down"
+            }
+        });
+    });
+    </script>
 </body>
 
 </html>
