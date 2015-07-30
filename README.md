@@ -1,6 +1,8 @@
 # DECISION-SUPPORT-SYSTEM
 A WEB-BASED NUTRITION OFFICE MANAGEMENT INFORMATION SYSTEM WITH DECISION SUPPORT SYSTEM FOR ESCALANTE CITY
 
-
-# run 
+#clone this
+ open cmd
+ type: `git clone https://github.com/jbagaresgaray/DECISION-SUPPORT-SYSTEM.git`
+ 
 bower install
