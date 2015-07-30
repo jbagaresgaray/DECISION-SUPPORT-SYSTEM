@@ -3,6 +3,6 @@ A WEB-BASED NUTRITION OFFICE MANAGEMENT INFORMATION SYSTEM WITH DECISION SUPPORT
 
 #clone this
  open cmd
- type: git clone https://github.com/jbagaresgaray/DECISION-SUPPORT-SYSTEM.git
+ type: `git clone https://github.com/jbagaresgaray/DECISION-SUPPORT-SYSTEM.git`
  
 bower install
