@@ -1,0 +1,19 @@
+{
+  "name": "dss",
+  "version": "0.0.0",
+  "homepage": "https://github.com/jbagaresgaray/DECISION-SUPPORT-SYSTEM",
+  "authors": [
+    "juneril <pi.juneril@gmail.com>"
+  ],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests"
+  ],
+  "dependencies": {
+    "eonasdan-bootstrap-datetimepicker": "~4.15.35"
+  }
+}
