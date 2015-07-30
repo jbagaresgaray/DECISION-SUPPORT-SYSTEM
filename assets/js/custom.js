@@ -60,6 +60,82 @@
                     resize: true
                 });
 
+                Morris.Bar({
+                    element: 'morris-bar-chart1',
+                    data: [{
+                        y: 'Dian-ay',
+                        a: 100
+                    }, {
+                        y: 'Magsaysay',
+                        a: 75
+                       
+                    }, {
+                        y: 'Tamlang',
+                        a: 50
+                    }, {
+                        y: 'Paitan',
+                        a: 75
+                    }, {
+                        y: 'palasibog',
+                        a: 50
+                    }],
+                    xkey: 'y',
+                    ykeys: ['a'],
+                    labels: ['Child Number'],
+                    hideHover: 'auto',
+                    resize: true
+                });
+                Morris.Bar({
+                    element: 'morris-bar-chart2',
+                    data: [{
+                        y: '1',
+                        a: 100
+                    }, {
+                        y: '2',
+                        a: 75
+                       
+                    }, {
+                        y: '3',
+                        a: 50
+                    }, {
+                        y: '4',
+                        a: 75
+                    }, {
+                        y: '5',
+                        a: 50
+                    }],
+                    xkey: 'y',
+                    ykeys: ['a'],
+                    labels: ['Child Number'],
+                    hideHover: 'auto',
+                    resize: true
+                });
+                Morris.Bar({
+                    element: 'morris-bar-chart3',
+                    data: [{
+                        y: 'Dian-ay',
+                        a: 100
+                    }, {
+                        y: 'Magsaysay',
+                        a: 75
+                       
+                    }, {
+                        y: 'Tamlang',
+                        a: 50
+                    }, {
+                        y: 'Paitan',
+                        a: 75
+                    }, {
+                        y: 'palasibog',
+                        a: 50
+                    }],
+                    xkey: 'y',
+                    ykeys: ['a'],
+                    labels: ['Child Number'],
+                    hideHover: 'auto',
+                    resize: true
+                });
+
                 /*====================================
           MORRIS DONUT CHART
        ======================================*/
