@@ -1,7 +1,7 @@
 <?php
 require_once '../../server/connection.php';
 
-class Child {
+class Users {
 
 	function __construct(){
     }

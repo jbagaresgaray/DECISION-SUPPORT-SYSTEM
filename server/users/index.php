@@ -16,9 +16,9 @@
 
 			if(isset($request) && !empty($request) && $request[0] !== ''){
 				$id = $request[0];
-				Child::update($id,$_REQUEST);
+				Users::update($id,$_REQUEST);
 			}else{
-				Child::update($_REQUEST);
+				Users::update($_REQUEST);
 			}
 	    break;
 	  case 'POST':
@@ -34,20 +34,20 @@
 				"month" => $_POST['month'],
 				"gender" => $_POST['gender']
 			];
-			Child::create($data);
+			Users::create($data);
 	    break;
 	  case 'GET':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		$id = $request[0];
-				Child::detail($id);
+				Users::detail($id);
 	  	}else{
-				Child::read();
+				Users::read();
 	  	}
 	    break;
 	  case 'DELETE':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		$id = $request[0];
-				Child:delete($id);
+				Users:delete($id);
 	  	}
 	    break;
 	  default:

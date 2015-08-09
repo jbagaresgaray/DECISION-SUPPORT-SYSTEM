@@ -4,50 +4,49 @@
 
 	$method = $_SERVER['REQUEST_METHOD'];
 	$request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
+	//  globals
+	$_DELETE = array ();
+	$_PUT = array ();
 
 	switch ($method) {
 	  case 'PUT':
 			$data=parse_str( file_get_contents( 'php://input' ), $_PUT );
 			foreach ($_PUT as $key => $value){
-					unset($_PUT[$key]);
-					$_PUT[str_replace('amp;', '', $key)] = $value;
-			}
+	        unset($_PUT[$key]);
+	        $_PUT[str_replace('amp;', '', $key)] = $value;
+	    }
 			$_REQUEST = array_merge($_REQUEST, $_PUT);
 
 			if(isset($request) && !empty($request) && $request[0] !== ''){
-				$id = $request[0];
-				Child::update($id,$_REQUEST);
-			}else{
-				Child::update($_REQUEST);
-			}
+	  		$id = $request[0];
+				Growth::update($id,$_REQUEST);
+	  	}else{
+				Growth::update($_REQUEST);
+	  	}
 	    break;
 	  case 'POST':
-		  $data = [
-				"fname" => $_POST['fname'],
-				"lname" => $_POST['lname'],
-				"mname" => $_POST['mname'],
-				"address" => $_POST['address'],
-				"location" => $_POST['location'],
-				"date" => $_POST['date'],
-				"height" => $_POST['height'],
-				"weight" => $_POST['weight'],
-				"month" => $_POST['month'],
-				"gender" => $_POST['gender']
-			];
-			Child::create($data);
+				$data = [
+					'name'=> $_POST['name'],
+					'x'=> $_POST['x'],
+					'y'=> $_POST['y'],
+					'description'=> $_POST['description'],
+					'landarea'=> $_POST['landarea'],
+					'image_path'=> $_POST['image_path']
+				];
+				Growth::create($data);
 	    break;
 	  case 'GET':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		$id = $request[0];
-				Child::detail($id);
+				Growth::detail($id);
 	  	}else{
-				Child::read();
+				Growth::read();
 	  	}
 	    break;
 	  case 'DELETE':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		$id = $request[0];
-				Child:delete($id);
+				Growth::delete($id);
 	  	}
 	    break;
 	  default:
