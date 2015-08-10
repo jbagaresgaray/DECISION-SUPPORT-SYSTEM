@@ -1,6 +1,6 @@
 <?php
 	include('../../server/cors.php');
-	include( __DIR__.'/model.php');
+	include( __DIR__.'/controller.php');
 
 	$method = $_SERVER['REQUEST_METHOD'];
 	$request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
@@ -12,42 +12,30 @@
 					unset($_PUT[$key]);
 					$_PUT[str_replace('amp;', '', $key)] = $value;
 			}
-			$_REQUEST = array_merge($_REQUEST, $_PUT);
+			$_REQUEST = array_mergeo($_REQUEST, $_PUT);
 
 			if(isset($request) && !empty($request) && $request[0] !== ''){
 				$id = $request[0];
-				Child::update($id,$_REQUEST);
+				ChildController::update($id,$_REQUEST);
 			}else{
-				Child::update($_REQUEST);
+				ChildController::update(null,$_REQUEST);
 			}
 	    break;
 	  case 'POST':
-		  $data = [
-				"fname" => $_POST['fname'],
-				"lname" => $_POST['lname'],
-				"mname" => $_POST['mname'],
-				"address" => $_POST['address'],
-				"location" => $_POST['location'],
-				"date" => $_POST['date'],
-				"height" => $_POST['height'],
-				"weight" => $_POST['weight'],
-				"month" => $_POST['month'],
-				"gender" => $_POST['gender']
-			];
-			Child::create($data);
+			ChildController::create($_POST);
 	    break;
 	  case 'GET':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		$id = $request[0];
-				Child::detail($id);
+			ChildController::detail($id);
 	  	}else{
-				Child::read();
+			ChildController::read();
 	  	}
 	    break;
 	  case 'DELETE':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		$id = $request[0];
-				Child:delete($id);
+				ChildController::delete($id);
 	  	}
 	    break;
 	  default:

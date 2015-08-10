@@ -42,140 +42,11 @@
                                                 <td>10/20/2015</td>
                                                 <td>Male</td>
                                                 <td class="center">overweight</td>
-                                                <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="even gradeC">
-                                                <td>b</td>
-                                                 <td>10/20/2015</td>
-                                                <td>Male</td>
-                                                <td class="center">normal</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="odd gradeA">
-                                                <td>c</td>
-                                                <td>10/20/2015</td>
-                                                <td>Female</td>
-                                                <td class="center">overweight</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="even gradeA">
-                                                <td>d</td>
-                                                 <td>10/20/2015</td>
-                                                <td>Win 98+</td>
-                                                <td class="center">underweight</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="odd gradeA">
-                                                <td>e</td>
-                                                 <td>10/20/2015</td>
-                                                <td>Win XP SP2+</td>
-                                                <td class="center">normal</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="odd gradeX">
-                                                <td>f</td>
-                                                 <td>10/20/2015</td>
-                                                <td>Male</td>
-                                                <td class="center">normal</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="even gradeC">
-                                                <td>g</td>
-                                                <td>10/20/2015</td>
-                                                <td>Male</td>
-                                                <td class="center">normal</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="odd gradeA">
-                                                <td>child 3</td>
-                                                 <td>10/20/2015</td>
-                                                <td>Female</td>
-                                                <td class="center">X</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="even gradeA">
-                                                <td>Trident</td>
-                                                 <td>10/20/2015</td>
-                                                <td>Win 98+</td>
-                                                <td class="center">X</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="odd gradeA">
-                                                <td>Trident</td>
-                                                 <td>10/20/2015</td>
-                                                <td>Win XP SP2+</td>
-                                                <td class="center">X</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="odd gradeX">
-                                                <td>child 1</td>
-                                                <td>10/20/2015</td>
-                                                <td>Male</td>
-                                                <td class="center">X</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="even gradeC">
-                                                <td>child 2</td>
-                                                <td>10/20/2015</td>
-                                                <td>Male</td>
-                                                <td class="center">X</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="odd gradeA">
-                                                <td>child 3</td>
-                                                 <td>10/20/2015</td>
-                                                <td>Female</td>
-                                                <td class="center">X</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="even gradeA">
-                                                <td>Trident</td>
-                                                 <td>10/20/2015</td>
-                                                <td>Win 98+</td>
-                                                <td class="center">X</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="odd gradeA">
-                                                <td>Trident</td>
-                                                <td>10/20/2015</td>
-                                                <td>Win XP SP2+</td>
-                                                <td class="center">X</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="odd gradeX">
-                                                <td>child 1</td>
-                                               <td>10/20/2015</td>
-                                                <td>Male</td>
-                                                <td class="center">X</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="even gradeC">
-                                                <td>child 2</td>
-                                                <td>10/20/2015</td>
-                                                <td>Male</td>
-                                                <td class="center">X</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="odd gradeA">
-                                                <td>child 3</td>
-                                                 <td>10/20/2015</td>
-                                                <td>Female</td>
-                                                <td class="center">X</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="even gradeA">
-                                                <td>Trident</td>
-                                                 <td>10/20/2015</td>
-                                                <td>Female</td>
-                                                <td class="center">X</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
-                                            </tr>
-                                            <tr class="odd gradeA">
-                                                <td>Trident</td>
-                                                <td>10/20/2015</td>
-                                                <td>Female</td>
-                                                <td class="center">X</td>
-                                               <td><a href="#view">view</a>|<a href="#update">update</a>|<a href="#delete">delete</a></td>
+                                                <td>
+                                                    <a class="view-icon">view</a>|
+                                                    <a class="update-icon">update</a>|
+                                                    <a class="delete-icon">delete</a>
+                                                </td>
                                             </tr>
                                         </tbody>
                                     </table>
@@ -203,11 +74,16 @@
     <script src="../assets/js/dataTables/jquery.dataTables.js"></script>
     <script src="../assets/js/dataTables/dataTables.bootstrap.js"></script>
     <!-- Notify -->
-    <script src="../bower_components/notifyjs/dist/notify.js"></script>
-    <script src="../bower_components/notifyjs/dist/styles/bootstrap/notify-bootstrap.js"></script>
+    <script src="../assets/bower_components/notifyjs/dist/notify.js"></script>
+    <script src="../assets/bower_components/notifyjs/dist/styles/bootstrap/notify-bootstrap.js"></script>
+    <!-- Bootstrap Datepicker -->
+    <script src="../assets/bower_components/moment/min/moment.min.js"></script>
+    <script src="../assets/bower_components/moment/min/locales.min.js"></script>
+    <script src="../assets/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
+    
     <!-- CUSTOM SCRIPTS -->
-    <script src="../assets/js/custom.js"></script>
     <script src="../js/pages/child.js"></script>
+    <script src="../assets/js/custom.js"></script>
 </body>
 
 </html>
