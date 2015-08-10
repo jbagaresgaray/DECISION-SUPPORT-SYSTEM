@@ -14,8 +14,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2>Child List</h2>
-                        <a class="btn btn-primary">Add Child</a>
-                        <a class="btn btn-success">Refresh</a>
+                        <a class="btn btn-primary" onclick="create_child()">Add Child</a>
+                        <a class="btn btn-success" onclick="refresh()">Refresh</a>
                     </div>
                 </div>
                 <!-- /. ROW  -->
@@ -188,6 +188,7 @@
             </div>
         </div>
         <!-- /. PAGE INNER  -->
+         <?php require_once('modals/child.php'); ?>
     </div>
     <!-- /. PAGE WRAPPER  -->
     <!-- /. WRAPPER  -->
@@ -201,13 +202,12 @@
     <!-- DATA TABLE SCRIPTS -->
     <script src="../assets/js/dataTables/jquery.dataTables.js"></script>
     <script src="../assets/js/dataTables/dataTables.bootstrap.js"></script>
-    <script>
-    $(document).ready(function() {
-        $('#dataTables-example').dataTable();
-    });
-    </script>
+    <!-- Notify -->
+    <script src="../bower_components/notifyjs/dist/notify.js"></script>
+    <script src="../bower_components/notifyjs/dist/styles/bootstrap/notify-bootstrap.js"></script>
     <!-- CUSTOM SCRIPTS -->
     <script src="../assets/js/custom.js"></script>
+    <script src="../js/pages/child.js"></script>
 </body>
 
 </html>
