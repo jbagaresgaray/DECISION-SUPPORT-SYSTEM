@@ -37,17 +37,6 @@
                                             </tr>
                                         </thead>
                                         <tbody>
-                                            <tr class="odd gradeX">
-                                                <td>a</td>
-                                                <td>10/20/2015</td>
-                                                <td>Male</td>
-                                                <td class="center">overweight</td>
-                                                <td>
-                                                    <a class="view-icon">view</a>|
-                                                    <a class="update-icon">update</a>|
-                                                    <a class="delete-icon">delete</a>
-                                                </td>
-                                            </tr>
                                         </tbody>
                                     </table>
                                 </div>
@@ -80,7 +69,9 @@
     <script src="../assets/bower_components/moment/min/moment.min.js"></script>
     <script src="../assets/bower_components/moment/min/locales.min.js"></script>
     <script src="../assets/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
-    
+    <!-- Bootstrap Core JavaScript -->
+    <script src="../assets/bower_components/bootstrap3-dialog/dist/js/bootstrap-dialog.min.js"></script>
+
     <!-- CUSTOM SCRIPTS -->
     <script src="../js/pages/child.js"></script>
     <script src="../assets/js/custom.js"></script>

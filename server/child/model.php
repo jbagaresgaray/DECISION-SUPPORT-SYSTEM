@@ -25,9 +25,10 @@ class Child {
 			$weight = $mysqli->real_escape_string($data['weight']);
 			$month = $mysqli->real_escape_string($data['month']);
 			$gender = $mysqli->real_escape_string($data['gender']);
+			$status = $mysqli->real_escape_string($data['status']);
 
-			if ($stmt = $mysqli->prepare('INSERT INTO child(fname,mname,lname,address,locationID,dob,height,weight,months,gender,createddate) VALUES(?,?,?,?,?,?,?,?,?,?,NOW())')){
-				$stmt->bind_param('ssssssssss', $fname,$mname,$lname,$address,$locationID,$dob,$height,$weight,$month,$gender);
+			if ($stmt = $mysqli->prepare('INSERT INTO child(fname,mname,lname,address,locationID,dob,height,weight,months,gender,status_id,createddate) VALUES(?,?,?,?,?,?,?,?,?,?,?,NOW())')){
+				$stmt->bind_param('sssssssssss', $fname,$mname,$lname,$address,$locationID,$dob,$height,$weight,$month,$gender,$status);
 				$stmt->execute();
 				return print json_encode(array('success' =>true,'status'=>200,'msg' =>'Record successfully saved'),JSON_PRETTY_PRINT);
 			}else{
@@ -36,7 +37,7 @@ class Child {
 		}
 	}
 
-	public static function read($page,$search){
+	public static function read(){
 		$config= new Config();
 		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
 		if ($mysqli->connect_errno) {
@@ -49,7 +50,7 @@ class Child {
 			while($row = $result1->fetch_array(MYSQLI_ASSOC)){
 				array_push($data,$row);
 			}
-			print json_encode(array('success' =>true,'child' =>$data),JSON_PRETTY_PRINT);
+			print json_encode(array('success' =>true,'status'=>200,'childs' =>$data),JSON_PRETTY_PRINT);
 		}
 	}
 
@@ -87,9 +88,10 @@ class Child {
 			$weight = $mysqli->real_escape_string($data['weight']);
 			$month = $mysqli->real_escape_string($data['month']);
 			$gender = $mysqli->real_escape_string($data['gender']);
+			$status = $mysqli->real_escape_string($data['status']);
 
-			if($stmt = $mysqli->prepare('UPDATE child SET fname=?,mname=?,lname=?,address=?,locationID=?,dob=?,height=?,weight=?,months=?,gender=?,updateddate=? WHERE id=?')){
-				$stmt->bind_param('sssssssssss', $fname,$mname,$lname,$address,$locationID,$dob,$height,$weight,$month,$gender,$id);
+			if($stmt = $mysqli->prepare('UPDATE child SET fname=?,mname=?,lname=?,address=?,locationID=?,dob=?,height=?,weight=?,months=?,gender=?,status_id=?,updateddate=NOW() WHERE id=?')){
+				$stmt->bind_param('ssssssssssss', $fname,$mname,$lname,$address,$locationID,$dob,$height,$weight,$month,$gender,$status,$id);
 				$stmt->execute();
 				print json_encode(array('success' =>true,'status'=>200,'msg' =>'Record successfully updated'),JSON_PRETTY_PRINT);
 			}else{

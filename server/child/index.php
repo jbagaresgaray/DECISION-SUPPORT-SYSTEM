@@ -12,7 +12,7 @@
 					unset($_PUT[$key]);
 					$_PUT[str_replace('amp;', '', $key)] = $value;
 			}
-			$_REQUEST = array_mergeo($_REQUEST, $_PUT);
+			$_REQUEST = array_merge($_REQUEST, $_PUT);
 
 			if(isset($request) && !empty($request) && $request[0] !== ''){
 				$id = $request[0];

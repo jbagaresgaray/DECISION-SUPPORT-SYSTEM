@@ -5,6 +5,10 @@ SET time_zone = "+00:00";
 -- Database: `DSS`
 --
 
+DROP SCHEMA IF EXISTS `dss`;
+CREATE SCHEMA `dss`;
+USE `dss`;
+
 -- --------------------------------------------------------
 --
 -- Table structure for table `growth_standards`

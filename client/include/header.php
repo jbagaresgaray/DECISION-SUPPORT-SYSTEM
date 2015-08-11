@@ -14,7 +14,10 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans' rel='stylesheet' type='text/css' />
     <!-- TABLE STYLES-->
     <link href="../assets/js/dataTables/dataTables.bootstrap.css" rel="stylesheet" />
-
+    <!-- Bootstrap -->
     <link href="../assets/bower_components/bootstrap/dist/css/bootstrap.min.css" />
+    <!-- Bootstrap DateTimepicker -->
     <link href="../assets/bower_components/eonasdan-bootstrap-datetimepicker/build/css/bootstrap-datetimepicker.min.css" />
+     <!-- Bootstrap Core CSS -->
+    <link href="../assets/bower_components/bootstrap3-dialog/dist/css/bootstrap-dialog.min.css" rel="stylesheet">
 </head>

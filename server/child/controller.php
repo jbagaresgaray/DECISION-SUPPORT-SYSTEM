@@ -14,35 +14,39 @@ class ChildController {
 		}
 
 		if(isset($data['mname']) && empty($data['mname'])){
-			print json_encode(array('success'=>false,'status'=>400,'msg'=>'Middle Name is required'),JSON_PRETTY_PRINT);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Middle Name is required'),JSON_PRETTY_PRINT);
 		}
 
 		if(isset($data['address']) && empty($data['address'])){
-			print json_encode(array('success'=>false,'status'=>400,'msg'=>'Address is required'),JSON_PRETTY_PRINT);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Address is required'),JSON_PRETTY_PRINT);
 		}
 
 		if(isset($data['location']) && empty($data['location'])){
-			print json_encode(array('success'=>false,'status'=>400,'msg'=>'Location is required'),JSON_PRETTY_PRINT);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Location is required'),JSON_PRETTY_PRINT);
 		}
 
 		if(isset($data['date']) && empty($data['date'])){
-			print json_encode(array('success'=>false,'status'=>400,'msg'=>'Date of Birth is required'),JSON_PRETTY_PRINT);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Date of Birth is required'),JSON_PRETTY_PRINT);
 		}
 
 		if(isset($data['height']) && empty($data['height'])){
-			print json_encode(array('success'=>false,'status'=>400,'msg'=>'Height is required'),JSON_PRETTY_PRINT);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Height is required'),JSON_PRETTY_PRINT);
 		}
 
 		if(isset($data['weight']) && empty($data['weight'])){
-			print json_encode(array('success'=>false,'status'=>400,'msg'=>'Weight is required'),JSON_PRETTY_PRINT);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Weight is required'),JSON_PRETTY_PRINT);
 		}
 
 		if(isset($data['month']) && empty($data['month'])){
-			print json_encode(array('success'=>false,'status'=>400,'msg'=>'Month is required'),JSON_PRETTY_PRINT);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Month is required'),JSON_PRETTY_PRINT);
 		}
 
 		if(isset($data['gender']) && empty($data['gender'])){
-			print json_encode(array('success'=>false,'status'=>400,'msg'=>'Gender is required'),JSON_PRETTY_PRINT);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Gender is required'),JSON_PRETTY_PRINT);
+		}
+
+		if(isset($data['status']) && empty($data['status'])){
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Status is required'),JSON_PRETTY_PRINT);
 		}
 		
 		Child::create($data);
@@ -67,35 +71,39 @@ class ChildController {
 		}
 
 		if(isset($data['mname']) && empty($data['mname'])){
-			print json_encode(array('success'=>false,'status'=>400,'msg'=>'Middle Name is required'),JSON_PRETTY_PRINT);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Middle Name is required'),JSON_PRETTY_PRINT);
 		}
 
 		if(isset($data['address']) && empty($data['address'])){
-			print json_encode(array('success'=>false,'status'=>400,'msg'=>'Address is required'),JSON_PRETTY_PRINT);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Address is required'),JSON_PRETTY_PRINT);
 		}
 
 		if(isset($data['location']) && empty($data['location'])){
-			print json_encode(array('success'=>false,'status'=>400,'msg'=>'Location is required'),JSON_PRETTY_PRINT);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Location is required'),JSON_PRETTY_PRINT);
 		}
 
 		if(isset($data['date']) && empty($data['date'])){
-			print json_encode(array('success'=>false,'status'=>400,'msg'=>'Date of Birth is required'),JSON_PRETTY_PRINT);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Date of Birth is required'),JSON_PRETTY_PRINT);
 		}
 
 		if(isset($data['height']) && empty($data['height'])){
-			print json_encode(array('success'=>false,'status'=>400,'msg'=>'Height is required'),JSON_PRETTY_PRINT);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Height is required'),JSON_PRETTY_PRINT);
 		}
 
 		if(isset($data['weight']) && empty($data['weight'])){
-			print json_encode(array('success'=>false,'status'=>400,'msg'=>'Weight is required'),JSON_PRETTY_PRINT);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Weight is required'),JSON_PRETTY_PRINT);
 		}
 
 		if(isset($data['month']) && empty($data['month'])){
-			print json_encode(array('success'=>false,'status'=>400,'msg'=>'Month is required'),JSON_PRETTY_PRINT);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Month is required'),JSON_PRETTY_PRINT);
 		}
 
 		if(isset($data['gender']) && empty($data['gender'])){
-			print json_encode(array('success'=>false,'status'=>400,'msg'=>'Gender is required'),JSON_PRETTY_PRINT);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Gender is required'),JSON_PRETTY_PRINT);
+		}
+
+		if(isset($data['status']) && empty($data['status'])){
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Status is required'),JSON_PRETTY_PRINT);
 		}
 
 		Child::update($id,$data);
