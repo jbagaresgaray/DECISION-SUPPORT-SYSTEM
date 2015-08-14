@@ -1,18 +1,20 @@
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 
-<?php require_once('include/header.php'); ?>
+<head>
+   <?php require_once('include/header.php'); ?>
+</head>
 
 <body>
     <div id="wrapper">
-      <?php require_once('include/nav.php'); ?>
+         <?php require_once('include/nav.php'); ?>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>List of Barangays</h2>
-                        <a class="btn btn-primary" onclick="create_barangay()">Add Barangay</a>
+                        <h2>List of Accounts</h2>
+                        <a class="btn btn-primary" onclick="create_child()">Add User</a>
                         <a class="btn btn-success" onclick="refresh()">Refresh</a>
                     </div>
                 </div>
@@ -34,6 +36,8 @@
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
+                                        <tbody>
+                                        </tbody>
                                     </table>
                                 </div>
                             </div>
@@ -44,11 +48,12 @@
             </div>
         </div>
         <!-- /. PAGE INNER  -->
-        <?php require_once('modals/location.php'); ?>
+         <?php require_once('modals/child.php'); ?>
     </div>
     <!-- /. PAGE WRAPPER  -->
     <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+    <!-- JQUERY SCRIPTS -->
     <script src="../assets/js/jquery-1.10.2.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->
     <script src="../assets/js/bootstrap.min.js"></script>
@@ -60,11 +65,15 @@
     <!-- Notify -->
     <script src="../assets/bower_components/notifyjs/dist/notify.js"></script>
     <script src="../assets/bower_components/notifyjs/dist/styles/bootstrap/notify-bootstrap.js"></script>
+    <!-- Bootstrap Datepicker -->
+    <script src="../assets/bower_components/moment/min/moment.min.js"></script>
+    <script src="../assets/bower_components/moment/min/locales.min.js"></script>
+    <script src="../assets/bower_components/eonasdan-bootstrap-datetimepicker/build/js/bootstrap-datetimepicker.min.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="../assets/bower_components/bootstrap3-dialog/dist/js/bootstrap-dialog.min.js"></script>
 
     <!-- CUSTOM SCRIPTS -->
-    <script src="../js/pages/barangay.js"></script>
+    <script src="../js/pages/child.js"></script>
     <script src="../assets/js/custom.js"></script>
 </body>
 

@@ -6,7 +6,7 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
         </button>
-        <a class="navbar-brand" href="index.php">Administrator</a>
+        <a class="navbar-brand" href="index.php">DSS v1</a>
     </div>
     <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">Welcome Jhon Doe&nbsp;
       <a href="#" class="btn btn-danger square-btn-adjust">Logout</a>
@@ -17,9 +17,6 @@
 <nav class="navbar-default navbar-side" role="navigation">
   <div class="sidebar-collapse">
       <ul class="nav" id="main-menu">
-            <li class="text-center">
-              <img src="../assets/img/find_user.png" class="user-image img-responsive"/>
-            </li>
             <li>
               <a class="active-menu"  href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
             </li>
@@ -27,7 +24,7 @@
               <a   href="chart.php"><i class="fa fa-bar-chart-o fa-3x"></i>Graphs</a>
             </li>
             <li>
-              <a  href="child.php"><i class="fa fa-table fa-3x"></i> CNO Weight Standards</a>
+              <a  href="ui.php"><i class="fa fa-table fa-3x"></i> CNO Weight Standards</a>
             </li>
             <li>
               <a href="#"><i class="fa fa-sitemap fa-3x"></i> Manage<span class="fa arrow"></span></a>

@@ -1,472 +1,1019 @@
 ﻿<!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
-<?php require_once('app/includes/header.php'); ?>
-<body>
-    <div id="wrapper">
-       <?php require_once('app/includes/nav.php'); ?>
-        <div id="page-wrapper" >
-            <div id="page-inner">
-                <div class="row">
-                    <div class="col-md-12">
-                     <h2>UI Elements</h2>   
-                        <h5>Welcome Jhon Deo , Love to see you back. </h5>
-                       
+<?php require_once('include/header.php'); ?>
+
+<style type="text/css">
+table
+	{mso-displayed-decimal-separator:"\.";
+	mso-displayed-thousand-separator:"\,";}
+@page
+	{margin:.75in .7in .75in .7in;
+	mso-header-margin:.3in;
+	mso-footer-margin:.3in;}
+.style0
+	{mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	white-space:nowrap;
+	mso-rotate:0;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	border:none;
+	mso-protection:locked visible;
+	mso-style-name:Normal;
+	mso-style-id:0;}
+td
+	{mso-style-parent:style0;
+	padding-top:1px;
+	padding-right:1px;
+	padding-left:1px;
+	mso-ignore:padding;
+	color:black;
+	font-size:11.0pt;
+	font-weight:400;
+	font-style:normal;
+	text-decoration:none;
+	font-family:Calibri, sans-serif;
+	mso-font-charset:0;
+	mso-number-format:General;
+	text-align:general;
+	vertical-align:bottom;
+	border:none;
+	mso-background-source:auto;
+	mso-pattern:auto;
+	mso-protection:locked visible;
+	white-space:nowrap;
+	mso-rotate:0;}
+.xl65
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;}
+.xl66
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	border:.5pt solid windowtext;}
+.xl67
+	{mso-style-parent:style0;
+	text-align:center;
+	border:.5pt solid windowtext;}
+.xl68
+	{mso-style-parent:style0;
+	text-align:center;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:.5pt solid windowtext;}
+.xl69
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:.5pt solid windowtext;}
+.xl70
+	{mso-style-parent:style0;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl71
+	{mso-style-parent:style0;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;}
+.xl72
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;}
+.xl73
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:1.0pt solid windowtext;}
+.xl74
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	border-top:2.0pt double windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;}
+.xl75
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:1.0pt solid windowtext;}
+.xl76
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:1.0pt solid windowtext;}
+.xl77
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:.5pt solid windowtext;}
+.xl78
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:1.0pt solid windowtext;
+	border-left:.5pt solid windowtext;}
+.xl79
+	{mso-style-parent:style0;
+	font-size:18.0pt;
+	font-weight:700;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl80
+	{mso-style-parent:style0;
+	font-size:18.0pt;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:none;
+	border-bottom:none;
+	border-left:none;}
+.xl81
+	{mso-style-parent:style0;
+	font-size:18.0pt;
+	text-align:center;
+	vertical-align:middle;
+	border-top:1.0pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;}
+.xl82
+	{mso-style-parent:style0;
+	font-size:18.0pt;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl83
+	{mso-style-parent:style0;
+	font-size:18.0pt;
+	text-align:center;
+	vertical-align:middle;}
+.xl84
+	{mso-style-parent:style0;
+	font-size:18.0pt;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;}
+.xl85
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:none;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl86
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;}
+.xl87
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:1.0pt solid windowtext;
+	border-bottom:none;
+	border-left:none;}
+.xl88
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl89
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl90
+	{mso-style-parent:style0;
+	text-align:center;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:none;
+	border-left:1.0pt solid windowtext;}
+.xl91
+	{mso-style-parent:style0;
+	text-align:center;
+	border-top:none;
+	border-right:.5pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:1.0pt solid windowtext;}
+.xl92
+	{mso-style-parent:style0;
+	text-align:center;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:.5pt solid windowtext;
+	white-space:normal;}
+.xl93
+	{mso-style-parent:style0;
+	text-align:center;
+	border-top:.5pt solid windowtext;
+	border-right:none;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	white-space:normal;}
+.xl94
+	{mso-style-parent:style0;
+	text-align:center;
+	border-top:.5pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;
+	white-space:normal;}
+.xl95
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:.5pt solid windowtext;
+	border-left:none;}
+.xl96
+	{mso-style-parent:style0;
+	text-align:center;
+	vertical-align:middle;
+	border-top:.5pt solid windowtext;
+	border-right:1.0pt solid windowtext;
+	border-bottom:2.0pt double windowtext;
+	border-left:none;}
+</style>
+
+    <body>
+        <div id="wrapper">
+            <?php require_once('include/nav.php'); ?>
+                <div id="page-wrapper">
+                    <div id="page-inner">
+                        <div class="row">
+                            <div class="col-md-12">
+                                <h2> CNO - Weight Standards</h2>
+                            </div>
+                        </div>
+                        <!-- /. ROW  -->
+                        <hr />
+                        <div class="row table-responsive">
+                            <table class="table table-bordered">
+                                    <tr height=20 style='height:15.0pt'>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td colspan=7 height=20 class='xl85' style='height:15.0pt'>Weight (kg) for Age of Boys 0-71 Months</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl70' style='height:15.0pt'>&nbsp;</td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td></td>
+                                        <td class=xl71>&nbsp;</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td rowspan='4' height='81' class='xl88' style='border-bottom:2.0pt double black;height:61.0pt'>Age 2/(months)</td>
+                                        <td colspan=6 class='xl92' >Weight</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl66' style='height:15.0pt;border-top:none;border-left:none'>SU</td>
+                                        <td colspan=2 class='xl66' style='border-left:none'>UW</td>
+                                        <td colspan=2 class='xl66' style='border-left:none'>Normal</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>OW</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td rowspan=2 height=41 class='xl66' style='border-bottom:2.0pt double black;height:31.0pt;border-top:none'>&lt; -3SD</td>
+                                        <td class='xl67' style='border-top:none;border-left:none'>&lt; -3 SD</td>
+                                        <td class='xl67' style='border-top:none;border-left:none'>&lt;-2 SD</td>
+                                        <td class='xl67' style='border-top:none;border-left:none'><span style='mso-spacerun:yes'>&nbsp;</span>-2 SD</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'><span style='mso-spacerun:yes'>&nbsp;</span>+2 SD</td>
+                                        <td rowspan=2 class=xl95 style='border-bottom:2.0pt double black;border-top:none'>&gt;+2 SD</td>
+                                    </tr>
+                                    <tr height=21 style='height:16.0pt'>
+                                        <td height=21 class='xl68' style='border-bottom:2.0pt double black;height:16.0pt;border-top:none;border-left:none'>From</td>
+                                        <td class='xl68' style='border-bottom:2.0pt double black;border-top:none;border-left:none'>To</td>
+                                        <td class='xl68' style='border-bottom:2.0pt double black;border-top:none;border-left:none'>From</td>
+                                        <td class='xl69' style='border-bottom:2.0pt double black;border-top:none;border-left:none'>To</td>
+                                    </tr>
+                                    <tr height=21 style='height:16.0pt'>
+                                        <td height=21 class=xl73 style='height:16.0pt;border-top:none'>0</td>
+                                        <td class='xl65' style='border-top:none;border-left:none'>2.1</td>
+                                        <td class='xl65' style='border-top:none;border-left:none'>2.2</td>
+                                        <td class='xl65' style='border-top:none;border-left:none'>2.4</td>
+                                        <td class='xl65' style='border-top:none;border-left:none'>2.5</td>
+                                        <td class='xl65' style='border-top:none;border-left:none'>4.4</td>
+                                        <td class='xl74' style='border-top:none;border-left:none'>4.5</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>2.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>3.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>3.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>5.8</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>5.9</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>3.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>3.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>4.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>4.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.1</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>7.2</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>4.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>4.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>4.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>8.1</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>4.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>5.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>5.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.7</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>8.8</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>5.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>5.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>5.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.3</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>9.4</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>5.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>5.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.8</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>9.9</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>5.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.3</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>10.4</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.7</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>10.8</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>11.1</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>10</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.4</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>11.5</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>11</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.7</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>11.8</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>12</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>6.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>12.1</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>13</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.3</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>12.4</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>14</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.6</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>12.7</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>15</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.8</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>12.9</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>16</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.1</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>13.2</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>17</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.4</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>13.5</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>18</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>7.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.7</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>13.8</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>19</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.9</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>14</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>20</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14.2</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>14.3</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>21</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14.5</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>14.6</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>22</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14.7</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>14.8</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>23</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>15</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>15.1</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>24</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>15.3</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>15.4</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>25</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>15.5</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>15.6</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>26</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>8.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>15.8</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>15.9</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>27</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>16.1</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>16.2</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>28</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>16.3</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>16.4</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>29</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>16.6</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>16.7</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>30</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>16.9</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>17</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>31</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>17.1</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>17.2</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>32</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>17.4</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>17.5</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>33</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>17.6</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>17.7</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>34</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>17.8</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>17.9</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>35</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>9.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>18.1</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>18.2</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>36</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>18.3</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>18.4</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>37</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>18.6</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>18.7</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>38</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>18.8</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>18.9</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>39</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>19</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>19.1</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>40</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>19.3</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>19.4</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>41</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>19.5</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>19.6</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>42</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>19.7</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>19.8</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>43</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>20</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>20.1</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>44</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>20.2</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>20.3</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>45</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>10.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>20.5</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>20.6</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>46</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>20.7</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>20.8</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>47</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>20.9</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>21</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>48</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>21.2</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>21.3</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>49</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>21.4</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>21.5</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>50</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>21.7</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>21.8</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>51</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>21.9</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>22</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>52</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>22.2</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>22.3</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>53</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>22.4</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>22.5</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>54</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>22.7</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>22.8</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>55</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>11.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>22.9</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>23</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>56</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>23.2</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>23.3</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>57</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>23.4</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>23.5</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>58</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>23.7</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>23.8</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>59</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>23.9</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>24</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>60</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>24.2</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>24.3</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>61</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>24.3</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>24.4</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>62</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>12.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>24.4</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>24.5</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>63</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>24.7</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>24.8</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>64</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>24.9</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>25</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>65</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>25.2</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>25.3</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>66</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>14.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>15</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>25.5</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>25.6</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>67</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>15.1</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>15.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>25.7</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>25.8</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>68</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>15.2</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>15.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>26</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>26.1</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>69</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.7</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>15.3</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>15.4</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>26.3</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>26.4</td>
+                                    </tr>
+                                    <tr height=20 style='height:15.0pt'>
+                                        <td height=20 class='xl75' style='height:15.0pt;border-top:none'>70</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.8</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>13.9</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>15.5</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>15.6</td>
+                                        <td class='xl66' style='border-top:none;border-left:none'>26.6</td>
+                                        <td class='xl72' style='border-top:none;border-left:none'>26.7</td>
+                                    </tr>
+                                    <tr height=21 style='height:16.0pt'>
+                                        <td height=21 class=xl76 style='height:16.0pt;border-top:none'>71</td>
+                                        <td class='xl77' style='border-top:none;border-left:none'>13.9</td>
+                                        <td class='xl77' style='border-top:none;border-left:none'>14</td>
+                                        <td class='xl77' style='border-top:none;border-left:none'>15.6</td>
+                                        <td class='xl77' style='border-top:none;border-left:none'>15.7</td>
+                                        <td class='xl77' style='border-top:none;border-left:none'>26.8</td>
+                                        <td class='xl78' style='border-top:none;border-left:none'>26.9</td>
+                                    </tr>
+                            </table>
+                        </div>
+                        <!-- /. ROW  -->
                     </div>
+                    <!-- /. PAGE INNER  -->
                 </div>
-                 <!-- /. ROW  -->
-                 <hr />
-                 <div class="row">
-                    
-                      <div class="col-md-7">
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                         Simple Buttons Examples
-                        </div>        
-                                      
-                                    <div class="panel-body"> 
-
-                    <h4>Default Button</h4>
-                    <a href="#" class="btn btn-default">default</a>
-                    <a href="#" class="btn btn-primary">primary</a>
-                    <a href="#" class="btn btn-danger">danger</a>
-                    <a href="#" class="btn btn-success">success</a>
-                    <a href="#" class="btn btn-info">info</a>
-                    <a href="#" class="btn btn-warning">warning</a>
-
-                   
-                    <h4>Mini Button</h4>
-                    <a href="#" class="btn btn-default btn-xs">default</a>
-                    <a href="#" class="btn btn-primary btn-xs">primary</a>
-                    <a href="#" class="btn btn-danger btn-xs">danger</a>
-                    <a href="#" class="btn btn-success btn-xs">success</a>
-                    <a href="#" class="btn btn-info btn-xs">info</a>
-                    <a href="#" class="btn btn-warning btn-xs">warning</a>
-
-                  
-                    <h4>Small Button</h4>
-                    <a href="#" class="btn btn-default btn-sm">default</a>
-                    <a href="#" class="btn btn-primary btn-sm">primary</a>
-                    <a href="#" class="btn btn-danger btn-sm">danger</a>
-                    <a href="#" class="btn btn-success btn-sm">success</a>
-                    <a href="#" class="btn btn-info btn-sm">info</a>
-                    <a href="#" class="btn btn-warning btn-sm">warning</a>
-
-                   
-                    <h4>Large Button</h4>
-
-                    <a href="#" class="btn btn-default btn-lg">default</a>
-                    <a href="#" class="btn btn-primary btn-lg">primary</a>
-                    <a href="#" class="btn btn-danger btn-lg">danger</a>
-                    <a href="#" class="btn btn-success btn-lg">success</a>
-                    <a href="#" class="btn btn-info btn-lg">info</a>
-
-                   
-                </div>
-            </div>
-                          </div>
-                     <div class="col-md-5">
-                      <div class="panel panel-default">
-                        <div class="panel-heading">
-                           Button Dropdowns
-                        </div>        
-                                      
-                                    <div class="panel-body"> 
-                                          <h4>Simple Button Dropdown Examples </h4>  
-                                       <div style="margin-top: 10px;">
-											
-											<div class="btn-group">
-											  <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle">Action <span class="caret"></span></button>
-											  <ul class="dropdown-menu">
-												<li><a href="#">Action</a></li>
-												<li><a href="#">Another action</a></li>
-												<li><a href="#">Something else here</a></li>
-												<li class="divider"></li>
-												<li><a href="#">Separated link</a></li>
-											  </ul>
-											</div>
-											<div style="margin:5px;" class="btn-group">
-											  <button data-toggle="dropdown" class="btn btn-danger dropdown-toggle">Danger <span class="caret"></span></button>
-											  <ul class="dropdown-menu">
-												<li><a href="#">Action</a></li>
-												<li><a href="#">Another action</a></li>
-												<li><a href="#">Something else here</a></li>
-												<li class="divider"></li>
-												<li><a href="#">Separated link</a></li>
-											  </ul>
-											</div>
-                                           <div style="margin:5px;" class="btn-group">
-											  <button data-toggle="dropdown" class="btn btn-warning dropdown-toggle">Danger <span class="caret"></span></button>
-											  <ul class="dropdown-menu">
-												<li><a href="#">Action</a></li>
-												<li><a href="#">Another action</a></li>
-												<li><a href="#">Something else here</a></li>
-												<li class="divider"></li>
-												<li><a href="#">Separated link</a></li>
-											  </ul>
-											</div>
-										  </div>
-										  <div>
-                                               
-                                              	<div class="btn-group">
-											  <button data-toggle="dropdown" class="btn btn-success dropdown-toggle">Success <span class="caret"></span></button>
-											  <ul class="dropdown-menu">
-												<li><a href="#">Action</a></li>
-												<li><a href="#">Another action</a></li>
-												<li><a href="#">Something else here</a></li>
-												<li class="divider"></li>
-												<li><a href="#">Separated link</a></li>
-											  </ul>
-											</div>
-											<div class="btn-group">
-											  <button data-toggle="dropdown" class="btn btn-info dropdown-toggle">Info <span class="caret"></span></button>
-											  <ul class="dropdown-menu">
-												<li><a href="#">Action</a></li>
-												<li><a href="#">Another action</a></li>
-												<li><a href="#">Something else here</a></li>
-												<li class="divider"></li>
-												<li><a href="#">Separated link</a></li>
-											  </ul>
-											</div>
-											<div class="btn-group">
-											  <button data-toggle="dropdown" class="btn btn-default dropdown-toggle">Default <span class="caret"></span></button>
-											  <ul class="dropdown-menu">
-												<li><a href="#">Action</a></li>
-												<li><a href="#">Another action</a></li>
-												<li><a href="#">Something else here</a></li>
-												<li class="divider"></li>
-												<li><a href="#">Separated link</a></li>
-											  </ul>
-											</div>
-										  </div>
-                                       
-                                       <h4>Split Button Dropdown Examples </h4>
-                                      
-                                       <div style="margin:5px;" class="btn-toolbar">
-										
-										<div class="btn-group">
-										  <button class="btn btn-primary">Action</button>
-										  <button data-toggle="dropdown" class="btn btn-primary dropdown-toggle"><span class="caret"></span></button>
-										  <ul class="dropdown-menu">
-											<li><a href="#">Action</a></li>
-											<li><a href="#">Another action</a></li>
-											<li><a href="#">Something else here</a></li>
-											<li class="divider"></li>
-											<li><a href="#">Separated link</a></li>
-										  </ul>
-										</div>
-										<div class="btn-group">
-										  <button class="btn btn-danger">Danger</button>
-										  <button data-toggle="dropdown" class="btn btn-danger dropdown-toggle"><span class="caret"></span></button>
-										  <ul class="dropdown-menu">
-											<li><a href="#">Action</a></li>
-											<li><a href="#">Another action</a></li>
-											<li><a href="#">Something else here</a></li>
-											<li class="divider"></li>
-											<li><a href="#">Separated link</a></li>
-										  </ul>
-										</div>
-                                           <div class="btn-group">
-										  <button class="btn btn-warning">Warning</button>
-										  <button data-toggle="dropdown" class="btn btn-warning dropdown-toggle"><span class="caret"></span></button>
-										  <ul class="dropdown-menu">
-											<li><a href="#">Action</a></li>
-											<li><a href="#">Another action</a></li>
-											<li><a href="#">Something else here</a></li>
-											<li class="divider"></li>
-											<li><a href="#">Separated link</a></li>
-										  </ul>
-										</div>
-									  </div>
-									  <div style="margin:5px;" class="btn-toolbar">
-										
-										<div class="btn-group">
-										  <button class="btn btn-success">Success</button>
-										  <button data-toggle="dropdown" class="btn btn-success dropdown-toggle"><span class="caret"></span></button>
-										  <ul class="dropdown-menu">
-											<li><a href="#">Action</a></li>
-											<li><a href="#">Another action</a></li>
-											<li><a href="#">Something else here</a></li>
-											<li class="divider"></li>
-											<li><a href="#">Separated link</a></li>
-										  </ul>
-										</div>
-										<div class="btn-group">
-										  <button class="btn btn-info">Info</button>
-										  <button data-toggle="dropdown" class="btn btn-info dropdown-toggle"><span class="caret"></span></button>
-										  <ul class="dropdown-menu">
-											<li><a href="#">Action</a></li>
-											<li><a href="#">Another action</a></li>
-											<li><a href="#">Something else here</a></li>
-											<li class="divider"></li>
-											<li><a href="#">Separated link</a></li>
-										  </ul>
-										</div>
-									  </div>
-									  <div style="margin:5px;" class="btn-toolbar">
-										<div class="btn-group">
-										  <button class="btn btn-default">Default</button>
-										  <button data-toggle="dropdown" class="btn btn-default dropdown-toggle"><span class="caret"></span></button>
-										  <ul class="dropdown-menu">
-											<li><a href="#">Action</a></li>
-											<li><a href="#">Another action</a></li>
-											<li><a href="#">Something else here</a></li>
-											<li class="divider"></li>
-											<li><a href="#">Separated link</a></li>
-										  </ul>
-										</div>
-									  </div>
-                                       
-
-                                       <h4>Buttons With Icons</h4>                                       
-										
-											<button class="btn btn-default"><i class=" fa fa-refresh "></i> Update</button>
-											<button class="btn btn-primary"><i class="fa fa-edit "></i> Edit</button>
-											<button class="btn btn-danger"><i class="fa fa-pencil"></i> Delete</button>
-										
-															
-									
-
-                                        </div>
-                                    </div>
-                    </div>
-                    </div>
-                <!-- /. ROW  -->
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Circle Icon Buttons 
-                        </div>
-                       
-                        <div class="panel-body">
-                             <br /> <br />
-                            <button type="button" class="btn btn-default btn-circle"><i class="fa fa-check"></i>
-                            </button>
-                            <button type="button" class="btn btn-primary btn-circle"><i class="fa fa-list"></i>
-                            </button>
-                            <button type="button" class="btn btn-success btn-circle"><i class="fa fa-link"></i>
-                            </button>
-                            <button type="button" class="btn btn-info btn-circle"><i class="fa fa-check"></i>
-                            </button>
-                            <button type="button" class="btn btn-warning btn-circle"><i class="fa fa-money"></i>
-                            </button>
-                            <button type="button" class="btn btn-danger btn-circle"><i class="fa fa-heart"></i>
-                            </button>
-                           <br />
-                             <p>
-                        For more customization for this template or its components please visit official bootstrap website i.e getbootstrap.com or <a href="http://getbootstrap.com/components/" target="_blank">click here</a> . We hope you will enjoy our template. This template is easy to use, light weight and made with love by binarycart.com 
-                        </p>
-                        </div>
-                        
-                    </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Icons Examples : 
-                        </div>
-                       
-                        <div class="panel-body">
-                            <br />
-                            <i class="fa fa-desktop "></i>
-                            
-                             <i class="fa fa-desktop fa-2x"></i>
-                              <i class="fa fa-desktop fa-3x"></i>
-                              <i class="fa fa-desktop fa-4x"></i>
-                              <i class="fa fa-desktop fa-5x"></i>
-                              <br />
-                             <br />
-                            <i class="fa fa-flask "></i>
-                            
-                             <i class="fa fa-flask fa-2x"></i>
-                              <i class="fa fa-flask fa-3x"></i>
-                              <i class="fa fa-flask fa-4x"></i>
-                              <i class="fa fa-flask fa-5x"></i>
-                              <br />
-                              <p>
-                        For more customization Of icons please visit website : fortawesome.github.io/Font-Awesome/icons/ or  <a href="http://fortawesome.github.io/Font-Awesome/icons/" target="_blank" >Click here</a> . You will get all font-awesome icons and there classes there.
-                        </p>
-                        </div>
-                        
-                    </div>
-                    </div>
-                </div>
-                 <!-- /. ROW  -->
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Simple Progress Bars 
-                        </div>
-                       
-                        <div class="panel-body">
-                       <div class="progress">
-  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-    <span class="sr-only">40% Complete (success)</span>
-  </div>
-</div>
-<div class="progress">
-  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-    <span class="sr-only">20% Complete</span>
-  </div>
-</div>
-<div class="progress">
-  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-    <span class="sr-only">60% Complete (warning)</span>
-  </div>
-</div>
-<div class="progress">
-  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-    <span class="sr-only">80% Complete</span>
-  </div>
-</div>
-                            </div>
-                            </div>
-                    </div>
-                    <div class="col-md-6">
-                        <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Stripped Progress Bars 
-                        </div>
-                       
-                        <div class="panel-body">
-                       <div class="progress progress-striped">
-  <div class="progress-bar progress-bar-success" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-    <span class="sr-only">40% Complete (success)</span>
-  </div>
-</div>
-<div class="progress progress-striped">
-  <div class="progress-bar progress-bar-info" role="progressbar" aria-valuenow="20" aria-valuemin="0" aria-valuemax="100" style="width: 20%">
-    <span class="sr-only">20% Complete</span>
-  </div>
-</div>
-<div class="progress progress-striped">
-  <div class="progress-bar progress-bar-warning" role="progressbar" aria-valuenow="60" aria-valuemin="0" aria-valuemax="100" style="width: 60%">
-    <span class="sr-only">60% Complete (warning)</span>
-  </div>
-</div>
-<div class="progress progress-striped">
-  <div class="progress-bar progress-bar-danger" role="progressbar" aria-valuenow="80" aria-valuemin="0" aria-valuemax="100" style="width: 80%">
-    <span class="sr-only">80% Complete</span>
-  </div>
-</div>
-                            </div>
-                            </div>
-                    </div>
-                </div>
-                 <!-- /. ROW  -->
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Animated Progress Bars 
-                        </div>
-                       
-                        <div class="panel-body">
-                       <div class="progress progress-striped active">
-  <div class="progress-bar progress-bar-primary" role="progressbar" aria-valuenow="40" aria-valuemin="0" aria-valuemax="100" style="width: 40%">
-    <span class="sr-only">40% Complete (success)</span>
-  </div>
-</div>
-                            </div>
-                            </div>
-                    </div>
-                      <div class="col-md-6">
-                        <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Stacked Progress Bars 
-                        </div>
-                       
-                        <div class="panel-body">
-                       <div class="progress">
-  <div class="progress-bar progress-bar-success" style="width: 35%">
-    <span class="sr-only">35% Complete (success)</span>
-  </div>
-  <div class="progress-bar progress-bar-warning" style="width: 20%">
-    <span class="sr-only">20% Complete (warning)</span>
-  </div>
-  <div class="progress-bar progress-bar-danger" style="width: 10%">
-    <span class="sr-only">10% Complete (danger)</span>
-  </div>
-</div>
-                            </div>
-                            </div>
-                    </div>
-                </div>
-                <!-- /. ROW  -->
-                <div class="row">
-                    <div class="col-md-6">
-                       
-                     <!--  Modals-->
-                    <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Modals Example
-                        </div>
-                        <div class="panel-body">
-                            <button class="btn btn-primary btn-lg" data-toggle="modal" data-target="#myModal">
-                              Click  Launch Demo Modal
-                            </button>
-                            <div class="modal fade" id="myModal" tabindex="-1" role="dialog" aria-labelledby="myModalLabel" aria-hidden="true">
-                                <div class="modal-dialog">
-                                    <div class="modal-content">
-                                        <div class="modal-header">
-                                            <button type="button" class="close" data-dismiss="modal" aria-hidden="true">&times;</button>
-                                            <h4 class="modal-title" id="myModalLabel">Modal title Here</h4>
-                                        </div>
-                                        <div class="modal-body">
-                                            Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-                                        </div>
-                                        <div class="modal-footer">
-                                            <button type="button" class="btn btn-default" data-dismiss="modal">Close</button>
-                                            <button type="button" class="btn btn-primary">Save changes</button>
-                                        </div>
-                                    </div>
-                                </div>
-                            </div>
-                        </div>
-                    </div>
-                     <!-- End Modals-->
-                
-                    </div>
-                     <div class="col-md-6">
-                          <div class="panel panel-default">
-                        <div class="panel-heading">
-                            Alerts Examples
-                        </div>
-                        <div class="panel-body">
-                            <h5><strong>Simple Alert</strong></h5>
-                            <div class="alert alert-info">
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#" class="alert-link">Alert Link</a>.
-                            </div>
-                            Info: You can use other classes like <i>alert-success</i> , <i>alert-warning</i> & <i>alert-danger</i> instead of <i>alert-info</i>
-                           <br />
-                              <h5><strong>Dismissable Alert</strong></h5>
-                            <div class="alert alert-info alert-dismissable">
-                                <button type="button" class="close" data-dismiss="alert" aria-hidden="true">×</button>
-                                Lorem ipsum dolor sit amet, consectetur adipisicing elit. <a href="#" class="alert-link">Alert Link</a>.
-                            </div>
-                            Info: You can use other classes like <i>alert-success</i> , <i>alert-warning</i> & <i>alert-danger</i> instead of <i>alert-info</i>
-                           
-                             </div>
-                              </div>
-                     </div>
-                </div>
-                <!-- /. ROW  -->
-    </div>
-             <!-- /. PAGE INNER  -->
-            </div>
-         <!-- /. PAGE WRAPPER  -->
+                <!-- /. PAGE WRAPPER  -->
         </div>
-     <!-- /. WRAPPER  -->
-    <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
-    <!-- JQUERY SCRIPTS -->
-    <script src="assets/js/jquery-1.10.2.js"></script>
-      <!-- BOOTSTRAP SCRIPTS -->
-    <script src="assets/js/bootstrap.min.js"></script>
-    <!-- METISMENU SCRIPTS -->
-    <script src="assets/js/jquery.metisMenu.js"></script>
-      <!-- CUSTOM SCRIPTS -->
-    <script src="assets/js/custom.js"></script>
- 
-</body>
+        <!-- /. WRAPPER  -->
+        <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
+        <!-- JQUERY SCRIPTS -->
+        <script src="../assets/js/jquery-1.10.2.js"></script>
+        <!-- BOOTSTRAP SCRIPTS -->
+        <script src="../assets/js/bootstrap.min.js"></script>
+        <!-- METISMENU SCRIPTS -->
+        <script src="../assets/js/jquery.metisMenu.js"></script>
+        <!-- CUSTOM SCRIPTS -->
+        <script src="../assets/js/custom.js"></script>
+    </body>
+
 </html>
