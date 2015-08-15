@@ -112,7 +112,7 @@ CREATE TABLE IF NOT EXISTS `location` (
   `name` varchar(200) NOT NULL,
   `x` DECIMAL(10,2) NOT NULL,
   `y` DECIMAL(10,2) NOT NULL,
-  `description` DECIMAL(10,2),
+  `description` varchar(100),
   `landarea` varchar(100),
   `image_path` varchar(100),
   PRIMARY KEY (`id`)

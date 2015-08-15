@@ -16,38 +16,44 @@
 
 			if(isset($request) && !empty($request) && $request[0] !== ''){
 				$id = $request[0];
-				Users::update($id,$_REQUEST);
+				$data = [
+					"username" => $_REQUEST['username'],
+					"password" => $_REQUEST['password'],
+					"email" => $_REQUEST['email'],
+					"mobileno" => $_REQUEST['mobileno'],
+					"fname" => $_REQUEST['fname'],
+					"lname" => $_REQUEST['lname'],
+					"level" => $_REQUEST['level']
+				];
+				Users::update($id,$data);
 			}else{
 				Users::update($_REQUEST);
 			}
 	    break;
 	  case 'POST':
-		  $data = [
+		  	$data = [
+				"username" => $_POST['username'],
+				"password" => $_POST['password'],
+				"email" => $_POST['email'],
+				"mobileno" => $_POST['mobileno'],
 				"fname" => $_POST['fname'],
 				"lname" => $_POST['lname'],
-				"mname" => $_POST['mname'],
-				"address" => $_POST['address'],
-				"location" => $_POST['location'],
-				"date" => $_POST['date'],
-				"height" => $_POST['height'],
-				"weight" => $_POST['weight'],
-				"month" => $_POST['month'],
-				"gender" => $_POST['gender']
+				"level" => $_POST['level']
 			];
 			Users::create($data);
 	    break;
 	  case 'GET':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		$id = $request[0];
-				Users::detail($id);
+			Users::detail($id);
 	  	}else{
-				Users::read();
+			Users::read();
 	  	}
 	    break;
 	  case 'DELETE':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		$id = $request[0];
-				Users:delete($id);
+			Users::delete($id);
 	  	}
 	    break;
 	  default:

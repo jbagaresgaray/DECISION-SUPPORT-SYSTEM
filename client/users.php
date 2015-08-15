@@ -14,7 +14,7 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2>List of Accounts</h2>
-                        <a class="btn btn-primary" onclick="create_child()">Add User</a>
+                        <a class="btn btn-primary" onclick="create_user()">Add User</a>
                         <a class="btn btn-success" onclick="refresh()">Refresh</a>
                     </div>
                 </div>
@@ -30,9 +30,9 @@
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
-                                                <th>Birthdate</th>
-                                                <th>Gender</th>
-                                                <th>Status</th>
+                                                <th>Email</th>
+                                                <th>Mobile No.</th>
+                                                <th>Level</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
@@ -48,7 +48,7 @@
             </div>
         </div>
         <!-- /. PAGE INNER  -->
-         <?php require_once('modals/child.php'); ?>
+         <?php require_once('modals/user.php'); ?>
     </div>
     <!-- /. PAGE WRAPPER  -->
     <!-- /. WRAPPER  -->
@@ -73,7 +73,7 @@
     <script src="../assets/bower_components/bootstrap3-dialog/dist/js/bootstrap-dialog.min.js"></script>
 
     <!-- CUSTOM SCRIPTS -->
-    <script src="../js/pages/child.js"></script>
+    <script src="../js/pages/users.js"></script>
     <script src="../assets/js/custom.js"></script>
 </body>
 

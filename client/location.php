@@ -28,10 +28,10 @@
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
-                                                <th>Birthdate</th>
-                                                <th>Gender</th>
-                                                <th>Status</th>
-                                                <th>Actions</th>
+                                                <th>Land Area</th>
+                                                <th>Description</th>
+                                                <th>Coordinates</th>
+                                                <th></th>
                                             </tr>
                                         </thead>
                                     </table>

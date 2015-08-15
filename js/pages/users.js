@@ -1,7 +1,6 @@
 $(document).ready(function() {
     $('#dataTables-example').dataTable();
-
-    fetch_all_barangay();
+    fetch_all_users();
 });
 
 $(document).on("click", ".delete-icon", function() {
@@ -29,24 +28,29 @@ $(document).on("click", ".delete-icon", function() {
 
 $(document).on("click", ".update-icon", function() {
     var id = $(this).data('id');
+    resetHelpInLine();
+
     getData('update',id);
 });
 
 $(document).on("click", ".view-icon", function() {
     var id = $(this).data('id');
+    resetHelpInLine();
+
     getData('view',id);
 });
 
-function create_barangay() {
-    $("#id").val('');
-    $("#name").val('');
-    $("#description").val('');
-    $("#landarea").val('');
-    $("#image").val('');
-    $("#x_coord").val('');
-    $("#y_coord").val('');
 
-    $('#locationModal').modal('show');
+function create_user() {
+    $("#fname").val('');
+    $("#lname").val('');
+    $("#username").val('');
+    $("#password").val('');
+    $("#email").val('');
+    $("#mobileno").val('');
+    $("#level").val('');
+
+    $('#userModal').modal('show');
 }
 
 function resetHelpInLine() {
@@ -56,7 +60,7 @@ function resetHelpInLine() {
 }
 
 function refresh() {
-    fetch_all_barangay();
+    fetch_all_child();
 }
 
 function save() {
@@ -68,23 +72,33 @@ function save() {
         $(this).val($(this).val().trim());
     });
 
-    if ($('#name').val() == '') {
-        $('#name').next('span').text('Name is required.');
+    if ($('#fname').val() == '') {
+        $('#fname').next('span').text('First Name is required.');
         empty = true;
     }
 
-    if ($('#landarea').val() == '') {
-        $('#landarea').next('span').text('Land Area is required.');
+    if ($('#lname').val() == '') {
+        $('#lname').next('span').text('Last Name is required.');
         empty = true;
     }
 
-    if ($('#x_coord').val() == '') {
-        $('#x_coord').next('span').text('X Coordinates is required.');
+    if ($('#email').val() == '') {
+        $('#email').next('span').text('Email Address is required.');
         empty = true;
     }
 
-    if ($('#y_coord').val() == '') {
-        $('#y_coord').next('span').text('Y Coordinates is required.');
+    if ($('#username').val() == '') {
+        $('#username').next('span').text('Username is required.');
+        empty = true;
+    }
+
+    if ($('#password').val() == '') {
+        $('#password').next('span').text('Password is required.');
+        empty = true;
+    }
+
+    if ($('#password').val() !== $('#password2').val()) {
+        $('#month').next('span').text('Password and Confirm password must be the same.');
         empty = true;
     }
 
@@ -93,25 +107,29 @@ function save() {
         return false;
     }
 
-    if ($('#id').val() == '') {
+
+
+    if ($('#user_id').val() == '') {
         $.ajax({
-            url: '../server/location/',
+            url: '../server/users/',
             async: false,
             type: 'POST',
             data: {
-                name: $('#name').val(),
-                landarea: $('#landarea').val(),
-                description: $('#description').val(),
-                x_coord: $('#x_coord').val(),
-                y_coord: $('#y_coord').val(),
-                image_path: '',
+                fname: $('#fname').val(),
+                lname: $('#lname').val(),
+                username: $('#username').val(),
+                password: $('#password').val(),
+                mobileno: $('#mobileno').val(),
+                email: $('#email').val(),
+                level: $('#level').val()
             },
             success: function(response) {
                 var decode = response;
+
                 if (decode.success == true) {
-                    $.notify("Record successfully created", "success");
-                    $('#locationModal').modal('hide');
+                    $('#userModal').modal('hide');
                     refresh();
+                    $.notify("Record successfully created", "success");
                 } else if (decode.success === false) {
                     $.notify(decode.error, "error");
                     return;
@@ -126,22 +144,23 @@ function save() {
         });
     } else {
         $.ajax({
-            url: '../server/location/' + $('#id').val(),
+            url: '../server/users/' + $('#user_id').val(),
             async: false,
             type: 'PUT',
             data: {
-                name: $('#name').val(),
-                landarea: $('#landarea').val(),
-                description: $('#description').val(),
-                x_coord: $('#x_coord').val(),
-                y_coord: $('#y_coord').val(),
-                image_path: '',
+                fname: $('#fname').val(),
+                lname: $('#lname').val(),
+                username: $('#username').val(),
+                password: $('#password').val(),
+                mobileno: $('#mobileno').val(),
+                email: $('#email').val(),
+                level: $('#level').val()
             },
             success: function(response) {
                 var decode = response;
 
                 if (decode.success == true) {
-                    $('#locationModal').modal('hide');
+                    $('#userModal').modal('hide');
                     refresh();
                     $.notify("Record successfully updated", "success");
                 } else if (decode.success === false) {
@@ -160,24 +179,24 @@ function save() {
 }
 
 
-function fetch_all_barangay() {
+function fetch_all_users() {
     $('#dataTables-example tbody > tr').remove();
     $.ajax({
-        url: '../server/location/',
+        url: '../server/users/',
         async: true,
         type: 'GET',
         dataType: 'json',
         success: function(response) {
             var decode = response;
             if (decode) {
-                if (decode.locations.length > 0) {
-                    for (var i = 0; i < decode.locations.length; i++) {
-                        var row = decode.locations;
+                if (decode.userdata.length > 0) {
+                    for (var i = 0; i < decode.userdata.length; i++) {
+                        var row = decode.userdata;
                         var html = '<tr class="odd gradeX">\
-                                        <td class="">' + row[i].name + '</td>\
-                                        <td class="">' + row[i].landarea + '</td>\
-                                        <td class="">' + row[i].description + '</td>\
-                                        <td class="center" width="15%"> X : ' + row[i].x  + ' || Y: ' + row[i].y + '</td>\
+                                        <td class="">' + row[i].lname + ', ' + row[i].fname + '</td>\
+                                        <td class="">' + row[i].email + '</td>\
+                                        <td class="">' + row[i].mobileno + '</td>\
+                                        <td class="center" width="15%">' + row[i].level + '</td>\
                                         <td class=" " width="20%">\
                                             <a href="#" data-id="'+ row[i].id +'" class="view-icon">view</a>|\
                                             <a href="#" data-id="'+ row[i].id +'" class="update-icon">update</a>|\
@@ -199,7 +218,7 @@ function fetch_all_barangay() {
 
 function deletedata(id) {
     $.ajax({
-        url: '../server/location/' + id,
+        url: '../server/users/' + id,
         async: true,
         type: 'DELETE',
         success: function(response) {
@@ -218,41 +237,48 @@ function deletedata(id) {
 
 function getData(status,id) {
     $.ajax({
-        url: '../server/location/' + id,
+        url: '../server/users/' + id,
         async: true,
         type: 'GET',
         success: function(response) {
             var decode = response;
             console.log('response: ', decode);
             if (decode.success == true) {
-                var location  = decode.location;
+                var data  = decode.userdata;
 
-                $("#id").val(location.id);
-                $("#name").val(location.name);
-                $("#description").val(location.description);
-                $("#landarea").val(location.landarea);
-                $("#x_coord").val(location.x);
-                $("#y_coord").val(location.y);
+                $("#user_id").val(data.id);
+                $("#fname").val(data.fname);
+                $("#lname").val(data.lname);
+                $("#level").val(data.level);
+                $("#username").val(data.username);
+                $("#password").val(data.password);
+                $("#email").val(data.email);
+                $("#mobileno").val(data.mobileno);
 
                 if (status === 'view'){
-                    $("#name").prop('disabled', true);
-                    $("#description").prop('disabled', true);
-                    $("#landarea").prop('disabled', true);
-                    $("#x_coord").prop('disabled', true);
-                    $("#y_coord").prop('disabled', true);
+                    $("#fname").prop('disabled', true);
+                    $("#lname").prop('disabled', true);
+                    $("#level").prop('disabled', true);
+                    $("#username").prop('disabled', true);
+                    $("#password").prop('disabled', true);
+                    $("#email").prop('disabled', true);
+                    $("#mobileno").prop('disabled', true);
 
                     $("#btn-save").attr('disabled', true);
                 }else{
-                    $("#name").prop('disabled', false);
-                    $("#description").prop('disabled', false);
-                    $("#landarea").prop('disabled', false);
-                    $("#x_coord").prop('disabled', false);
-                    $("#y_coord").prop('disabled', false);
+                    $("#fname").prop('disabled', false);
+                    $("#lname").prop('disabled', false);
+                    $("#level").prop('disabled', false);
+                    $("#username").prop('disabled', false);
+                    $("#password").prop('disabled', false);
+                    $("#email").prop('disabled', false);
+                    $("#mobileno").prop('disabled', false);
 
                      $("#btn-save").removeAttr('disabled');
                 }
 
-                $('#locationModal').modal('show');
+
+                $('#userModal').modal('show');
             } else if (decode.success === false) {
                 $.notify(decode.msg, "error");
                 return;

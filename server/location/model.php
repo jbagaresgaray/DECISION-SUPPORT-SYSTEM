@@ -7,11 +7,12 @@ class Location {
     }
 
 	public static function create($data){
-		$config= new Config();
+		
 
+		$config= new Config();
 		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
 		if ($mysqli->connect_errno) {
-		    print json_encode(array('success' =>false,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
+		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
 		    return;
 		}else{
 			$name = $mysqli->real_escape_string($data['name']);
@@ -21,12 +22,12 @@ class Location {
 			$landarea = $mysqli->real_escape_string($data['landarea']);
 			$image_path = $mysqli->real_escape_string($data['image_path']);
 
-			if($stmt = $mysqli->prepare('INSERT INTO location(name,x,y,description,landarea,image_path) VALUES(?,?,?,?,?,?')){
+			if($stmt = $mysqli->prepare('INSERT INTO location(name,x,y,description,landarea,image_path) VALUES (?,?,?,?,?,?)')){
 				$stmt->bind_param('ssssss',$name,$x,$y,$description,$landarea,$image_path);
 				$stmt->execute();
-				print json_encode(array('success' =>true,'msg' =>'Record successfully saved'),JSON_PRETTY_PRINT);
+				print json_encode(array('success' =>true,'status'=>200,'msg' =>'Record successfully saved'),JSON_PRETTY_PRINT);
 			}else{
-				print json_encode(array('success' =>false,'msg' =>'Error message: %s\n', $mysqli->error),JSON_PRETTY_PRINT);
+				print json_encode(array('success' =>false,'status'=>200,'msg' =>'Error message: %s\n', $mysqli->error),JSON_PRETTY_PRINT);
 			}
 		}
 	}
@@ -55,7 +56,7 @@ class Location {
 		    print json_encode(array('success' =>false,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
 		    return;
 		}else{
-			$query ='SELECT * FROM location l WHERE id=$id LIMIT 1;';
+			$query ="SELECT * FROM location l WHERE id=$id LIMIT 1;";
 			$mysqli->set_charset('utf8');
 			$result = $mysqli->query($query);
 			if($row = $result->fetch_array(MYSQLI_ASSOC)){
@@ -80,7 +81,7 @@ class Location {
 			$landarea = $mysqli->real_escape_string($data['landarea']);
 			$image_path = $mysqli->real_escape_string($data['image_path']);
 
-			if ($stmt = $mysqli->prepare('UPDATE location SET name=? x=?,y=?,description=?,landarea=?,image_path=? WHERE id=?')){
+			if ($stmt = $mysqli->prepare('UPDATE location SET name=?,x=?,y=?,description=?,landarea=?,image_path=? WHERE id=?')){
 				$stmt->bind_param('sssssss',$name,$x,$y,$description,$landarea,$image_path,$id);
 				$stmt->execute();
 				print json_encode(array('success' =>true,'msg' =>'Record successfully updated'),JSON_PRETTY_PRINT);
