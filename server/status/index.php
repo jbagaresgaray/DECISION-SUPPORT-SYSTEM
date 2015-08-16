@@ -26,8 +26,9 @@
 	    break;
 	  case 'GET':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
-	  		$id = $request[0];
-			StatusController::detail($id);
+	  		$age = $request[0];
+	  		$weight = $request[1];
+			StatusController::detail($age,$weight);
 	  	}else{
 			StatusController::read();
 	  	}
@@ -35,7 +36,7 @@
 	  case 'DELETE':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		$id = $request[0];
-			StatusController::delete($id);
+			// StatusController::delete($id);
 	  	}
 	    break;
 	  default:

@@ -5,7 +5,10 @@ $(document).ready(function() {
     });
 
     fetch_all_child();
-    fetch_status();
+    fetch_barangay();
+
+    $("#date").bind("change", Noofmonths);
+    $("#weight").bind("change", Noofmonths);
 });
 
 $(document).on("click", ".delete-icon", function() {
@@ -33,13 +36,27 @@ $(document).on("click", ".delete-icon", function() {
 
 $(document).on("click", ".update-icon", function() {
     var id = $(this).data('id');
-    getData('update',id);
+    getData('update', id);
 });
 
 $(document).on("click", ".view-icon", function() {
     var id = $(this).data('id');
-    getData('view',id);
+    getData('view', id);
 });
+
+function Noofmonths() {
+    var date1 = new Date($('#date').val());
+    var date2 = new Date();
+    var Nomonths;
+    var weight;
+    Nomonths = moment(date2).diff(moment(date1), 'months', true);
+    Nomonths = Math.round(Nomonths);
+    $('#month').val(Nomonths);
+
+    weight = weight <= 0 ? 0 : $('#weight').val();
+
+    getStatus(Nomonths,weight);
+}
 
 
 function create_child() {
@@ -52,7 +69,8 @@ function create_child() {
     $("#weight").val('');
     $("#month").val('');
     $("#gender").val('');
-    $("#status").val('');
+    $("#status_id").val('');
+    $("#lblStatus").text('');
 
     $('#childModal').modal('show');
 }
@@ -156,7 +174,7 @@ function save() {
                 weight: $('#weight').val(),
                 month: $('#month').val(),
                 gender: $('#gender').val(),
-                status: $('#status').val()
+                status: $('#status_id').val()
             },
             success: function(response) {
                 var decode = response;
@@ -195,7 +213,7 @@ function save() {
                 weight: $('#weight').val(),
                 month: $('#month').val(),
                 gender: $('#gender').val(),
-                status: $('#status').val()
+                status: $('#status_id').val()
             },
             success: function(response) {
                 var decode = response;
@@ -239,9 +257,9 @@ function fetch_all_child() {
                                         <td class="">' + row[i].gender + '</td>\
                                         <td class="center">normal</td>\
                                         <td class=" " width="15%">\
-                                            <a data-id="'+ row[i].id +'" class="view-icon">view</a>|\
-                                            <a data-id="'+ row[i].id +'" class="update-icon">update</a>|\
-                                            <a data-id="'+ row[i].id +'" class="delete-icon">delete</a>\
+                                            <a data-id="' + row[i].id + '" class="view-icon">view</a>|\
+                                            <a data-id="' + row[i].id + '" class="update-icon">update</a>|\
+                                            <a data-id="' + row[i].id + '" class="delete-icon">delete</a>\
                                         </td>\
                                 </tr>';
                         $("#dataTables-example tbody").append(html);
@@ -276,16 +294,16 @@ function deletedata(id) {
     });
 }
 
-function getData(status,id) {
+function getData(status, id) {
     $.ajax({
-        url: '../server/child/' + id,
+        url: '../server/child/' + id ,
         async: true,
         type: 'GET',
         success: function(response) {
             var decode = response;
             console.log('response: ', decode);
             if (decode.success == true) {
-                var child  = decode.child;
+                var child = decode.child;
 
                 $("#child_id").val(child.id);
                 $("#fname").val(child.fname);
@@ -299,7 +317,7 @@ function getData(status,id) {
                 $("#gender").val(child.gender);
                 $("#status").val(child.status_id);
 
-                if (status === 'view'){
+                if (status === 'view') {
                     $("#fname").prop('disabled', true);
                     $("#mname").prop('disabled', true);
                     $("#lname").prop('disabled', true);
@@ -313,7 +331,7 @@ function getData(status,id) {
                     $("#datetimepicker2").prop('disabled', true);
 
                     $("#btn-save").attr('disabled', true);
-                }else{
+                } else {
                     $("#fname").prop('disabled', false);
                     $("#mname").prop('disabled', false);
                     $("#lname").prop('disabled', false);
@@ -326,7 +344,7 @@ function getData(status,id) {
                     $("#status").prop('disabled', false);
                     $("#datetimepicker2").prop('disabled', false);
 
-                     $("#btn-save").removeAttr('disabled');
+                    $("#btn-save").removeAttr('disabled');
                 }
 
 
@@ -340,20 +358,39 @@ function getData(status,id) {
     });
 }
 
-function fetch_status() {
+function fetch_barangay() {
     $.ajax({
-        url: '../server/status/',
+        url: '../server/location/',
         async: true,
         type: 'GET',
-        dataType: 'json',
         success: function(response) {
             var decode = response;
-            $('#status').empty();
-            for (var i = 0; i < decode.data.length; i++) {
-                var row = decode.data;
-                var html = '<option id="' + row[i].id + '" value="' + row[i].id + '">' + row[i].status + '</option>';
-                $("#status").append(html);
+            $('#location').empty();
+            for (var i = 0; i < decode.locations.length; i++) {
+                var row = decode.locations;
+                var html = '<option id="' + row[i].id + '" value="' + row[i].id + '">' + row[i].name + '</option>';
+                $("#location").append(html);
             }
+        },
+        error: function(error) {
+            console.log("Error:");
+            console.log(error.responseText);
+            console.log(error.message);
+            return;
+        }
+    });
+}
+
+function getStatus(age,weight) {
+    console.log('age: ',age,' weight: ',weight);
+    $.ajax({
+        url: '../server/status/' + age + '/' + weight,
+        async: true,
+        type: 'GET',
+        success: function(response) {
+            console.log('response: ',response);
+            $('#lblStatus').text(response.CNO);
+            $('#status_id').val(response.CNO_id);
         },
         error: function(error) {
             console.log("Error:");

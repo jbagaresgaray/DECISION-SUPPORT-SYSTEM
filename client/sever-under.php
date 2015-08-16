@@ -11,7 +11,7 @@
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
-                        <h2>List of sever under weight child</h2>
+                        <h2>List of severly underweight malnourished children</h2>
                         <h5>Welcome Jhon Deo , Love to see you back. </h5>
                     </div>
                 </div>

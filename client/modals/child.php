@@ -38,22 +38,15 @@
                         </div>
                         <div class="col-md-4">
                           <label>Barangay</label>
-                          <select class="form-control" name="location" id= "location">
-                            <option value="1"> barangay1</option>
-                            <option value="2"> barangay2</option>
-                          </select>
+                          <select class="form-control" name="location" id= "location"></select>
+                          <span class="help-inline"></span>
+                        </div>
+                        <div class="col-md-4">
+                          <label>Date of Birth</label>
+                          <input type='date' class="form-control" name="date" id="date"/>
                           <span class="help-inline"></span>
                         </div>
                       </div>
-                  </div>
-                  <div class="form-group">
-                      <div class='input-group date' id='datetimepicker2'>
-                          <input type='text' class="form-control" name="date" id="date"/>
-                          <span class="input-group-addon">
-                            <span class="glyphicon glyphicon-calendar"></span>
-                          </span>
-                      </div>
-                      <span class="help-inline"></span>
                   </div>
                   <div class="form-group">
                       <div class="row">
@@ -69,18 +62,15 @@
                         </div>
                          <div class="col-md-4">
                             <label>Months</label>
-                            <input class="form-control" name="month" id="month" placeholder="Number of months" />
+                            <input class="form-control" name="month" id="month" value="0"/>
                             <span class="help-inline"></span>
                         </div>
                       </div>
                   </div>
                   <div class="form-group">
                       <label>Status</label>
-                      <select class="form-control" name="status" id= "status">
-                        <option value="1"> barangay1</option>
-                        <option value="2"> barangay2</option>
-                      </select>
-                      <span class="help-inline"></span>
+                      <h2 id="lblStatus" class="text-uppercase danger"></h2>
+                      <input type="hidden" id="status_id" name="status_id">
                   </div>
               </form>
             </div>

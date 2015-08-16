@@ -18,7 +18,6 @@
 				$id = $request[0];
 				$data = [
 					"username" => $_REQUEST['username'],
-					"password" => $_REQUEST['password'],
 					"email" => $_REQUEST['email'],
 					"mobileno" => $_REQUEST['mobileno'],
 					"fname" => $_REQUEST['fname'],

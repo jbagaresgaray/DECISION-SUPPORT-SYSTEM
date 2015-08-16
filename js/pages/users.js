@@ -30,14 +30,14 @@ $(document).on("click", ".update-icon", function() {
     var id = $(this).data('id');
     resetHelpInLine();
 
-    getData('update',id);
+    getData('update', id);
 });
 
 $(document).on("click", ".view-icon", function() {
     var id = $(this).data('id');
     resetHelpInLine();
 
-    getData('view',id);
+    getData('view', id);
 });
 
 
@@ -50,6 +50,18 @@ function create_user() {
     $("#mobileno").val('');
     $("#level").val('');
 
+    $("#password").show();
+    $("#password2").show();
+    $("#password").prev('label').show();
+    $("#password2").prev('label').show();
+
+    $("#fname").prop('disabled', false);
+    $("#lname").prop('disabled', false);
+    $("#level").prop('disabled', false);
+    $("#username").prop('disabled', false);
+    $("#email").prop('disabled', false);
+    $("#mobileno").prop('disabled', false);
+
     $('#userModal').modal('show');
 }
 
@@ -60,7 +72,7 @@ function resetHelpInLine() {
 }
 
 function refresh() {
-    fetch_all_child();
+    fetch_all_users();
 }
 
 function save() {
@@ -92,24 +104,24 @@ function save() {
         empty = true;
     }
 
-    if ($('#password').val() == '') {
-        $('#password').next('span').text('Password is required.');
-        empty = true;
-    }
-
-    if ($('#password').val() !== $('#password2').val()) {
-        $('#month').next('span').text('Password and Confirm password must be the same.');
-        empty = true;
-    }
-
     if (empty == true) {
         $.notify('Please input all the required fields correctly.', "error");
         return false;
     }
 
 
-
     if ($('#user_id').val() == '') {
+
+        if ($('#password').val() == '') {
+            $('#password').next('span').text('Password is required.');
+            empty = true;
+        }
+
+        if ($('#password').val() !== $('#password2').val()) {
+            $('#month').next('span').text('Password and Confirm password must be the same.');
+            empty = true;
+        }
+
         $.ajax({
             url: '../server/users/',
             async: false,
@@ -143,6 +155,7 @@ function save() {
             }
         });
     } else {
+
         $.ajax({
             url: '../server/users/' + $('#user_id').val(),
             async: false,
@@ -151,7 +164,6 @@ function save() {
                 fname: $('#fname').val(),
                 lname: $('#lname').val(),
                 username: $('#username').val(),
-                password: $('#password').val(),
                 mobileno: $('#mobileno').val(),
                 email: $('#email').val(),
                 level: $('#level').val()
@@ -198,9 +210,9 @@ function fetch_all_users() {
                                         <td class="">' + row[i].mobileno + '</td>\
                                         <td class="center" width="15%">' + row[i].level + '</td>\
                                         <td class=" " width="20%">\
-                                            <a href="#" data-id="'+ row[i].id +'" class="view-icon">view</a>|\
-                                            <a href="#" data-id="'+ row[i].id +'" class="update-icon">update</a>|\
-                                            <a href="#" data-id="'+ row[i].id +'" class="delete-icon">delete</a>\
+                                            <a href="#" data-id="' + row[i].id + '" class="view-icon">view</a>|\
+                                            <a href="#" data-id="' + row[i].id + '" class="update-icon">update</a>|\
+                                            <a href="#" data-id="' + row[i].id + '" class="delete-icon">delete</a>\
                                         </td>\
                                 </tr>';
                         $("#dataTables-example tbody").append(html);
@@ -235,7 +247,7 @@ function deletedata(id) {
     });
 }
 
-function getData(status,id) {
+function getData(status, id) {
     $.ajax({
         url: '../server/users/' + id,
         async: true,
@@ -244,37 +256,42 @@ function getData(status,id) {
             var decode = response;
             console.log('response: ', decode);
             if (decode.success == true) {
-                var data  = decode.userdata;
+                var data = decode.userdata;
 
                 $("#user_id").val(data.id);
                 $("#fname").val(data.fname);
                 $("#lname").val(data.lname);
                 $("#level").val(data.level);
                 $("#username").val(data.username);
-                $("#password").val(data.password);
                 $("#email").val(data.email);
                 $("#mobileno").val(data.mobileno);
 
-                if (status === 'view'){
+                if (status === 'view') {
                     $("#fname").prop('disabled', true);
                     $("#lname").prop('disabled', true);
                     $("#level").prop('disabled', true);
                     $("#username").prop('disabled', true);
-                    $("#password").prop('disabled', true);
+                    $("#password").hide();
+                    $("#password").prev('label').hide();
+                    $("#password2").hide();
+                    $("#password2").prev('label').hide();
                     $("#email").prop('disabled', true);
                     $("#mobileno").prop('disabled', true);
 
                     $("#btn-save").attr('disabled', true);
-                }else{
+                } else {
                     $("#fname").prop('disabled', false);
                     $("#lname").prop('disabled', false);
                     $("#level").prop('disabled', false);
                     $("#username").prop('disabled', false);
-                    $("#password").prop('disabled', false);
+                    $("#password").hide();
+                    $("#password").prev('label').hide();
+                    $("#password2").hide();
+                    $("#password2").prev('label').hide();
                     $("#email").prop('disabled', false);
                     $("#mobileno").prop('disabled', false);
 
-                     $("#btn-save").removeAttr('disabled');
+                    $("#btn-save").removeAttr('disabled');
                 }
 
 

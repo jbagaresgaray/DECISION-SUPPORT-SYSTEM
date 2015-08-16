@@ -80,13 +80,12 @@ class Users {
 			$fname = $mysqli->real_escape_string($data['fname']);
 			$lname = $mysqli->real_escape_string($data['lname']);
 			$username = $mysqli->real_escape_string($data['username']);
-			$password = $mysqli->real_escape_string($data['password']);
 			$email = $mysqli->real_escape_string($data['email']);
 			$mobileno = $mysqli->real_escape_string($data['mobileno']);
 			$level = $mysqli->real_escape_string($data['level']);
 
-			if ($stmt = $mysqli->prepare('UPDATE userdata SET fname=?,lname=?,username=?,password=?,email=?,mobileno=?,level=? WHERE id=?')){
-				$stmt->bind_param('sssssss', $fname,$lname,$username,sha1($password),$email,$mobileno,$level);
+			if ($stmt = $mysqli->prepare('UPDATE userdata SET fname=?,lname=?,username=?,email=?,mobileno=?,level=? WHERE id=?')){
+				$stmt->bind_param('sssssss', $fname,$lname,$username,$email,$mobileno,$level,$id);
 				$stmt->execute();
 				print json_encode(array('success' =>true,'status'=>200,'msg' =>'Record successfully updated'),JSON_PRETTY_PRINT);
 			}else{

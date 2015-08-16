@@ -11,8 +11,8 @@ class StatusController {
 		Status::read();
 	}
 
-	public static function detail($id){
-		Status::detail($id);
+	public static function detail($age,$weight){
+		Status::detail($age,$weight);
 	}
 
 	public static function update($id,$data){
