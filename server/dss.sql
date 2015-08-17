@@ -121,6 +121,27 @@ CREATE TABLE IF NOT EXISTS `location` (
 --
 -- Dumping data for table `location`
 --
+INSERT INTO `location` VALUES ('1','Cervantes','','','','','');
+INSERT INTO `location` VALUES ('2','Hda Fe','','','','','');
+INSERT INTO `location` VALUES ('3','Washington','','','','','');
+INSERT INTO `location` VALUES ('4','Balintawak','','','','','');
+INSERT INTO `location` VALUES ('5','Alimango','','','','','');
+INSERT INTO `location` VALUES ('6','Old Poblacion','','','','','');
+INSERT INTO `location` VALUES ('7','Jonobjonob','','','','','');
+INSERT INTO `location` VALUES ('8','Malasibog','','','','','');
+INSERT INTO `location` VALUES ('9','Langub','','','','','');
+INSERT INTO `location` VALUES ('10','Buenavista','','','','','');
+INSERT INTO `location` VALUES ('11','Rizal','','','','','');
+INSERT INTO `location` VALUES ('12','Japitan','','','','','');
+INSERT INTO `location` VALUES ('13','Udtongan','','','','','');
+INSERT INTO `location` VALUES ('14','Mabini','','','','','');
+INSERT INTO `location` VALUES ('15','Paitan','','','','','');
+INSERT INTO `location` VALUES ('16','Libertad','','','','','');
+INSERT INTO `location` VALUES ('17','Tamlang','','','','','');
+INSERT INTO `location` VALUES ('18','Binaguiohan','','','','','');
+INSERT INTO `location` VALUES ('19','Magsaysay','','','','','');
+INSERT INTO `location` VALUES ('20','Pinapugasan','','','','','');
+INSERT INTO `location` VALUES ('21','Dian-ay','','','','','');
 
 -- --------------------------------------------------------
 --
