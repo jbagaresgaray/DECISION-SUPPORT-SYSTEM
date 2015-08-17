@@ -44,7 +44,7 @@ class Child {
 		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
 		    return;
 		}else{
-			$query1 ="SELECT * FROM child c;";
+			$query1 ="SELECT *,(SELECT description FROM status WHERE id = c.status_id LIMIT 1) AS status FROM child c;";
 			$result1 = $mysqli->query($query1);
 			$data = array();
 			while($row = $result1->fetch_array(MYSQLI_ASSOC)){

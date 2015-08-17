@@ -6,37 +6,30 @@
 	$request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 
 	switch ($method) {
-	  case 'PUT':
-			$data=parse_str( file_get_contents( 'php://input' ), $_PUT );
-			foreach ($_PUT as $key => $value){
-					unset($_PUT[$key]);
-					$_PUT[str_replace('amp;', '', $key)] = $value;
-			}
-			$_REQUEST = array_mergeo($_REQUEST, $_PUT);
-
-			if(isset($request) && !empty($request) && $request[0] !== ''){
-				$id = $request[0];
-				
-			}else{
-				
-			}
-	    break;
-	  case 'POST':
-			
-	    break;
 	  case 'GET':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
-	  		$age = $request[0];
-	  		$weight = $request[1];
-			StatusController::detail($age,$weight);
+	  		if ($request[0] == 'normal'){
+	  			StatusController::printNormal();
+
+	  		}else if($request[0] == 'under'){
+	  			StatusController::printUnder();
+
+	  		}else if($request[0] == 'severe-under'){
+	  			StatusController::printSeverelyUnder();
+
+	  		}else if($request[0] == 'over'){
+	  			StatusController::printOver();
+
+	  		}else if($request[0] == 'severe-under-total'){
+	  			StatusController::printSeverelyUnderTotal();
+	  			
+	  		}else{
+	  			$age = $request[0];
+		  		$weight = $request[1];
+				StatusController::detail($age,$weight);
+	  		}
 	  	}else{
 			StatusController::read();
-	  	}
-	    break;
-	  case 'DELETE':
-	  	if(isset($request) && !empty($request) && $request[0] !== ''){
-	  		$id = $request[0];
-			// StatusController::delete($id);
 	  	}
 	    break;
 	  default:

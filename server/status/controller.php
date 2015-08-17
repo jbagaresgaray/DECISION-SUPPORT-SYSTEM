@@ -3,10 +3,6 @@ include( __DIR__.'/model.php');
 
 class StatusController {
 
-	public static function create($data){
-		Status::create($data);
-	}
-
 	public static function read(){
 		Status::read();
 	}
@@ -15,12 +11,24 @@ class StatusController {
 		Status::detail($age,$weight);
 	}
 
-	public static function update($id,$data){
-		Status::update($id,$data);
+	public static function printNormal(){
+		Status::printNormal();
 	}
 
-	public static function delete($id){
-		Status::delete($id);
+	public static function printSeverelyUnder(){
+		Status::printSeverelyUnder();
+	}
+
+	public static function printUnder(){
+		Status::printUnder();
+	}
+
+	public static function printOver(){
+		Status::printOver();
+	}
+
+	public static function printSeverelyUnderTotal(){
+		Status::printSeverelyUnderTotal();
 	}
 }
 

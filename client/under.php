@@ -5,13 +5,12 @@
 
 <body>
     <div id="wrapper">
-      <?php require_once('include/nav.php'); ?>
+      <?php require_once('include/sidebard.php'); ?>
         <div id="page-wrapper">
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12">
                         <h2>Child List</h2>
-                        <h5>Welcome Jhon Deo , Love to see you back. </h5>
                     </div>
                 </div>
                 <!-- /. ROW  -->

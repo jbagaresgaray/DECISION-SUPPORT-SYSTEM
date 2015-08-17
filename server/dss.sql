@@ -184,7 +184,7 @@ CREATE TABLE IF NOT EXISTS `status` (
 --
 -- Dumping data for table `status`
 --
-INSERT INTO `status` VALUES ('1', 'normal', 'normal');
-INSERT INTO `status` VALUES ('2', 'severely underweight', 'severely underweight');
-INSERT INTO `status` VALUES ('3', 'underweight', 'underweight');
-INSERT INTO `status` VALUES ('4', 'overweight', 'overweight');
+INSERT INTO `status` VALUES ('1', 'normal', 'NORMAL');
+INSERT INTO `status` VALUES ('2', 'severely underweight', 'SEVERELY UNDERWEIGHT');
+INSERT INTO `status` VALUES ('3', 'underweight', 'UNDERWEIGHT');
+INSERT INTO `status` VALUES ('4', 'overweight', 'OVERWEIGHT');

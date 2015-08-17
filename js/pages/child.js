@@ -144,8 +144,8 @@ function save() {
         empty = true;
     }
 
-    if ($('#status').val() == '') {
-        $('#status').next('span').text('Status is required.');
+    if ($('#status_id').val() == '') {
+        $.notify('Status is required... Please set Weight and Date of Birthday...', "error");
         empty = true;
     }
 
@@ -253,9 +253,9 @@ function fetch_all_child() {
                         var row = decode.childs;
                         var html = '<tr class="odd gradeX">\
                                         <td class="">' + row[i].lname + ', ' + row[i].fname + '</td>\
-                                        <td class="">' + row[i].dob + '</td>\
+                                        <td class="">' + moment(row[i].dob).format('MM-DD-YYYY') + '</td>\
                                         <td class="">' + row[i].gender + '</td>\
-                                        <td class="center">normal</td>\
+                                        <td class="center">' + row[i].status + '</td>\
                                         <td class=" " width="15%">\
                                             <a data-id="' + row[i].id + '" class="view-icon">view</a>|\
                                             <a data-id="' + row[i].id + '" class="update-icon">update</a>|\

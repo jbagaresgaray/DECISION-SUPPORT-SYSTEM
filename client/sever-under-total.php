@@ -5,7 +5,7 @@
 
 <body>
     <div id="wrapper">
-         <?php require_once('include/nav.php'); ?>
+         <?php require_once('include/sidebar.php'); ?>
         <!-- /. NAV SIDE  -->
         <div id="page-wrapper">
             <div id="page-inner">

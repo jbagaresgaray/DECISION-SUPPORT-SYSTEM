@@ -6,17 +6,6 @@ class Status {
 	function __construct(){
     }
 
-	public static function create($data){
-		$config= new Config();
-		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
-		if ($mysqli->connect_errno) {
-		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
-		    return;
-		}else{
-
-		}
-	}
-
 	public static function read(){
 		$config= new Config();
 		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
@@ -83,28 +72,99 @@ class Status {
 		}
 	}
 
-	public static function update($id,$data){
+	public function printNormal(){
 		$config= new Config();
 		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
 		if ($mysqli->connect_errno) {
 		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
 		    return;
 		}else{
-
+			$query1 ="SELECT c.id,CONCAT(c.lname,', ',c.fname) AS Fullname,c.address,c.dob,CONCAT(c.weight,' Kg.') AS weight,c.gender,c.months,
+			(SELECT name FROM location WHERE id=c.locationID LIMIT 1) AS location,(SELECT description FROM status WHERE id=c.status_id LIMIT 1) AS status FROM child c WHERE c.status_id='1';";
+			$result1 = $mysqli->query($query1);
+			$data = array();
+			while($row = $result1->fetch_array(MYSQLI_ASSOC)){
+				array_push($data,$row);
+			}
+			return print json_encode(array('success' =>true,'status'=>200,'data' =>$data),JSON_PRETTY_PRINT);
 		}
 	}
 
-	public static function delete($id){
+	public function printSeverelyUnder(){
 		$config= new Config();
 		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
-		if($stmt = $mysqli->prepare('DELETE FROM status WHERE id =?')){
-			$stmt->bind_param('s', $id);
-			$stmt->execute();
-			$stmt->close();
-			print json_encode(array('success' =>true,'status'=>200,'msg' =>'Record successfully deleted'),JSON_PRETTY_PRINT);
+		if ($mysqli->connect_errno) {
+		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
+		    return;
 		}else{
-			print json_encode(array('success' =>false,'status'=>200,'msg' =>'Error message: %s\n', $mysqli->error),JSON_PRETTY_PRINT);
+			$query1 ="SELECT c.id,CONCAT(c.lname,', ',c.fname) AS Fullname,c.address,c.dob,CONCAT(c.weight,' Kg.') AS weight,c.gender,c.months,
+			(SELECT name FROM location WHERE id=c.locationID LIMIT 1) AS location,(SELECT description FROM status WHERE id=c.status_id LIMIT 1) AS status 
+			FROM child c WHERE c.status_id='2';";
+			$result1 = $mysqli->query($query1);
+			$data = array();
+			while($row = $result1->fetch_array(MYSQLI_ASSOC)){
+				array_push($data,$row);
+			}
+			return print json_encode(array('success' =>true,'status'=>200,'data' =>$data),JSON_PRETTY_PRINT);
 		}
 	}
+
+	public function printUnder(){
+		$config= new Config();
+		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
+		if ($mysqli->connect_errno) {
+		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
+		    return;
+		}else{
+			$query1 ="SELECT c.id,CONCAT(c.lname,', ',c.fname) AS Fullname,c.address,c.dob,CONCAT(c.weight,' Kg.') AS weight,c.gender,c.months,
+			(SELECT name FROM location WHERE id=c.locationID LIMIT 1) AS location,(SELECT description FROM status WHERE id=c.status_id LIMIT 1) AS status 
+			FROM child c WHERE c.status_id='3';";
+			$result1 = $mysqli->query($query1);
+			$data = array();
+			while($row = $result1->fetch_array(MYSQLI_ASSOC)){
+				array_push($data,$row);
+			}
+			return print json_encode(array('success' =>true,'status'=>200,'data' =>$data),JSON_PRETTY_PRINT);
+		}
+	}
+
+	public function printOver(){
+		$config= new Config();
+		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
+		if ($mysqli->connect_errno) {
+		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
+		    return;
+		}else{
+			$query1 ="SELECT c.id,CONCAT(c.lname,', ',c.fname) AS Fullname,c.address,c.dob,CONCAT(c.weight,' Kg.') AS weight,c.gender,c.months,
+			(SELECT name FROM location WHERE id=c.locationID LIMIT 1) AS location,(SELECT description FROM status WHERE id=c.status_id LIMIT 1) AS status 
+			FROM child c WHERE c.status_id='4';";
+			$result1 = $mysqli->query($query1);
+			$data = array();
+			while($row = $result1->fetch_array(MYSQLI_ASSOC)){
+				array_push($data,$row);
+			}
+			return print json_encode(array('success' =>true,'status'=>200,'data' =>$data),JSON_PRETTY_PRINT);
+		}
+	}
+
+	public function printSeverelyUnderTotal(){
+		$config= new Config();
+		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
+		if ($mysqli->connect_errno) {
+		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
+		    return;
+		}else{
+			$query1 ="SELECT c.id,CONCAT(c.lname,', ',c.fname) AS Fullname,c.address,c.dob,CONCAT(c.weight,' Kg.') AS weight,c.gender,c.months,
+			(SELECT name FROM location WHERE id=c.locationID LIMIT 1) AS location,(SELECT description FROM status WHERE id=c.status_id LIMIT 1) AS status 
+			FROM child c WHERE c.status_id='4';";
+			$result1 = $mysqli->query($query1);
+			$data = array();
+			while($row = $result1->fetch_array(MYSQLI_ASSOC)){
+				array_push($data,$row);
+			}
+			return print json_encode(array('success' =>true,'status'=>200,'data' =>$data),JSON_PRETTY_PRINT);
+		}
+	}
+
 }
 ?>
