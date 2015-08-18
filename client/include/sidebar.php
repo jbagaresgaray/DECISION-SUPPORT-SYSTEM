@@ -13,12 +13,15 @@
             <li>
               <a href="#"><i class="fa fa-sitemap fa-3x"></i> Manage<span class="fa arrow"></span></a>
               <ul class="nav nav-second-level">
-                   <li>
+                  <li>
                       <a href="child.php">Manage Child Information</a>
                   </li>
                   <li>
                      <a href="location.php">Manage Location Information</a>
                  </li>
+                 <li>
+                    <a href="years.php">Manage Year and Terms</a>
+                  </li>
                  <li>
                     <a href="users.php">Manage User Accounts</a>
                 </li>

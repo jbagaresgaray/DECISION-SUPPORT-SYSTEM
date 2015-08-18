@@ -1,4 +1,4 @@
-<div class="modal fade" id="childModal" tabindex="-1" role="dialog" aria-hidden="true">
+<div class="modal fade" id="childModal" tabindex="-1" role="dialog" aria-hidden="true" data-backdrop='static'>
     <div class="modal-dialog modal-lg">
         <div class="modal-content">
             <div class="modal-header">
@@ -7,6 +7,11 @@
             <div class="modal-body">
               <form role="form"  id="formchild">
                   <input type="hidden" id="child_id" name="child_id">
+                  <div class="form-group">
+                      <label>Years / Terms</label>
+                      <select class="form-control" name="cboyears" id= "cboyears"></select>
+                      <span class="help-inline"></span>
+                  </div>
                   <div class="form-group">
                       <label>First Name</label>
                       <input class="form-control" name="fname" id="fname" placeholder="First Name here" / >
@@ -51,12 +56,12 @@
                   <div class="form-group">
                       <div class="row">
                         <div class="col-md-4">
-                            <label>Heigth</label>
+                            <label>Height</label>
                             <input class="form-control" name="height" id="height" placeholder="Height" />
                             <span class="help-inline"></span>
                         </div>
                         <div class="col-md-4">
-                            <label>Weigth</label>
+                            <label>Weight</label>
                             <input class="form-control" name="weight" id="weight" placeholder="Weight" />
                             <span class="help-inline"></span>
                         </div>

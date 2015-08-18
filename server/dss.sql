@@ -161,6 +161,7 @@ CREATE TABLE IF NOT EXISTS `child` (
   `gender` varchar(6) NOT NULL,
   `months` int(11) NOT NULL,
   `status_id` int(11) NOT NULL,
+  `year_id` int(11) NOT NULL,
   `createddate` DATETIME,
   `updateddate` DATETIME,
   PRIMARY KEY (`id`)
@@ -209,3 +210,17 @@ INSERT INTO `status` VALUES ('1', 'normal', 'NORMAL');
 INSERT INTO `status` VALUES ('2', 'severely underweight', 'SEVERELY UNDERWEIGHT');
 INSERT INTO `status` VALUES ('3', 'underweight', 'UNDERWEIGHT');
 INSERT INTO `status` VALUES ('4', 'overweight', 'OVERWEIGHT');
+
+--
+-- Table structure for table `yearterms`
+--
+DROP TABLE IF EXISTS `yearterms`;
+CREATE TABLE IF NOT EXISTS `yearterms` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `year` varchar(100) NOT NULL,
+  `terms` varchar(100) NOT NULL,
+  PRIMARY KEY (`id`)
+) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0;
+--
+-- Dumping data for table `yearterms`
+--

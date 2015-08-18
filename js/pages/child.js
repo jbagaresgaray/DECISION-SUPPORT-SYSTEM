@@ -6,6 +6,7 @@ $(document).ready(function() {
 
     fetch_all_child();
     fetch_barangay();
+    fetch_year();
 
     $("#date").bind("change", Noofmonths);
     $("#weight").bind("change", Noofmonths);
@@ -55,7 +56,7 @@ function Noofmonths() {
 
     weight = weight <= 0 ? 0 : $('#weight').val();
 
-    getStatus(Nomonths,weight);
+    getStatus(Nomonths, weight);
 }
 
 
@@ -71,6 +72,21 @@ function create_child() {
     $("#gender").val('');
     $("#status_id").val('');
     $("#lblStatus").text('');
+
+    $("#fname").prop('disabled', false);
+    $("#mname").prop('disabled', false);
+    $("#lname").prop('disabled', false);
+    $("#address").prop('disabled', false);
+    $("#location").prop('disabled', false);
+    $("#height").prop('disabled', false);
+    $("#weight").prop('disabled', false);
+    $("#gender").prop('disabled', false);
+    $("#month").prop('disabled', false);
+    $("#status").prop('disabled', false);
+    $("#date").prop('disabled', false);
+    $("#cboyears").prop('disabled', false);
+
+    $("#btn-save").removeAttr('disabled');
 
     $('#childModal').modal('show');
 }
@@ -174,7 +190,8 @@ function save() {
                 weight: $('#weight').val(),
                 month: $('#month').val(),
                 gender: $('#gender').val(),
-                status: $('#status_id').val()
+                status: $('#status_id').val(),
+                year: $('#cboyears').val()
             },
             success: function(response) {
                 var decode = response;
@@ -213,7 +230,8 @@ function save() {
                 weight: $('#weight').val(),
                 month: $('#month').val(),
                 gender: $('#gender').val(),
-                status: $('#status_id').val()
+                status: $('#status_id').val(),
+                year: $('#cboyears').val()
             },
             success: function(response) {
                 var decode = response;
@@ -256,10 +274,10 @@ function fetch_all_child() {
                                         <td class="">' + moment(row[i].dob).format('MM-DD-YYYY') + '</td>\
                                         <td class="">' + row[i].gender + '</td>\
                                         <td class="center">' + row[i].status + '</td>\
-                                        <td class=" " width="15%">\
-                                            <a data-id="' + row[i].id + '" class="view-icon">view</a>|\
-                                            <a data-id="' + row[i].id + '" class="update-icon">update</a>|\
-                                            <a data-id="' + row[i].id + '" class="delete-icon">delete</a>\
+                                        <td class=" " width="20%">\
+                                            <a data-id="' + row[i].id + '" href="#" class="view-icon">view</a>|\
+                                            <a data-id="' + row[i].id + '" href="#" class="update-icon">update</a>|\
+                                            <a data-id="' + row[i].id + '" href="#" class="delete-icon">delete</a>\
                                         </td>\
                                 </tr>';
                         $("#dataTables-example tbody").append(html);
@@ -296,7 +314,7 @@ function deletedata(id) {
 
 function getData(status, id) {
     $.ajax({
-        url: '../server/child/' + id ,
+        url: '../server/child/' + id,
         async: true,
         type: 'GET',
         success: function(response) {
@@ -310,12 +328,23 @@ function getData(status, id) {
                 $("#mname").val(child.mname);
                 $("#lname").val(child.lname);
                 $("#address").val(child.address);
-                $("#location").val(child.location);
+                $("#location").val(child.locationID);
                 $("#height").val(child.height);
                 $("#weight").val(child.weight);
                 $("#month").val(child.months);
+
+                var dataToSplit = child.dob;
+                if (dataToSplit != null) {
+                    var i = dataToSplit.slice(0, 10).split('-');
+                    var date = i[0] + "-" + i[1] + "-" + i[2];
+                    $('#date').val(date);
+                }
+
                 $("#gender").val(child.gender);
                 $("#status").val(child.status_id);
+                $("#cboyears").val(child.year_id);
+                $('#lblStatus').text(child.status);
+                $('#status_id').val(child.status_id);
 
                 if (status === 'view') {
                     $("#fname").prop('disabled', true);
@@ -328,7 +357,8 @@ function getData(status, id) {
                     $("#gender").prop('disabled', true);
                     $("#month").prop('disabled', true);
                     $("#status").prop('disabled', true);
-                    $("#datetimepicker2").prop('disabled', true);
+                    $("#date").prop('disabled', true);
+                    $("#cboyears").prop('disabled', true);
 
                     $("#btn-save").attr('disabled', true);
                 } else {
@@ -342,7 +372,8 @@ function getData(status, id) {
                     $("#gender").prop('disabled', false);
                     $("#month").prop('disabled', false);
                     $("#status").prop('disabled', false);
-                    $("#datetimepicker2").prop('disabled', false);
+                    $("#date").prop('disabled', false);
+                    $("#cboyears").prop('disabled', false);
 
                     $("#btn-save").removeAttr('disabled');
                 }
@@ -381,14 +412,37 @@ function fetch_barangay() {
     });
 }
 
-function getStatus(age,weight) {
-    console.log('age: ',age,' weight: ',weight);
+function fetch_year() {
+    $.ajax({
+        url: '../server/yearterms/',
+        async: true,
+        type: 'GET',
+        success: function(response) {
+            var decode = response;
+            $('#cboyears').empty();
+            for (var i = 0; i < decode.yearterms.length; i++) {
+                var row = decode.yearterms;
+                var html = '<option id="' + row[i].id + '" value="' + row[i].id + '">' + row[i].year + ' - (' + row[i].terms + ') ' + '</option>';
+                $("#cboyears").append(html);
+            }
+        },
+        error: function(error) {
+            console.log("Error:");
+            console.log(error.responseText);
+            console.log(error.message);
+            return;
+        }
+    });
+}
+
+function getStatus(age, weight) {
+    console.log('age: ', age, ' weight: ', weight);
     $.ajax({
         url: '../server/status/' + age + '/' + weight,
         async: true,
         type: 'GET',
         success: function(response) {
-            console.log('response: ',response);
+            console.log('response: ', response);
             $('#lblStatus').text(response.CNO);
             $('#status_id').val(response.CNO_id);
         },
