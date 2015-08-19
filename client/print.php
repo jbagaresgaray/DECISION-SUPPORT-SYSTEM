@@ -27,7 +27,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2 id="lblPrint"></h2>
-                        <a class="btn btn-primary" onclick="printToPrinter()">Print Forms</a>
+                        <!-- <a class="btn btn-primary" onclick="printToPrinter()">Print Forms</a> -->
+                        <a class="btn btn-primary" href="toprint.php">Print Forms</a>
                         <a class="btn btn-success" download="CNO-data.xls" onclick="exportToExcel(this, 'dataTables-example', 'CNO Sheet Data')">Export to Excel</a>
                         <a class="btn btn-info" onclick="refresh()">Refresh</a>
                         <div class="col-lg-4 pull-right">

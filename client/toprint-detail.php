@@ -32,13 +32,13 @@
                 <span class="icon-bar"></span>
                 <span class="icon-bar"></span>
             </button>
-            <a class="navbar-brand" href="index.php">HOME</a>
+            <!-- <a class="navbar-brand" href="index.php">HOME</a> -->
         </div>
         <div class="navbar-collapse collapse">
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="javascript:window.print()"><i class="fa fa-print"></i> Print</a>
                 </li>
-                <li><a href="config-list.php"><i class="fa fa-times"></i> Close</a>
+                <li><a href="index.php"><i class="fa fa-times"></i> Close</a>
                 </li>
             </ul>
         </div>
