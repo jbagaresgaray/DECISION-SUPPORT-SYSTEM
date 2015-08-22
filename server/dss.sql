@@ -224,3 +224,27 @@ CREATE TABLE IF NOT EXISTS `yearterms` (
 --
 -- Dumping data for table `yearterms`
 --
+
+CREATE PROCEDURE printLocationStatus(IN ID INTEGER)
+BEGIN
+  SET @rank=0;
+  SELECT l.id,l.name,l.description,l.landarea,
+  (SELECT COUNT(c.id) FROM child c WHERE c.status_id=ID AND c.locationID=l.id) AS noOfchild,
+  @rank:=@rank+1 AS rank
+  FROM location l
+  GROUP BY l.id
+  ORDER BY noOfchild DESC, rank ASC;
+END;
+
+
+CREATE PROCEDURE printStatusGender(IN ID INTEGER)
+BEGIN
+  SET @rank=0;
+  SELECT l.id,l.name,l.description,l.landarea,
+  (SELECT COUNT(c.id) FROM child c WHERE c.status_id=ID AND c.gender='Male' AND c.locationID=l.id) AS Male,
+  (SELECT COUNT(c.id) FROM child c WHERE c.status_id=ID AND c.gender='Female' AND c.locationID=l.id) AS Female,
+  @rank:=@rank+1 AS rank
+  FROM location l
+  GROUP BY l.id
+  ORDER BY  Male DESC,Female DESC, rank ASC;
+END;

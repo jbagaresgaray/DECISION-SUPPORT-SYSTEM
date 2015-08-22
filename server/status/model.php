@@ -72,7 +72,7 @@ class Status {
 		}
 	}
 
-	public function printNormal(){
+	public function printStatus($id){
 		$config= new Config();
 		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
 		if ($mysqli->connect_errno) {
@@ -80,7 +80,7 @@ class Status {
 		    return;
 		}else{
 			$query1 ="SELECT c.id,CONCAT(c.lname,', ',c.fname) AS Fullname,c.address,c.dob,CONCAT(c.weight,' Kg.') AS weight,c.gender,c.months,
-			(SELECT name FROM location WHERE id=c.locationID LIMIT 1) AS location,(SELECT description FROM status WHERE id=c.status_id LIMIT 1) AS status FROM child c WHERE c.status_id='1';";
+			(SELECT name FROM location WHERE id=c.locationID LIMIT 1) AS location,(SELECT description FROM status WHERE id=c.status_id LIMIT 1) AS status FROM child c WHERE c.status_id=$id;";
 			$result1 = $mysqli->query($query1);
 			$data = array();
 			while($row = $result1->fetch_array(MYSQLI_ASSOC)){
@@ -90,16 +90,14 @@ class Status {
 		}
 	}
 
-	public function printSeverelyUnder(){
+	public function printRankStatus($id){
 		$config= new Config();
 		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
 		if ($mysqli->connect_errno) {
 		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
 		    return;
 		}else{
-			$query1 ="SELECT c.id,CONCAT(c.lname,', ',c.fname) AS Fullname,c.address,c.dob,CONCAT(c.weight,' Kg.') AS weight,c.gender,c.months,
-			(SELECT name FROM location WHERE id=c.locationID LIMIT 1) AS location,(SELECT description FROM status WHERE id=c.status_id LIMIT 1) AS status 
-			FROM child c WHERE c.status_id='2';";
+			$query1 ="CALL printLocationStatus($id);";
 			$result1 = $mysqli->query($query1);
 			$data = array();
 			while($row = $result1->fetch_array(MYSQLI_ASSOC)){
@@ -109,16 +107,14 @@ class Status {
 		}
 	}
 
-	public function printUnder(){
+	public function printGenderStatus($id){
 		$config= new Config();
 		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
 		if ($mysqli->connect_errno) {
 		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
 		    return;
 		}else{
-			$query1 ="SELECT c.id,CONCAT(c.lname,', ',c.fname) AS Fullname,c.address,c.dob,CONCAT(c.weight,' Kg.') AS weight,c.gender,c.months,
-			(SELECT name FROM location WHERE id=c.locationID LIMIT 1) AS location,(SELECT description FROM status WHERE id=c.status_id LIMIT 1) AS status 
-			FROM child c WHERE c.status_id='3';";
+			$query1 ="CALL printStatusGender($id);";
 			$result1 = $mysqli->query($query1);
 			$data = array();
 			while($row = $result1->fetch_array(MYSQLI_ASSOC)){
@@ -128,7 +124,7 @@ class Status {
 		}
 	}
 
-	public function printOver(){
+	public function printStatusByLocation($id,$locationID){
 		$config= new Config();
 		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
 		if ($mysqli->connect_errno) {
@@ -137,26 +133,7 @@ class Status {
 		}else{
 			$query1 ="SELECT c.id,CONCAT(c.lname,', ',c.fname) AS Fullname,c.address,c.dob,CONCAT(c.weight,' Kg.') AS weight,c.gender,c.months,
 			(SELECT name FROM location WHERE id=c.locationID LIMIT 1) AS location,(SELECT description FROM status WHERE id=c.status_id LIMIT 1) AS status 
-			FROM child c WHERE c.status_id='4';";
-			$result1 = $mysqli->query($query1);
-			$data = array();
-			while($row = $result1->fetch_array(MYSQLI_ASSOC)){
-				array_push($data,$row);
-			}
-			return print json_encode(array('success' =>true,'status'=>200,'data' =>$data),JSON_PRETTY_PRINT);
-		}
-	}
-
-	public function printSeverelyUnderTotal(){
-		$config= new Config();
-		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
-		if ($mysqli->connect_errno) {
-		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
-		    return;
-		}else{
-			$query1 ="SELECT c.id,CONCAT(c.lname,', ',c.fname) AS Fullname,c.address,c.dob,CONCAT(c.weight,' Kg.') AS weight,c.gender,c.months,
-			(SELECT name FROM location WHERE id=c.locationID LIMIT 1) AS location,(SELECT description FROM status WHERE id=c.status_id LIMIT 1) AS status 
-			FROM child c WHERE c.status_id='4';";
+			FROM child c WHERE c.status_id=$id AND c.locationID=$locationID;";
 			$result1 = $mysqli->query($query1);
 			$data = array();
 			while($row = $result1->fetch_array(MYSQLI_ASSOC)){

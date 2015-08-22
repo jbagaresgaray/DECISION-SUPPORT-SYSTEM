@@ -37,7 +37,7 @@
                         </div>
                         <div class="col-lg-3 pull-right">
                             <select class="form-control" id="cboFilters">
-                                <option value="">All</option>
+                                <option value="all">All</option>
                                 <option value="rank"> Rank</option>
                                 <option value="barangay"> Barangay</option>
                                 <option value="gender"> Gender</option>
@@ -53,20 +53,6 @@
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <div class="table-responsive" id="printTable">
-                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
-                                        <thead>
-                                            <tr>
-                                                <th>Name</th>
-                                                <th>Birthdate</th>
-                                                <th>Gender</th>
-                                                <th>Age / Months</th>
-                                                <th>Weight</th>
-                                                <th>Status</th>
-                                            </tr>
-                                        </thead>
-                                        <tbody>
-                                        </tbody>
-                                    </table>
                                 </div>
                             </div>
                         </div>

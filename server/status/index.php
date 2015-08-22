@@ -23,6 +23,31 @@
 	  		}else if($request[0] == 'severe-under-total'){
 	  			StatusController::printSeverelyUnderTotal();
 	  			
+	  		}else if($request[0] == 'rank'){
+	  			if ($request[1] == 'normal'){ 
+		  			StatusController::printNormalRank();
+		  		}else if($request[1] == 'under'){
+		  			StatusController::printSeverelyUnderRank();
+		  		}else if($request[1] == 'severe-under'){
+		  			StatusController::printUnderRank();
+		  		}else if($request[1] == 'over'){
+		  			StatusController::printOverRank();
+		  		}else if($request[1] == 'severe-under-total'){
+		  			
+		  		}
+		  	}else if($request[0] == 'location'){
+		  		$locationID = $request[2];
+	  			if ($request[1] == 'normal'){
+		  			StatusController::printNormalLocation($locationID);
+		  		}else if($request[1] == 'under'){
+		  			StatusController::printUnderLocation($locationID);
+		  		}else if($request[1] == 'severe-under'){
+		  			StatusController::printSeverelyUnderLocation($locationID);
+		  		}else if($request[1] == 'over'){
+		  			StatusController::printOverLocation($locationID);
+		  		}else if($request[1] == 'severe-under-total'){
+		  			
+		  		}		
 	  		}else{
 	  			$age = $request[0];
 		  		$weight = $request[1];
