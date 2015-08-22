@@ -4,9 +4,9 @@
             <li>
               <a class="active-menu"  href="index.php"><i class="fa fa-dashboard fa-3x"></i> Dashboard</a>
             </li>
-	          <li>
+	          <!-- <li>
               <a   href="chart.php"><i class="fa fa-bar-chart-o fa-3x"></i>Graphs</a>
-            </li>
+            </li> -->
             <li>
               <a  href="ui.php"><i class="fa fa-table fa-3x"></i> CNO Weight Standards</a>
             </li>
@@ -48,7 +48,7 @@
               </ul>
           </li>
           <li>
-              <a  href="heatmap.php"><i class="fa fa-square-o fa-3x"></i>Heat Map</a>
+              <a href="profile.php"><i class="fa fa-cog fa-3x"></i>Settings</a>
           </li>
       </ul>
 
