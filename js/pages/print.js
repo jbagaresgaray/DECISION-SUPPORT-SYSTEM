@@ -37,23 +37,23 @@ function filters() {
             switch (print) {
                 case 'normal':
                     $('#lblPrint').text('List of Normal Childrens');
-                    loadData('../server/status/rank/normal', 'NO. OF NORMAL WEIGHT CHILDREN');
+                    loadRank('../server/status/rank/normal', 'NO. OF NORMAL WEIGHT CHILDREN');
                     break;
                 case 'under':
                     $('#lblPrint').text('List of Underweight Childrens');
-                    loadData('../server/status/rank/under', 'NO. OF UNDERWEIGHT MALNOURISHED CHILDREN');
+                    loadRank('../server/status/rank/under', 'NO. OF UNDERWEIGHT MALNOURISHED CHILDREN');
                     break;
                 case 'severe-under':
                     $('#lblPrint').text('List of Severely Underweight Childrens');
-                    loadData('../server/status/rank/severe-under', 'NO. OF SEVERELY UNDERWEIGHT MALNOURISHED CHILDREN');
+                    loadRank('../server/status/rank/severe-under', 'NO. OF SEVERELY UNDERWEIGHT MALNOURISHED CHILDREN');
                     break;
                 case 'over':
                     $('#lblPrint').text('List of Overweight Childrens');
-                    loadData('../server/status/rank/over', 'NO. OF OVERWEIGHT MALNOURISHED CHILDREN');
+                    loadRank('../server/status/rank/over', 'NO. OF OVERWEIGHT MALNOURISHED CHILDREN');
                     break;
                 case 'severe-under-total':
                     $('#lblPrint').text('List of Severely Underweight and Underweight with Total Childrens');
-                    loadData('../server/status/rank/severe-under-total', 'NO. OF UNDERWEIGHT AND SEVERELY UNDERWEIGHT MALNOURISHED CHILDREN');
+                    loadTotalSevereUnder('../server/status/rank/severe-under-total', '');
                     break;
             }
             break;
@@ -62,12 +62,14 @@ function filters() {
             $("#cboOptions").bind("change", filterLocation);
             filterLocation();
             break;
-        case 'gender':
+        /*case 'gender':
             $("#cboOptions").append('<option value="Male">Male</option>');
             $("#cboOptions").append('<option value="Female">Female</option>');
 
+            $("#cboOptions").bind("change", filterGender);
+            filterGender();
 
-            break;
+            break;*/
     }
 }
 
@@ -76,23 +78,23 @@ function filterLocation() {
     switch (print) {
         case 'normal':
             $('#lblPrint').text('List of Normal Childrens');
-            loadAllByLocation('../server/status/location/normal',$("#cboOptions").val());
+            loadAllByLocation('../server/status/location/normal', $("#cboOptions").val());
             break;
         case 'under':
             $('#lblPrint').text('List of Underweight Childrens');
-            loadAllByLocation('../server/status/location/under',$("#cboOptions").val());
+            loadAllByLocation('../server/status/location/under', $("#cboOptions").val());
             break;
         case 'severe-under':
             $('#lblPrint').text('List of Severely Underweight Childrens');
-            loadAllByLocation('../server/status/location/severe-under',$("#cboOptions").val());
+            loadAllByLocation('../server/status/location/severe-under', $("#cboOptions").val());
             break;
         case 'over':
             $('#lblPrint').text('List of Overweight Childrens');
-            loadAllByLocation('../server/status/location/over',$("#cboOptions").val());
+            loadAllByLocation('../server/status/location/over', $("#cboOptions").val());
             break;
         case 'severe-under-total':
             $('#lblPrint').text('List of Severely Underweight and Underweight with Total Childrens');
-            loadAllByLocation('../server/status/location/severe-under-total',$("#cboOptions").val());
+            loadTotalSevereUnder('../server/status/location/severe-under-total', $("#cboOptions").val());
             break;
     }
 }
@@ -100,19 +102,6 @@ function filterLocation() {
 
 function refresh() {
 
-}
-
-function printToPrinter() {
-
-    var divToPrint = document.getElementById('printTable');
-    var newWin = window.open('', 'Print-Window', 'width=600,height=400');
-    newWin.document.open();
-    newWin.document.write('<html><head><style>#in {display:none}</style><body onload="window.print()">' + divToPrint.innerHTML + '</body></html>');
-    newWin.document.close();
-
-    setTimeout(function() {
-        newWin.close();
-    }, 10);
 }
 
 
@@ -144,14 +133,14 @@ function populateLocation() {
 
 
 function loadAll(url) {
-    $('#printTable').next('table').remove('');
+    $('#printTable').empty();
 
     var table = '<table class="table table-striped table-bordered table-hover" id="dataTables-example">\
                 <thead><tr>\
                 <th>Name</th><th>Birthdate</th><th>Gender</th>\
                 <th>Age / Months</th><th>Weight</th><th>Status</th>\
                 </tr></thead><tbody></tbody></table>';
-    $(table).insertAfter('#printTable');
+    $('#printTable').append(table);
 
     $('#dataTables-example tbody > tr').remove();
     $.ajax({
@@ -187,14 +176,14 @@ function loadAll(url) {
 }
 
 function loadAllByLocation(url, locationID) {
-    $('#printTable').next('table').remove('');
+    $('#printTable').empty();
 
     var table = '<table class="table table-striped table-bordered table-hover" id="dataTables-example">\
                 <thead><tr>\
                 <th>Name</th><th>Birthdate</th><th>Gender</th>\
                 <th>Age / Months</th><th>Weight</th><th>Status</th>\
                 </tr></thead><tbody></tbody></table>';
-    $(table).insertAfter('#printTable');
+    $('#printTable').append(table);
 
     $('#dataTables-example tbody > tr').remove();
     $.ajax({
@@ -230,12 +219,12 @@ function loadAllByLocation(url, locationID) {
 }
 
 function loadRank(url, header) {
-    $('#printTable').next('table').remove('');
+    $('#printTable').empty();
     var table = '<table class="table table-striped table-bordered table-hover" id="dataTables-example">\
                 <thead><tr>\
                 <th>BARANGAY</th><th>' + header + '</th><th>RANK</th>\
                 </tr></thead><tbody></tbody></table>';
-    $(table).insertAfter('#printTable');
+    $('#printTable').append(table);
 
     $('#dataTables-example tbody > tr').remove();
     $.ajax({
@@ -267,17 +256,18 @@ function loadRank(url, header) {
     });
 }
 
-function loadGender(url, header) {
-    $('#printTable').next('table').remove('');
+function loadGender(url, gender) {
+    $('#printTable').empty();
     var table = '<table class="table table-striped table-bordered table-hover" id="dataTables-example">\
                 <thead><tr>\
                 <th>BARANGAY</th><th>MALE</th><th>FEMALE</th><th>RANK</th>\
                 </tr></thead><tbody></tbody></table>';
-    $(table).insertAfter('#printTable');
+
+    $('#printTable').append(table);
 
     $('#dataTables-example tbody > tr').remove();
-    /*$.ajax({
-        url: url,
+    $.ajax({
+        url: url + '/' + gender,
         async: true,
         type: 'GET',
         dataType: 'json',
@@ -288,9 +278,12 @@ function loadGender(url, header) {
                     for (var i = 0; i < decode.data.length; i++) {
                         var row = decode.data;
                         var html = '<tr class="odd gradeX">\
-                                        <td class="center">' + row[i].name + '</td>\
-                                        <td class="center">' + row[i].noOfchild + '</td>\
-                                        <td class="center">' + row[i].rank + '</td>\
+                                        <td class="">' + row[i].Fullname + '</td>\
+                                        <td class="">' + moment(row[i].dob).format('MM-DD-YYYY') + '</td>\
+                                        <td class="">' + row[i].gender + '</td>\
+                                        <td class="center">' + row[i].months + '</td>\
+                                        <td class="center">' + row[i].weight + '</td>\
+                                        <td class="center">' + row[i].status + '</td>\
                                 </tr>';
                         $("#dataTables-example tbody").append(html);
                     }
@@ -302,5 +295,84 @@ function loadGender(url, header) {
             console.log('error: ', error);
             return;
         }
-    });*/
+    });
+}
+
+function loadTotalSevereUnder(url, locationID) {
+    console.log('url: ', url);
+
+    $('#printTable').empty();
+    var table = '<table class="table table-striped table-bordered table-hover" id="dataTables-example">\
+                <thead><tr>\
+                <th>BARANGAY</th>\
+                <th>NO. OF UNDERWEIGHT MALNOURISHED CHILDREN</th>\
+                <th>NO. OF SEVERELY UNDERWEIGHT MALNOURISHED CHILDREN</th>\
+                <th>TOTAL OF SEVERELY UNDERWEIGHT AND UNDERWEIGHT MALNOURISHED CHILDREN</th>\
+                <th>RANK</th>\
+                </tr></thead><tbody></tbody></table>';
+    $('#printTable').append(table);
+
+    $('#dataTables-example tbody > tr').remove();
+
+    if (locationID === '') {
+        $.ajax({
+            url: url,
+            async: true,
+            type: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                var decode = response;
+                if (decode) {
+                    if (decode.data.length > 0) {
+                        for (var i = 0; i < decode.data.length; i++) {
+                            var row = decode.data;
+                            var html = '<tr class="odd gradeX">\
+                                        <td class="center">' + row[i].name + '</td>\
+                                        <td class="center">' + row[i].under + '</td>\
+                                        <td class="center">' + row[i].severely + '</td>\
+                                        <td class="center">' + row[i].total + '</td>\
+                                        <td class="center">' + row[i].rank + '</td>\
+                                </tr>';
+                            $("#dataTables-example tbody").append(html);
+                        }
+                        $.notify("All records display", "info");
+                    }
+                }
+            },
+            error: function(error) {
+                console.log('error: ', error);
+                return;
+            }
+        });
+    } else {
+        $.ajax({
+            url: url + '/' + locationID,
+            async: true,
+            type: 'GET',
+            dataType: 'json',
+            success: function(response) {
+                var decode = response;
+                if (decode) {
+                    if (decode.data.length > 0) {
+                        for (var i = 0; i < decode.data.length; i++) {
+                            var row = decode.data;
+                            var html = '<tr class="odd gradeX">\
+                                        <td class="center">' + row[i].name + '</td>\
+                                        <td class="center">' + row[i].under + '</td>\
+                                        <td class="center">' + row[i].severely + '</td>\
+                                        <td class="center">' + row[i].total + '</td>\
+                                        <td class="center">' + row[i].rank + '</td>\
+                                </tr>';
+                            $("#dataTables-example tbody").append(html);
+                        }
+                        $.notify("All records display", "info");
+                    }
+                }
+            },
+            error: function(error) {
+                console.log('error: ', error);
+                return;
+            }
+        });
+    }
 }

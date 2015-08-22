@@ -33,7 +33,7 @@
 		  		}else if($request[1] == 'over'){
 		  			StatusController::printOverRank();
 		  		}else if($request[1] == 'severe-under-total'){
-		  			
+		  			StatusController::printSevereUnderTotalRank();
 		  		}
 		  	}else if($request[0] == 'location'){
 		  		$locationID = $request[2];
@@ -46,7 +46,20 @@
 		  		}else if($request[1] == 'over'){
 		  			StatusController::printOverLocation($locationID);
 		  		}else if($request[1] == 'severe-under-total'){
-		  			
+		  			StatusController::printSevereUnderTotalLocation($locationID);
+		  		}		
+	  		}else if($request[0] == 'gender'){
+		  		$gender = $request[2];
+	  			if ($request[1] == 'normal'){
+		  			StatusController::printNormalGender($gender);
+		  		}else if($request[1] == 'under'){
+		  			StatusController::printUnderGender($gender);
+		  		}else if($request[1] == 'severe-under'){
+		  			StatusController::printSeverelyUnderGender($gender);
+		  		}else if($request[1] == 'over'){
+		  			StatusController::printOverGender($gender);
+		  		}else if($request[1] == 'severe-under-total'){
+		  			StatusController::printSevereUnderTotalGender($gender);
 		  		}		
 	  		}else{
 	  			$age = $request[0];

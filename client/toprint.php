@@ -39,7 +39,7 @@
             <ul class="nav navbar-nav navbar-right">
                 <li><a href="javascript:window.print()"><i class="fa fa-print"></i> Print</a>
                 </li>
-                <li><a href="index.php"><i class="fa fa-times"></i> Close</a>
+                <li><a href="javascript:window.history.back();"><i class="fa fa-times"></i> Close</a>
                 </li>
             </ul>
         </div>
@@ -85,28 +85,9 @@
 
             </div>
         </div>
-
-        <div class="row">
-            <div class="col-xs-12">
-                <div id="print_content"></div>
-            </div>
-        </div>
     </div>
     </div>
     <!-- /#page-wrapper -->
-
-    <div class="modal modal-static fade" id="processing-modal" role="dialog" aria-hidden="true">
-            <div class="modal-dialog">
-                <div class="modal-content">
-                    <div class="modal-body">
-                        <div class="text-center">
-                            <img src="../../img/loading.gif" class="icon" />
-                            <h4>Processing...</h4>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </div>
 
 
     <!-- Bootstrap core JavaScript -->

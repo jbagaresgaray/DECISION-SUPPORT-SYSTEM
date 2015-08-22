@@ -27,8 +27,8 @@
                 <div class="row">
                     <div class="col-md-12">
                         <h2 id="lblPrint"></h2>
-                        <!-- <a class="btn btn-primary" onclick="printToPrinter()">Print Forms</a> -->
-                        <a class="btn btn-primary" href="toprint.php">Print Forms</a>
+                        <a class="btn btn-primary" onclick="printToPrinter()">Print Forms</a>
+                        <!-- <a class="btn btn-primary" href="toprint.php">Print Forms</a> -->
                         <a class="btn btn-success" download="CNO-data.xls" onclick="exportToExcel(this, 'dataTables-example', 'CNO Sheet Data')">Export to Excel</a>
                         <a class="btn btn-info" onclick="refresh()">Refresh</a>
                         <div class="col-lg-4 pull-right">
@@ -40,7 +40,7 @@
                                 <option value="all">All</option>
                                 <option value="rank"> Rank</option>
                                 <option value="barangay"> Barangay</option>
-                                <option value="gender"> Gender</option>
+                                <!-- <option value="gender"> Gender</option> -->
                             </select>
                         </div>
                     </div>
@@ -84,6 +84,7 @@
     <script src="../assets/bower_components/excellentexport/excellentexport.min.js"></script>
     <!-- CUSTOM SCRIPTS -->
     <script src="../js/pages/print.js"></script>
+    <script src="../js/pages/toprint.js"></script>
     <script src="../assets/js/custom.js"></script>
 </body>
 

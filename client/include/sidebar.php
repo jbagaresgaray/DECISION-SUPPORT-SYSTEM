@@ -37,7 +37,7 @@
                       <a href="javascript:printTask('under');">Underweight Malnourished</a>
                   </li>
                    <li>
-                      <a href="javascript:printTask('severe-under');">Severly Underweight</a>
+                      <a href="javascript:printTask('severe-under');">Severely Underweight</a>
                   </li>
                   <li>
                       <a href="javascript:printTask('over');">Over Weight</a>

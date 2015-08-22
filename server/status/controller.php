@@ -28,7 +28,7 @@ class StatusController {
 	}
 
 	public static function printSeverelyUnderTotal(){
-		Status::printSeverelyUnderTotal();
+		Status::printStatus('23');
 	}
 
 
@@ -49,21 +49,52 @@ class StatusController {
 		Status::printRankStatus('4');
 	}
 
+	public static function printSevereUnderTotalRank(){
+		Status::printRankStatus('23');
+	}
+
+
+
+	public static function printNormalGender($gender){
+		Status::printGenderStatus('1',$gender);
+	}
+
+	public static function printSeverelyUnderGender($gender){
+		Status::printGenderStatus('2',$gender);
+	}
+
+	public static function printUnderGender($gender){
+		Status::printGenderStatus('3',$gender);
+	}
+
+	public static function printOverGender($gender){
+		Status::printGenderStatus('4',$gender);
+	}
+
+	public static function printSevereUnderTotalGender($gender){
+		Status::printGenderStatus('23',$gender);
+	}
+
+
 
 	public static function printNormalLocation($locationID){
 		Status::printStatusByLocation('1',$locationID);
 	}
 
-	public static function printSeverelyUnderLocation(){
+	public static function printSeverelyUnderLocation($locationID){
 		Status::printStatusByLocation('2',$locationID);
 	}
 
-	public static function printUnderLocation(){
+	public static function printUnderLocation($locationID){
 		Status::printStatusByLocation('3',$locationID);
 	}
 
-	public static function printOverLocation(){
+	public static function printOverLocation($locationID){
 		Status::printStatusByLocation('4',$locationID);
+	}
+
+	public static function printSevereUnderTotalLocation($locationID){
+		Status::printStatusByLocation('23',$locationID);
 	}
 }
 
