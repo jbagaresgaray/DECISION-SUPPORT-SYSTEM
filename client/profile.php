@@ -1,3 +1,12 @@
+<?php 
+session_start();
+
+if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
+    header("Location: index.php");
+}
+?>
+
+
 <!DOCTYPE html>
 <html xmlns="http://www.w3.org/1999/xhtml">
 <?php require_once('include/header.php'); ?>
@@ -35,22 +44,22 @@
                                             <input type="hidden" id="user_id" name="user_id">
                                             <div class="form-group col-md-6" >
                                                 <label>First Name</label>
-                                                <input class="form-control" type="text" name="fname" id="fname" placeholder="First Name" / >
+                                                <input class="form-control" type="text" name="fname" id="fname" placeholder="First Name" value ="<?php echo $_SESSION['users']['fname'];?>"/>
                                                 <span class="help-inline"></span>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label>Last Name</label>
-                                                <input class="form-control" type="text" name="lname" id="lname" placeholder="Last Name" / >
+                                                <input class="form-control" type="text" name="lname" id="lname" placeholder="Last Name" value="<?php echo $_SESSION['users']['lname'];?>"/ >
                                                 <span class="help-inline"></span>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label>Email</label>
-                                                <input class="form-control" type="email" name="email" id= "email" placeholder="Email Address" / >
+                                                <input class="form-control" type="email" name="email" id= "email" placeholder="Email Address" value="<?php echo $_SESSION['users']['email'];?>"/>
                                                 <span class="help-inline"></span>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label>Mobile No.</label>
-                                                <input class="form-control" type="text" name="mobileno" id="mobileno" placeholder="Mobile No." / >
+                                                <input class="form-control" type="text" name="mobileno" id="mobileno" placeholder="Mobile No." value="<?php echo $_SESSION['users']['mobileno'];?>"/>
                                                 <span class="help-inline"></span>
                                             </div>
                                             <div class="form-group col-md-12">
