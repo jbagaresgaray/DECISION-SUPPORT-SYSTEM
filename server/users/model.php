@@ -70,19 +70,13 @@ class Users {
 	}
 
 	public static function currentUser(){
-		session_start();
-
-		$headers = apache_request_headers();
 		$config= new Config();
-
-		$id = $_SESSION['users']['id'];
-		$token = $headers['X-Auth-Token'];
-
 		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
 		if ($mysqli->connect_errno) {
 		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
 		    return;
 		}else{
+			$id = $_SESSION['users']['id'];
 			$query1 ="SELECT id,username,email,mobileno,fname,lname,level FROM userdata WHERE id = '$id' LIMIT 1;";
 	        $result = $mysqli->query($query1);
 	        if($result){
