@@ -91,7 +91,9 @@ function save() {
             url: '../server/yearterms/',
             async: false,
             type: 'POST',
-            crossDomain: true,
+            headers: {
+                'X-Auth-Token': $("input[name='csrf']").val()
+            },
             dataType: 'json',
             data: {
                 year: $('#year').val(),
@@ -121,7 +123,9 @@ function save() {
             url: '../server/yearterms/' + $('#id').val(),
             async: false,
             type: 'PUT',
-            crossDomain: true,
+            headers: {
+                'X-Auth-Token': $("input[name='csrf']").val()
+            },
             dataType: 'json',
             data: {
                 year: $('#year').val(),
@@ -156,6 +160,9 @@ function fetch_all_years() {
         url: '../server/yearterms/',
         async: true,
         type: 'GET',
+        headers: {
+            'X-Auth-Token': $("input[name='csrf']").val()
+        },
         dataType: 'json',
         success: function(response) {
             var decode = response;
@@ -190,6 +197,9 @@ function deletedata(id) {
         url: '../server/yearterms/' + id,
         async: true,
         type: 'DELETE',
+        headers: {
+            'X-Auth-Token': $("input[name='csrf']").val()
+        },
         success: function(response) {
             var decode = response;
             if (decode.success == true) {
@@ -209,6 +219,9 @@ function getData(status, id) {
         url: '../server/yearterms/' + id,
         async: true,
         type: 'GET',
+        headers: {
+            'X-Auth-Token': $("input[name='csrf']").val()
+        },
         success: function(response) {
             var decode = response;
             console.log('response: ', decode);

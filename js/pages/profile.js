@@ -1,15 +1,11 @@
 $(document).ready(function() {
-
-    
+    currentUser();
 });
 
-function clear() {
-    $("#fname").val('');
-    $("#lname").val('');
-    $("#username").val('');
-    $("#email").val('');
-    $("#mobileno").val('');
-}
+$('#myTabs a').click(function(e) {
+    e.preventDefault();
+    $(this).tab('show')
+});
 
 function resetHelpInLine() {
     $('span.help-inline').each(function() {
@@ -17,60 +13,161 @@ function resetHelpInLine() {
     });
 }
 
-function getData(status, id) {
+function currentUser() {
     $.ajax({
-        url: '../server/users/' + id,
-        async: true,
+        url: '../server/users/auth/',
+        async: false,
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
         type: 'GET',
         success: function(response) {
-            var decode = response;
-            console.log('response: ', decode);
-            if (decode.success == true) {
-                var data = decode.userdata;
-
-                $("#user_id").val(data.id);
-                $("#fname").val(data.fname);
-                $("#lname").val(data.lname);
-                $("#level").val(data.level);
-                $("#username").val(data.username);
-                $("#email").val(data.email);
-                $("#mobileno").val(data.mobileno);
-
-                if (status === 'view') {
-                    $("#fname").prop('disabled', true);
-                    $("#lname").prop('disabled', true);
-                    $("#level").prop('disabled', true);
-                    $("#username").prop('disabled', true);
-                    $("#password").hide();
-                    $("#password").prev('label').hide();
-                    $("#password2").hide();
-                    $("#password2").prev('label').hide();
-                    $("#email").prop('disabled', true);
-                    $("#mobileno").prop('disabled', true);
-
-                    $("#btn-save").attr('disabled', true);
-                } else {
-                    $("#fname").prop('disabled', false);
-                    $("#lname").prop('disabled', false);
-                    $("#level").prop('disabled', false);
-                    $("#username").prop('disabled', false);
-                    $("#password").hide();
-                    $("#password").prev('label').hide();
-                    $("#password2").hide();
-                    $("#password2").prev('label').hide();
-                    $("#email").prop('disabled', false);
-                    $("#mobileno").prop('disabled', false);
-
-                    $("#btn-save").removeAttr('disabled');
-                }
-
-
-                $('#userModal').modal('show');
-            } else if (decode.success === false) {
-                $.notify(decode.msg, "error");
-                return;
-            }
-
+            $("#fname").val(response.fname);
+            $("#lname").val(response.lname);
+            $("#email").val(response.email);
+            $('#mobileno').val(response.mobileno);
+        },
+        error: function(error) {
+            console.log("Error:");
+            console.log(error.responseText);
+            console.log(error.message);
+            return;
         }
     });
+}
+
+function saveAccount() {
+    resetHelpInLine();
+
+    var empty = false;
+
+    $('input[type="text"]').each(function() {
+        $(this).val($(this).val().trim());
+    });
+
+    if ($('#username').val() == '') {
+        $('#username').next('span').text('Username is required.');
+        empty = true;
+    }
+
+    if ($('#password').val() == '') {
+        $('#password').next('span').text('Password is required.');
+        empty = true;
+    }
+
+    if ($('#password2').val() == '') {
+        $('#password2').next('span').text('Confirm Password is required.');
+        empty = true;
+    }
+
+    if ($('#password').val() !== $('#password2').val()) {
+        $('#password').next('span').text('Password and Confirm password must be the same.');
+        empty = true;
+    }
+
+    if (empty == true) {
+        $.notify('Please input all the required fields correctly.', "error");
+        return false;
+    }
+
+    $.ajax({
+        url: '../server/users/account/' + $('#user_id').val(),
+        async: false,
+        type: 'PUT',
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
+        data: {
+            username: $('#username').val(),
+            password: $('#password').val()
+        },
+        success: function(response) {
+            var decode = response;
+            if (decode.success == true) {
+                $.notify(decode.msg, "success");
+                setTimeout(function() {
+                    window.location.reload();
+                }, 1000);
+            } else if (decode.success === false) {
+                $.notify(decode.error, "error");
+                return;
+            }
+        },
+        error: function(error) {
+            console.log("Error:");
+            console.log(error.responseText);
+            console.log(error.message);
+            return;
+        }
+    });
+}
+
+
+function saveProfile() {
+    resetHelpInLine();
+
+    var empty = false;
+
+    $('input[type="text"]').each(function() {
+        $(this).val($(this).val().trim());
+    });
+
+    if ($('#fname').val() == '') {
+        $('#fname').next('span').text('Username is required.');
+        empty = true;
+    }
+
+    if ($('#lname').val() == '') {
+        $('#lname').next('span').text('Password is required.');
+        empty = true;
+    }
+
+    if ($('#email').val() == '') {
+        $('#email').next('span').text('Confirm Password is required.');
+        empty = true;
+    }
+
+    if ($('#mobileno').val() == '') {
+        $('#mobileno').next('span').text('Password and Confirm password must be the same.');
+        empty = true;
+    }
+
+    if (empty == true) {
+        $.notify('Please input all the required fields correctly.', "error");
+        return false;
+    }
+
+    $.ajax({
+        url: '../server/users/profile/' + $('#user_id').val(),
+        async: false,
+        type: 'PUT',
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
+        data: {
+            fname: $('#fname').val(),
+            lname: $('#lname').val(),
+            email: $('#email').val(),
+            mobileno: $('#mobileno').val()
+        },
+        success: function(response) {
+            var decode = response;
+            if (decode.success == true) {
+                $.notify(decode.msg, "success");
+                setTimeout(function() {
+                    window.location.reload();
+                }, 1000);
+            } else if (decode.success === false) {
+                $.notify(decode.error, "error");
+                return;
+            }
+        },
+        error: function(error) {
+            console.log("Error:");
+            console.log(error.responseText);
+            console.log(error.message);
+            return;
+        }
+    });
+
 }

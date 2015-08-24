@@ -177,8 +177,10 @@ function save() {
             url: '../server/child/',
             async: false,
             type: 'POST',
-            crossDomain: true,
             dataType: 'json',
+            headers: {
+                'X-Auth-Token': $("input[name='csrf']").val()
+            },
             data: {
                 fname: $('#fname').val(),
                 mname: $('#mname').val(),
@@ -217,7 +219,9 @@ function save() {
             url: '../server/child/' + $('#child_id').val(),
             async: false,
             type: 'PUT',
-            crossDomain: true,
+            headers: {
+                'X-Auth-Token': $("input[name='csrf']").val()
+            },
             dataType: 'json',
             data: {
                 fname: $('#fname').val(),
@@ -262,6 +266,9 @@ function fetch_all_child() {
         url: '../server/child/',
         async: true,
         type: 'GET',
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
         dataType: 'json',
         success: function(response) {
             var decode = response;
@@ -297,6 +304,9 @@ function deletedata(id) {
     $.ajax({
         url: '../server/child/' + id,
         async: true,
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
         type: 'DELETE',
         success: function(response) {
             var decode = response;
@@ -317,6 +327,9 @@ function getData(status, id) {
         url: '../server/child/' + id,
         async: true,
         type: 'GET',
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
         success: function(response) {
             var decode = response;
             console.log('response: ', decode);
@@ -394,6 +407,9 @@ function fetch_barangay() {
         url: '../server/location/',
         async: true,
         type: 'GET',
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
         success: function(response) {
             var decode = response;
             $('#location').empty();
@@ -417,6 +433,9 @@ function fetch_year() {
         url: '../server/yearterms/',
         async: true,
         type: 'GET',
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
         success: function(response) {
             var decode = response;
             $('#cboyears').empty();
@@ -441,6 +460,9 @@ function getStatus(age, weight) {
         url: '../server/status/' + age + '/' + weight,
         async: true,
         type: 'GET',
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
         success: function(response) {
             console.log('response: ', response);
             $('#lblStatus').text(response.CNO);

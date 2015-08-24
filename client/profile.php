@@ -40,38 +40,39 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
                                 <div class="tab-content">
                                     <div role="tabpanel" class="tab-pane active" id="profile">
                                         <br>
-                                        <form role="form"  id="formchild" class="padding-top">
-                                            <input type="hidden" id="user_id" name="user_id">
+                                        <form role="form"  id="frmProfile" class="padding-top">
+                                            <input type="hidden" name="user_id" value="<?php echo $_SESSION['users']['id'];?>">
+                                            <input type="hidden" name="csrf" value="<?php echo $_SESSION['form_token'];?>">
                                             <div class="form-group col-md-6" >
                                                 <label>First Name</label>
-                                                <input class="form-control" type="text" name="fname" id="fname" placeholder="First Name" value ="<?php echo $_SESSION['users']['fname'];?>"/>
+                                                <input class="form-control" type="text" name="fname" id="fname" placeholder="First Name"/>
                                                 <span class="help-inline"></span>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label>Last Name</label>
-                                                <input class="form-control" type="text" name="lname" id="lname" placeholder="Last Name" value="<?php echo $_SESSION['users']['lname'];?>"/ >
+                                                <input class="form-control" type="text" name="lname" id="lname" placeholder="Last Name"/ >
                                                 <span class="help-inline"></span>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label>Email</label>
-                                                <input class="form-control" type="email" name="email" id= "email" placeholder="Email Address" value="<?php echo $_SESSION['users']['email'];?>"/>
+                                                <input class="form-control" type="email" name="email" id= "email" placeholder="Email Address"/>
                                                 <span class="help-inline"></span>
                                             </div>
                                             <div class="form-group col-md-6">
                                                 <label>Mobile No.</label>
-                                                <input class="form-control" type="text" name="mobileno" id="mobileno" placeholder="Mobile No." value="<?php echo $_SESSION['users']['mobileno'];?>"/>
+                                                <input class="form-control" type="text" name="mobileno" id="mobileno" placeholder="Mobile No."/>
                                                 <span class="help-inline"></span>
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <a id="btn-save" class="btn btn-primary" onclick="save()">Submit</a>
+                                                <a id="btn-save" class="btn btn-primary" onclick="saveProfile()">Update</a>
                                                 <button type="button" class="btn btn-warning" data-dismiss="modal">Clear</button>
                                             </div>
                                         </form>
                                     </div>
                                     <div role="tabpanel" class="tab-pane" id="settings">
                                         <br>
-                                        <form role="form"  id="formAccounts" class="padding-top">
-                                            <input type="hidden" id="user_id" name="user_id">
+                                        <form role="form"  id="frmAccount" class="padding-top">
+                                            <input type="hidden" id="user_id" name="user_id" value="<?php echo $_SESSION['users']['id'];?>">
                                             <div class="form-group">
                                                 <div class="col-md-6">
                                                     <label>Username</label>
@@ -94,7 +95,7 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
                                                 </div>
                                             </div>
                                             <div class="form-group col-md-12">
-                                                <a id="btn-save" class="btn btn-primary" onclick="save()">Submit</a>
+                                                <a id="btn-save" class="btn btn-primary" onclick="saveAccount()">Update</a>
                                                 <button type="button" class="btn btn-warning" data-dismiss="modal">Clear</button>
                                             </div>
                                         </form>                                        
@@ -131,13 +132,8 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
     <!-- ExportToExcel -->
     <script src="../assets/bower_components/excellentexport/excellentexport.min.js"></script>
     <!-- CUSTOM SCRIPTS -->
+    <script src="../js/pages/profile.js"></script>
     <script src="../assets/js/custom.js"></script>
-    <script type="text/javascript">
-        $('#myTabs a').click(function (e) {
-            e.preventDefault();
-            $(this).tab('show')
-        })
-    </script>
 </body>
 
 </html>

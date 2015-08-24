@@ -126,6 +126,9 @@ function save() {
             url: '../server/users/',
             async: false,
             type: 'POST',
+            headers: {
+                'X-Auth-Token': $("input[name='csrf']").val()
+            },
             data: {
                 fname: $('#fname').val(),
                 lname: $('#lname').val(),
@@ -160,6 +163,9 @@ function save() {
             url: '../server/users/' + $('#user_id').val(),
             async: false,
             type: 'PUT',
+            headers: {
+                'X-Auth-Token': $("input[name='csrf']").val()
+            },
             data: {
                 fname: $('#fname').val(),
                 lname: $('#lname').val(),
@@ -197,6 +203,9 @@ function fetch_all_users() {
         url: '../server/users/',
         async: true,
         type: 'GET',
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
         dataType: 'json',
         success: function(response) {
             var decode = response;
@@ -233,6 +242,9 @@ function deletedata(id) {
         url: '../server/users/' + id,
         async: true,
         type: 'DELETE',
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
         success: function(response) {
             var decode = response;
             if (decode.success == true) {
@@ -252,6 +264,9 @@ function getData(status, id) {
         url: '../server/users/' + id,
         async: true,
         type: 'GET',
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
         success: function(response) {
             var decode = response;
             console.log('response: ', decode);

@@ -191,7 +191,7 @@ CREATE TABLE IF NOT EXISTS `userdata` (
 --
 -- Dumping data for table `userdata`
 --
-
+INSERT INTO `userdata` VALUES ('1', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997','sample@email.com','12345678910','Admin','Admin','Admin');
 
 --
 -- Table structure for table `status`
@@ -225,6 +225,8 @@ CREATE TABLE IF NOT EXISTS `yearterms` (
 -- Dumping data for table `yearterms`
 --
 
+
+DELIMITER $$
 CREATE PROCEDURE printLocationStatus(IN ID INTEGER)
 BEGIN
   SET @rank=0;
@@ -234,7 +236,7 @@ BEGIN
   FROM location l
   GROUP BY l.id
   ORDER BY noOfchild DESC, rank ASC;
-END;
+END$$
 
 
 CREATE PROCEDURE printStatusGender(IN ID INTEGER)
@@ -247,7 +249,7 @@ BEGIN
   FROM location l
   GROUP BY l.id
   ORDER BY  Male DESC,Female DESC, rank ASC;
-END;
+END$$
 
 CREATE PROCEDURE printSevereUnder()
 BEGIN
@@ -255,12 +257,16 @@ BEGIN
   SELECT l.id,l.name,l.description,l.landarea,
   (SELECT COUNT(c.id) FROM child c WHERE c.status_id=2 AND c.locationID=l.id) AS under,
   (SELECT COUNT(c.id) FROM child c WHERE c.status_id=3 AND c.locationID=l.id) AS severely,
-  ((SELECT COUNT(c.id) FROM child c WHERE c.status_id=2 AND c.locationID=l.id) + (SELECT COUNT(c.id) FROM child c WHERE c.status_id=3 AND c.locationID=l.id)) AS total, 
+  (
+  (SELECT COUNT(c.id) FROM child c WHERE c.status_id=2 AND c.locationID=l.id)
+  +
+    (SELECT COUNT(c.id) FROM child c WHERE c.status_id=3 AND c.locationID=l.id)
+  ) AS total,
   @rank:=@rank+1 AS rank
   FROM location l
   GROUP BY l.id
   ORDER BY under DESC, rank ASC;
-END;
+END$$
 
 CREATE PROCEDURE printSevereUnderGender(IN GENDER VARCHAR(10))
 BEGIN
@@ -268,11 +274,13 @@ BEGIN
   SELECT l.id,l.name,l.description,l.landarea,
   (SELECT COUNT(c.id) FROM child c WHERE c.status_id=2 AND c.locationID=l.id AND c.gender = GENDER) AS under,
   (SELECT COUNT(c.id) FROM child c WHERE c.status_id=3 AND c.locationID=l.id AND c.gender = GENDER) AS severely,
-  ((SELECT COUNT(c.id) FROM child c WHERE c.status_id=2 AND c.locationID=l.id) 
+  (
+  (SELECT COUNT(c.id) FROM child c WHERE c.status_id=2 AND c.locationID=l.id)
   + 
-  (SELECT COUNT(c.id) FROM child c WHERE c.status_id=3 AND c.locationID=l.id)) AS total, 
+  (SELECT COUNT(c.id) FROM child c WHERE c.status_id=3 AND c.locationID=l.id)
+  ) AS total,
   @rank:=@rank+1 AS rank
   FROM location l
   GROUP BY l.id
   ORDER BY under DESC, rank ASC;
-END
+END$$

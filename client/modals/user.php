@@ -7,6 +7,7 @@
             <div class="modal-body">
               <form role="form"  id="formchild">
                   <input type="hidden" id="user_id" name="user_id">
+                  <input type="hidden" name="csrf" value="<?php echo $_SESSION['form_token'];?>">
                   <div class="form-group">
                       <label>First Name</label>
                       <input class="form-control" type="text" name="fname" id="fname" placeholder="First Name" / >

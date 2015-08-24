@@ -29,12 +29,12 @@ $(document).on("click", ".delete-icon", function() {
 
 $(document).on("click", ".update-icon", function() {
     var id = $(this).data('id');
-    getData('update',id);
+    getData('update', id);
 });
 
 $(document).on("click", ".view-icon", function() {
     var id = $(this).data('id');
-    getData('view',id);
+    getData('view', id);
 });
 
 function create_barangay() {
@@ -98,6 +98,9 @@ function save() {
             url: '../server/location/',
             async: false,
             type: 'POST',
+            headers: {
+                'X-Auth-Token': $("input[name='csrf']").val()
+            },
             data: {
                 name: $('#name').val(),
                 landarea: $('#landarea').val(),
@@ -129,6 +132,9 @@ function save() {
             url: '../server/location/' + $('#id').val(),
             async: false,
             type: 'PUT',
+            headers: {
+                'X-Auth-Token': $("input[name='csrf']").val()
+            },
             data: {
                 name: $('#name').val(),
                 landarea: $('#landarea').val(),
@@ -166,6 +172,9 @@ function fetch_all_barangay() {
         url: '../server/location/',
         async: true,
         type: 'GET',
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
         dataType: 'json',
         success: function(response) {
             var decode = response;
@@ -177,11 +186,11 @@ function fetch_all_barangay() {
                                         <td class="">' + row[i].name + '</td>\
                                         <td class="">' + row[i].landarea + '</td>\
                                         <td class="">' + row[i].description + '</td>\
-                                        <td class="center" width="15%"> X : ' + row[i].x  + ' || Y: ' + row[i].y + '</td>\
+                                        <td class="center" width="15%"> X : ' + row[i].x + ' || Y: ' + row[i].y + '</td>\
                                         <td class=" " width="20%">\
-                                            <a href="#" data-id="'+ row[i].id +'" class="view-icon">view</a>|\
-                                            <a href="#" data-id="'+ row[i].id +'" class="update-icon">update</a>|\
-                                            <a href="#" data-id="'+ row[i].id +'" class="delete-icon">delete</a>\
+                                            <a href="#" data-id="' + row[i].id + '" class="view-icon">view</a>|\
+                                            <a href="#" data-id="' + row[i].id + '" class="update-icon">update</a>|\
+                                            <a href="#" data-id="' + row[i].id + '" class="delete-icon">delete</a>\
                                         </td>\
                                 </tr>';
                         $("#dataTables-example tbody").append(html);
@@ -202,6 +211,9 @@ function deletedata(id) {
         url: '../server/location/' + id,
         async: true,
         type: 'DELETE',
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
         success: function(response) {
             var decode = response;
             if (decode.success == true) {
@@ -216,16 +228,19 @@ function deletedata(id) {
     });
 }
 
-function getData(status,id) {
+function getData(status, id) {
     $.ajax({
         url: '../server/location/' + id,
         async: true,
         type: 'GET',
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
         success: function(response) {
             var decode = response;
             console.log('response: ', decode);
             if (decode.success == true) {
-                var location  = decode.location;
+                var location = decode.location;
 
                 $("#id").val(location.id);
                 $("#name").val(location.name);
@@ -234,7 +249,7 @@ function getData(status,id) {
                 $("#x_coord").val(location.x);
                 $("#y_coord").val(location.y);
 
-                if (status === 'view'){
+                if (status === 'view') {
                     $("#name").prop('disabled', true);
                     $("#description").prop('disabled', true);
                     $("#landarea").prop('disabled', true);
@@ -242,14 +257,14 @@ function getData(status,id) {
                     $("#y_coord").prop('disabled', true);
 
                     $("#btn-save").attr('disabled', true);
-                }else{
+                } else {
                     $("#name").prop('disabled', false);
                     $("#description").prop('disabled', false);
                     $("#landarea").prop('disabled', false);
                     $("#x_coord").prop('disabled', false);
                     $("#y_coord").prop('disabled', false);
 
-                     $("#btn-save").removeAttr('disabled');
+                    $("#btn-save").removeAttr('disabled');
                 }
 
                 $('#locationModal').modal('show');

@@ -13,20 +13,35 @@
 					$_PUT[str_replace('amp;', '', $key)] = $value;
 			}
 			$_REQUEST = array_merge($_REQUEST, $_PUT);
-
 			if(isset($request) && !empty($request) && $request[0] !== ''){
-				$id = $request[0];
-				$data = [
-					"username" => $_REQUEST['username'],
-					"email" => $_REQUEST['email'],
-					"mobileno" => $_REQUEST['mobileno'],
-					"fname" => $_REQUEST['fname'],
-					"lname" => $_REQUEST['lname'],
-					"level" => $_REQUEST['level']
-				];
-				Users::update($id,$data);
-			}else{
-				Users::update($_REQUEST);
+				if ($request[0] == 'account'){
+					$id = $request[1];
+					$data = [
+						"username" => $_REQUEST['username'],
+						"password" => $_REQUEST['password'],
+					];
+					Users::updateAccount($id,$data);
+				}else if ($request[0] == 'profile'){
+					$id = $request[1];
+					$data = [
+						"email" => $_REQUEST['email'],
+						"mobileno" => $_REQUEST['mobileno'],
+						"fname" => $_REQUEST['fname'],
+						"lname" => $_REQUEST['lname'],
+					];
+					Users::updateProfile($id,$data);
+				}else{
+					$id = $request[0];
+					$data = [
+						"username" => $_REQUEST['username'],
+						"email" => $_REQUEST['email'],
+						"mobileno" => $_REQUEST['mobileno'],
+						"fname" => $_REQUEST['fname'],
+						"lname" => $_REQUEST['lname'],
+						"level" => $_REQUEST['level']
+					];
+					Users::update($id,$data);
+				}
 			}
 	    break;
 	  case 'POST':
@@ -43,10 +58,12 @@
 	    break;
 	  case 'GET':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
-	  		$id = $request[0];
-			Users::detail($id);
-	  	}else{
-			Users::read();
+	  		if ($request[0] == 'auth'){
+				Users::currentUser();
+			}else{
+		  		$id = $request[0];
+				Users::detail($id);
+			}
 	  	}
 	    break;
 	  case 'DELETE':

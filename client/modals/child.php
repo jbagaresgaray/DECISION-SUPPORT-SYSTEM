@@ -7,6 +7,7 @@
             <div class="modal-body">
               <form role="form"  id="formchild">
                   <input type="hidden" id="child_id" name="child_id">
+                  <input type="hidden" name="csrf" value="<?php echo $_SESSION['form_token'];?>">
                   <div class="form-group">
                       <label>Years / Terms</label>
                       <select class="form-control" name="cboyears" id= "cboyears"></select>
