@@ -39,7 +39,7 @@ class Location {
 		    print json_encode(array('success' =>false,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
 		    return;
 		}else{
-			$query ="SELECT * FROM location;";
+			$query ="SELECT id,name,CONCAT('X: ',x,' || Y: ',y) as coordinates,description,landarea,x,y FROM location;";
 			$result = $mysqli->query($query);
 			$data = array();
 			while($row = $result->fetch_array(MYSQLI_ASSOC)){

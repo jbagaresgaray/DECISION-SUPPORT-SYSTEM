@@ -31,6 +31,10 @@ function currentUser() {
             console.log("Error:");
             console.log(error.responseText);
             console.log(error.message);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
             return;
         }
     });
@@ -97,6 +101,10 @@ function saveAccount() {
             console.log("Error:");
             console.log(error.responseText);
             console.log(error.message);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
             return;
         }
     });
@@ -166,6 +174,10 @@ function saveProfile() {
             console.log("Error:");
             console.log(error.responseText);
             console.log(error.message);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
             return;
         }
     });

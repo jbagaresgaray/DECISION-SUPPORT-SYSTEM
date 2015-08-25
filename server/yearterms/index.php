@@ -1,6 +1,6 @@
 <?php
 	include('../../server/cors.php');
-	include( __DIR__.'/model.php');
+	include( __DIR__.'/controller.php');
 
 	$method = $_SERVER['REQUEST_METHOD'];
 	$request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
@@ -18,35 +18,27 @@
 			$_REQUEST = array_merge($_REQUEST, $_PUT);
 
 			if(isset($request) && !empty($request) && $request[0] !== ''){
-		  		$id = $request[0];
-		  		$data = [
-					'year'=> $_REQUEST['year'],
-					'terms'=> $_REQUEST['terms']
-				];
-				YearTerms::update($id,$data);
+		  		$id = $request[0];		  		
+				YearsController::update($id,$_REQUEST);
 		  	}else{
-				YearTerms::update($_REQUEST);
+				header('Route Not Found', true, 404);
 		  	}
 	    break;
 	  case 'POST':
-			$data = [
-				'year'=> $_POST['year'],
-				'terms'=> $_POST['terms']
-			];
-			YearTerms::create($data);
+			YearsController::create($_POST);
 	    break;
 	  case 'GET':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		$id = $request[0];
-			YearTerms::detail($id);
+			YearsController::detail($id);
 	  	}else{
-			YearTerms::read();
+			YearsController::read();
 	  	}
 	    break;
 	  case 'DELETE':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		$id = $request[0];
-				YearTerms::delete($id);
+				YearsController::delete($id);
 	  	}
 	    break;
 	  default:

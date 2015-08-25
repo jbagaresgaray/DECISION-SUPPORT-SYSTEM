@@ -6,7 +6,7 @@
 	$request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 
 	switch ($method) {
-	  case 'PUT':
+	  	case 'PUT':
 			$data=parse_str( file_get_contents( 'php://input' ), $_PUT );
 			foreach ($_PUT as $key => $value){
 					unset($_PUT[$key]);
@@ -20,24 +20,24 @@
 			}else{
 				ChildController::update(null,$_REQUEST);
 			}
-	    break;
-	  case 'POST':
+	    	break;
+	  	case 'POST':
 			ChildController::create($_POST);
-	    break;
-	  case 'GET':
-	  	if(isset($request) && !empty($request) && $request[0] !== ''){
-	  		$id = $request[0];
-			ChildController::detail($id);
-	  	}else{
-			ChildController::read();
-	  	}
-	    break;
-	  case 'DELETE':
-	  	if(isset($request) && !empty($request) && $request[0] !== ''){
-	  		$id = $request[0];
+	    	break;
+	  	case 'GET':
+		  	if(isset($request) && !empty($request) && $request[0] !== ''){
+		  		$id = $request[0];
+				ChildController::detail($id);
+		  	}else{
+				ChildController::read();
+		  	}
+		    break;
+	  	case 'DELETE':
+		  	if(isset($request) && !empty($request) && $request[0] !== ''){
+		  		$id = $request[0];
 				ChildController::delete($id);
-	  	}
-	    break;
+		  	}
+	    	break;
 	  default:
 	    print json_encode('ENTRANCE EXAM API v.0.1 developed by: Philip Cesar B. Garay');
 	    break;

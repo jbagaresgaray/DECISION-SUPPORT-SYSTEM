@@ -62,14 +62,14 @@ function filters() {
             $("#cboOptions").bind("change", filterLocation);
             filterLocation();
             break;
-        /*case 'gender':
-            $("#cboOptions").append('<option value="Male">Male</option>');
-            $("#cboOptions").append('<option value="Female">Female</option>');
+            /*case 'gender':
+                $("#cboOptions").append('<option value="Male">Male</option>');
+                $("#cboOptions").append('<option value="Female">Female</option>');
 
-            $("#cboOptions").bind("change", filterGender);
-            filterGender();
+                $("#cboOptions").bind("change", filterGender);
+                filterGender();
 
-            break;*/
+                break;*/
     }
 }
 
@@ -126,6 +126,10 @@ function populateLocation() {
             console.log("Error:");
             console.log(error.responseText);
             console.log(error.message);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
             return;
         }
     });
@@ -170,6 +174,10 @@ function loadAll(url) {
         },
         error: function(error) {
             console.log('error: ', error);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
             return;
         }
     });
@@ -213,6 +221,10 @@ function loadAllByLocation(url, locationID) {
         },
         error: function(error) {
             console.log('error: ', error);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
             return;
         }
     });
@@ -251,6 +263,10 @@ function loadRank(url, header) {
         },
         error: function(error) {
             console.log('error: ', error);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
             return;
         }
     });
@@ -293,6 +309,10 @@ function loadGender(url, gender) {
         },
         error: function(error) {
             console.log('error: ', error);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
             return;
         }
     });
@@ -341,6 +361,10 @@ function loadTotalSevereUnder(url, locationID) {
             },
             error: function(error) {
                 console.log('error: ', error);
+                if (error.responseText) {
+                    var msg = JSON.parse(error.responseText)
+                    $.notify(msg.msg, "error");
+                }
                 return;
             }
         });
@@ -371,6 +395,10 @@ function loadTotalSevereUnder(url, locationID) {
             },
             error: function(error) {
                 console.log('error: ', error);
+                if (error.responseText) {
+                    var msg = JSON.parse(error.responseText)
+                    $.notify(msg.msg, "error");
+                }
                 return;
             }
         });

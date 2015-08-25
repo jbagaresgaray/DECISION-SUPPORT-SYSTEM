@@ -34,6 +34,13 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
                         <!-- Advanced Tables -->
                         <div class="panel panel-default">
                             <div class="panel-body">
+                                <div class="form-inline form-padding">
+                                    <form id="frmSearch" role="form">
+                                        <input type="text" class="form-control" id="inputSearch" placeholder="Search">
+                                        <a onclick="fetch_all_barangay()" class="btn btn-success">Search</a>
+                                    </form>
+                                </div>
+                                <br>
                                 <div class="table-responsive">
                                     <table class="table table-striped table-bordered table-hover" id="dataTables-example">
                                         <thead>
@@ -45,6 +52,7 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
                                                 <th></th>
                                             </tr>
                                         </thead>
+                                        <tbody></tbody>
                                     </table>
                                 </div>
                             </div>
@@ -73,6 +81,8 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
     <script src="../assets/bower_components/notifyjs/dist/styles/bootstrap/notify-bootstrap.js"></script>
     <!-- Bootstrap Core JavaScript -->
     <script src="../assets/bower_components/bootstrap3-dialog/dist/js/bootstrap-dialog.min.js"></script>
+    <!-- Lodash -->
+    <script src="../assets/bower_components/lodash/lodash.min.js"></script>
 
     <!-- CUSTOM SCRIPTS -->
     <script src="../js/pages/barangay.js"></script>

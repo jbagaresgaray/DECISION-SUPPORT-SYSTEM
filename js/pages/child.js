@@ -1,5 +1,4 @@
 $(document).ready(function() {
-    $('#dataTables-example').dataTable();
     $('#datetimepicker2').datetimepicker({
         locale: 'en'
     });
@@ -211,6 +210,10 @@ function save() {
                 console.log("Error:");
                 console.log(error.responseText);
                 console.log(error.message);
+                if (error.responseText) {
+                    var msg = JSON.parse(error.responseText)
+                    $.notify(msg.msg, "error");
+                }
                 return;
             }
         });
@@ -253,6 +256,10 @@ function save() {
                 console.log("Error:");
                 console.log(error.responseText);
                 console.log(error.message);
+                if (error.responseText) {
+                    var msg = JSON.parse(error.responseText)
+                    $.notify(msg.msg, "error");
+                }
                 return;
             }
         });
@@ -267,15 +274,22 @@ function fetch_all_child() {
         async: true,
         type: 'GET',
         headers: {
-            'X-Auth-Token' : $("input[name='csrf']" ).val()
+            'X-Auth-Token': $("input[name='csrf']").val()
         },
         dataType: 'json',
         success: function(response) {
-            var decode = response;
-            if (decode) {
-                if (decode.childs.length > 0) {
-                    for (var i = 0; i < decode.childs.length; i++) {
-                        var row = decode.childs;
+            if (response) {
+                if (response.childs.length > 0) {
+                    var decode = [];
+                    if ($('#inputSearch').val() !== '') {
+                        decode = _.filter(response.childs, {
+                            'lname': $('#inputSearch').val()
+                        });
+                    } else {
+                        decode = response.childs;
+                    }
+                    for (var i = 0; i < decode.length; i++) {
+                        var row = decode;
                         var html = '<tr class="odd gradeX">\
                                         <td class="">' + row[i].lname + ', ' + row[i].fname + '</td>\
                                         <td class="">' + moment(row[i].dob).format('MM-DD-YYYY') + '</td>\
@@ -295,6 +309,10 @@ function fetch_all_child() {
         },
         error: function(error) {
             console.log('error: ', error);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
             return;
         }
     });
@@ -305,7 +323,7 @@ function deletedata(id) {
         url: '../server/child/' + id,
         async: true,
         headers: {
-            'X-Auth-Token' : $("input[name='csrf']" ).val()
+            'X-Auth-Token': $("input[name='csrf']").val()
         },
         type: 'DELETE',
         success: function(response) {
@@ -318,6 +336,14 @@ function deletedata(id) {
                 return;
             }
 
+        },
+        error: function(error) {
+            console.log('error: ', error);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
+            return;
         }
     });
 }
@@ -328,7 +354,7 @@ function getData(status, id) {
         async: true,
         type: 'GET',
         headers: {
-            'X-Auth-Token' : $("input[name='csrf']" ).val()
+            'X-Auth-Token': $("input[name='csrf']").val()
         },
         success: function(response) {
             var decode = response;
@@ -398,6 +424,14 @@ function getData(status, id) {
                 return;
             }
 
+        },
+        error: function(error) {
+            console.log('error: ', error);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
+            return;
         }
     });
 }
@@ -408,7 +442,7 @@ function fetch_barangay() {
         async: true,
         type: 'GET',
         headers: {
-            'X-Auth-Token' : $("input[name='csrf']" ).val()
+            'X-Auth-Token': $("input[name='csrf']").val()
         },
         success: function(response) {
             var decode = response;
@@ -423,6 +457,10 @@ function fetch_barangay() {
             console.log("Error:");
             console.log(error.responseText);
             console.log(error.message);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
             return;
         }
     });
@@ -434,7 +472,7 @@ function fetch_year() {
         async: true,
         type: 'GET',
         headers: {
-            'X-Auth-Token' : $("input[name='csrf']" ).val()
+            'X-Auth-Token': $("input[name='csrf']").val()
         },
         success: function(response) {
             var decode = response;
@@ -449,6 +487,10 @@ function fetch_year() {
             console.log("Error:");
             console.log(error.responseText);
             console.log(error.message);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
             return;
         }
     });
@@ -461,7 +503,7 @@ function getStatus(age, weight) {
         async: true,
         type: 'GET',
         headers: {
-            'X-Auth-Token' : $("input[name='csrf']" ).val()
+            'X-Auth-Token': $("input[name='csrf']").val()
         },
         success: function(response) {
             console.log('response: ', response);
@@ -472,6 +514,10 @@ function getStatus(age, weight) {
             console.log("Error:");
             console.log(error.responseText);
             console.log(error.message);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
             return;
         }
     });

@@ -1,6 +1,4 @@
 $(document).ready(function() {
-    $('#dataTables-example').dataTable();
-
     fetch_all_years();
 });
 
@@ -78,13 +76,10 @@ function save() {
         empty = true;
     }
 
-
     if (empty == true) {
         $.notify('Please input all the required fields correctly.', "error");
         return false;
     }
-
-
 
     if ($('#id').val() == '') {
         $.ajax({
@@ -94,14 +89,12 @@ function save() {
             headers: {
                 'X-Auth-Token': $("input[name='csrf']").val()
             },
-            dataType: 'json',
             data: {
                 year: $('#year').val(),
                 terms: $('#terms').val()
             },
             success: function(response) {
                 var decode = response;
-
                 if (decode.success == true) {
                     $('#yearModal').modal('hide');
                     refresh();
@@ -115,6 +108,10 @@ function save() {
                 console.log("Error:");
                 console.log(error.responseText);
                 console.log(error.message);
+                if (error.responseText) {
+                    var msg = JSON.parse(error.responseText)
+                    $.notify(msg.msg, "error");
+                }
                 return;
             }
         });
@@ -126,14 +123,12 @@ function save() {
             headers: {
                 'X-Auth-Token': $("input[name='csrf']").val()
             },
-            dataType: 'json',
             data: {
                 year: $('#year').val(),
                 terms: $('#terms').val()
             },
             success: function(response) {
                 var decode = response;
-
                 if (decode.success == true) {
                     $('#yearModal').modal('hide');
                     refresh();
@@ -147,6 +142,10 @@ function save() {
                 console.log("Error:");
                 console.log(error.responseText);
                 console.log(error.message);
+                if (error.responseText) {
+                    var msg = JSON.parse(error.responseText)
+                    $.notify(msg.msg, "error");
+                }
                 return;
             }
         });
@@ -163,7 +162,6 @@ function fetch_all_years() {
         headers: {
             'X-Auth-Token': $("input[name='csrf']").val()
         },
-        dataType: 'json',
         success: function(response) {
             var decode = response;
             if (decode) {
@@ -187,6 +185,10 @@ function fetch_all_years() {
         },
         error: function(error) {
             console.log('error: ', error);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
             return;
         }
     });
@@ -210,6 +212,14 @@ function deletedata(id) {
                 return;
             }
 
+        },
+        error: function(error) {
+            console.log('error: ', error);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
+            return;
         }
     });
 }
@@ -250,6 +260,14 @@ function getData(status, id) {
                 return;
             }
 
+        },
+        error: function(error) {
+            console.log('error: ', error);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
+            return;
         }
     });
 }

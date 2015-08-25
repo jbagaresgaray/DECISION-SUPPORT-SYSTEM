@@ -1,84 +1,43 @@
 <?php
 	include('../../server/cors.php');
-	include( __DIR__.'/model.php');
+	include( __DIR__.'/controller.php');
+	
 
 	$method = $_SERVER['REQUEST_METHOD'];
 	$request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
 
 	switch ($method) {
 	  case 'PUT':
-	  		session_start();
-			$headers = apache_request_headers();	
-			$token = $headers['X-Auth-Token'];
-
 			$data=parse_str( file_get_contents( 'php://input' ), $_PUT );
 			foreach ($_PUT as $key => $value){
 					unset($_PUT[$key]);
 					$_PUT[str_replace('amp;', '', $key)] = $value;
 			}
 			$_REQUEST = array_merge($_REQUEST, $_PUT);
+
 			if(isset($request) && !empty($request) && $request[0] !== ''){
 				if ($request[0] == 'account'){
 					$id = $request[1];
-					$data = [
-						"username" => $_REQUEST['username'],
-						"password" => $_REQUEST['password'],
-					];
-					Users::updateAccount($id,$data);
+					UsersController::updateAccount($id,$_REQUEST);
 				}else if ($request[0] == 'profile'){
 					$id = $request[1];
-					$data = [
-						"email" => $_REQUEST['email'],
-						"mobileno" => $_REQUEST['mobileno'],
-						"fname" => $_REQUEST['fname'],
-						"lname" => $_REQUEST['lname'],
-					];
-					Users::updateProfile($id,$data);
+					UsersController::updateProfile($id,$_REQUEST);
 				}else{
 					$id = $request[0];
-					$data = [
-						"username" => $_REQUEST['username'],
-						"email" => $_REQUEST['email'],
-						"mobileno" => $_REQUEST['mobileno'],
-						"fname" => $_REQUEST['fname'],
-						"lname" => $_REQUEST['lname'],
-						"level" => $_REQUEST['level']
-					];
-					Users::update($id,$data);
+					UsersController::update($id,$_REQUEST);
 				}
 			}
 	    break;
 	  case 'POST':
-	  		session_start();
-			$headers = apache_request_headers();	
-			$token = $headers['X-Auth-Token'];
-
-		  	$data = [
-				"username" => $_POST['username'],
-				"password" => $_POST['password'],
-				"email" => $_POST['email'],
-				"mobileno" => $_POST['mobileno'],
-				"fname" => $_POST['fname'],
-				"lname" => $_POST['lname'],
-				"level" => $_POST['level']
-			];
-			Users::create($data);
+			UsersController::create($_POST);
 	    break;
 	  case 'GET':
-	  	session_start();
-		$headers = apache_request_headers();	
-		$token = $headers['X-Auth-Token'];
-
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
-	  		if ($request[0] == 'auth'){
-	  			session_start();
-				$headers = apache_request_headers();	
-				$token = $headers['X-Auth-Token'];
-				
-				Users::currentUser();
+	  		if ($request[0] == 'auth'){		
+				UsersController::currentUser();
 			}else{
 		  		$id = $request[0];
-				Users::detail($id);
+				UsersController::detail($id);
 			}
 	  	}
 	    break;
@@ -89,7 +48,7 @@
 		
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		$id = $request[0];
-			Users::delete($id);
+			UsersController::delete($id);
 	  	}
 	    break;
 	  default:

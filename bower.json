@@ -17,6 +17,7 @@
     "eonasdan-bootstrap-datetimepicker": "~4.15.35",
     "notifyjs": "~0.3.2",
     "bootstrap3-dialog": "~1.34.5",
-    "excellentexport": "*"
+    "excellentexport": "*",
+    "lodash": "~3.10.1"
   }
 }

@@ -6,9 +6,7 @@ class YearTerms {
 	function __construct(){
     }
 
-	public static function create($data){
-		
-
+	public static function create($data){	
 		$config= new Config();
 		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
 		if ($mysqli->connect_errno) {

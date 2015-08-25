@@ -21,9 +21,9 @@ function printToPrinter() {
         		<div class="col-xs-12">\
                 	<div class="text-center">\
                 	<h3>\
-                        <img src="../assets/img/logo1.png" alt="Voting System" style="width:70px;">\
-                        Sample Header\
-                        <img src="../assets/img/logo2.png" alt="Voting System" style="width:70px;">\
+                        <img src="../assets/img/logo1.png" alt="DS System" style="width:70px;">\
+                        ESCALANTE CITY HEALTH OFFICE\
+                        <img src="../assets/img/logo2.png" alt="DS System" style="width:70px;">\
                     </h3>\
                 </div>\
                 <div class="row">\
@@ -32,19 +32,21 @@ function printToPrinter() {
             </div>\
             <div class="row">\
                 <div class="col-xs-12 col-xs-offset-2">\
-                    <div class="col-xs-3">\
+                    <div class="col-xs-4">\
                         <hr>\
                         <center>\
                             <strong>Prepared by:</strong>\
-                            <br>\
+                            <br><br>\
+                            <b>Aida Dela Cruz</b>\
                             <small>Nutrition In-Charge</small>\
                         </center>\
                     </div>\
-                    <div class="col-xs-3">\
+                    <div class="col-xs-4">\
                         <hr>\
                         <center>\
-                            <strong>Noted By</strong>\
-                            <br>\
+                            <strong>Noted By:</strong>\
+                            <br><br>\
+                            <b>Lolita L. Legaspi, M.D.</b>\
                             <small>City Health Officer</small>\
                         </center>\
                     </div>\

@@ -1,6 +1,4 @@
 $(document).ready(function() {
-    $('#dataTables-example').dataTable();
-
     fetch_all_barangay();
 });
 
@@ -37,6 +35,58 @@ $(document).on("click", ".view-icon", function() {
     getData('view', id);
 });
 
+
+function fetch_all_barangay() {
+    $('#dataTables-example tbody > tr').remove();
+    $.ajax({
+        url: '../server/location/',
+        async: true,
+        type: 'GET',
+        headers: {
+            'X-Auth-Token': $("input[name='csrf']").val()
+        },
+        dataType: 'json',
+        success: function(response) {
+            if (response) {
+                if (response.locations.length > 0) {
+                    var decode = [];
+                    if ($('#inputSearch').val() !== '') {
+                        decode = _.filter(response.locations, {
+                            'name': $('#inputSearch').val()
+                        });
+                    } else {
+                        decode = response.locations;
+                    }
+                    for (var i = 0; i < decode.length; i++) {
+                        var row = decode;
+                        var html = '<tr class="odd gradeX">\
+                                        <td class="">' + row[i].name + '</td>\
+                                        <td class="">' + row[i].landarea + '</td>\
+                                        <td class="">' + row[i].description + '</td>\
+                                        <td class="center" width="15%"> X : ' + row[i].x + ' || Y: ' + row[i].y + '</td>\
+                                        <td class=" " width="20%">\
+                                            <a href="#" data-id="' + row[i].id + '" class="view-icon">view</a>|\
+                                            <a href="#" data-id="' + row[i].id + '" class="update-icon">update</a>|\
+                                            <a href="#" data-id="' + row[i].id + '" class="delete-icon">delete</a>\
+                                        </td>\
+                                </tr>';
+                        $("#dataTables-example tbody").append(html);
+                    }
+                    $.notify("All records display", "info");
+                }
+            }
+        },
+        error: function(error) {
+            console.log('error: ', error);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
+            return;
+        }
+    });
+}
+
 function create_barangay() {
     $("#id").val('');
     $("#name").val('');
@@ -70,11 +120,6 @@ function save() {
 
     if ($('#name').val() == '') {
         $('#name').next('span').text('Name is required.');
-        empty = true;
-    }
-
-    if ($('#landarea').val() == '') {
-        $('#landarea').next('span').text('Land Area is required.');
         empty = true;
     }
 
@@ -124,6 +169,10 @@ function save() {
                 console.log("Error:");
                 console.log(error.responseText);
                 console.log(error.message);
+                if (error.responseText) {
+                    var msg = JSON.parse(error.responseText)
+                    $.notify(msg.msg, "error");
+                }
                 return;
             }
         });
@@ -159,51 +208,14 @@ function save() {
                 console.log("Error:");
                 console.log(error.responseText);
                 console.log(error.message);
+                if (error.responseText) {
+                    var msg = JSON.parse(error.responseText)
+                    $.notify(msg.msg, "error");
+                }
                 return;
             }
         });
     }
-}
-
-
-function fetch_all_barangay() {
-    $('#dataTables-example tbody > tr').remove();
-    $.ajax({
-        url: '../server/location/',
-        async: true,
-        type: 'GET',
-        headers: {
-            'X-Auth-Token' : $("input[name='csrf']" ).val()
-        },
-        dataType: 'json',
-        success: function(response) {
-            var decode = response;
-            if (decode) {
-                if (decode.locations.length > 0) {
-                    for (var i = 0; i < decode.locations.length; i++) {
-                        var row = decode.locations;
-                        var html = '<tr class="odd gradeX">\
-                                        <td class="">' + row[i].name + '</td>\
-                                        <td class="">' + row[i].landarea + '</td>\
-                                        <td class="">' + row[i].description + '</td>\
-                                        <td class="center" width="15%"> X : ' + row[i].x + ' || Y: ' + row[i].y + '</td>\
-                                        <td class=" " width="20%">\
-                                            <a href="#" data-id="' + row[i].id + '" class="view-icon">view</a>|\
-                                            <a href="#" data-id="' + row[i].id + '" class="update-icon">update</a>|\
-                                            <a href="#" data-id="' + row[i].id + '" class="delete-icon">delete</a>\
-                                        </td>\
-                                </tr>';
-                        $("#dataTables-example tbody").append(html);
-                    }
-                    $.notify("All records display", "info");
-                }
-            }
-        },
-        error: function(error) {
-            console.log('error: ', error);
-            return;
-        }
-    });
 }
 
 function deletedata(id) {
@@ -212,7 +224,7 @@ function deletedata(id) {
         async: true,
         type: 'DELETE',
         headers: {
-            'X-Auth-Token' : $("input[name='csrf']" ).val()
+            'X-Auth-Token': $("input[name='csrf']").val()
         },
         success: function(response) {
             var decode = response;
@@ -224,6 +236,14 @@ function deletedata(id) {
                 return;
             }
 
+        },
+        error: function(error) {
+            console.log('error: ', error);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
+            return;
         }
     });
 }
@@ -234,7 +254,7 @@ function getData(status, id) {
         async: true,
         type: 'GET',
         headers: {
-            'X-Auth-Token' : $("input[name='csrf']" ).val()
+            'X-Auth-Token': $("input[name='csrf']").val()
         },
         success: function(response) {
             var decode = response;
@@ -273,6 +293,14 @@ function getData(status, id) {
                 return;
             }
 
+        },
+        error: function(error) {
+            console.log('error: ', error);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
+            return;
         }
     });
 }
