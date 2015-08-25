@@ -1,5 +1,5 @@
 <?php
-require_once '../server/connection.php';
+include('../server/connection.php');
 
 /*** begin our session ***/
 session_start();
@@ -43,7 +43,7 @@ if($_SERVER['REQUEST_METHOD'] =='POST'){
                         /*** set a form token ***/
                         $form_token = md5( uniqid('auth', true) );
 
-                        /*** set the session form token ***/
+                        /** set the session form token **/
                         $_SESSION['form_token'] = $form_token;
                         /*** tell the user we are logged in ***/
                         header("Location: main.php");

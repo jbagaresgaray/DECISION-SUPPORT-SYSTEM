@@ -10,7 +10,7 @@
     </div>
     <?php if( isset( $_SESSION['users'] ) ): ?>
     <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">Welcome <?php echo $_SESSION['users']['fname'];?>
-      <a href="../server/auth/logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
+      <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
     </div>
     <?php endif; ?>
 </nav>
