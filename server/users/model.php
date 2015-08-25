@@ -70,7 +70,7 @@ class Users {
 
 	public static function currentUser(){
 		session_start();
-		
+
 		$config= new Config();
 		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
 		if ($mysqli->connect_errno) {

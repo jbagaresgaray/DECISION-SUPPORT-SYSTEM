@@ -64,7 +64,7 @@
 	  		}else{
 	  			$age = $request[0];
 		  		$weight = $request[1];
-				StatusController::detail($age,$weight);
+					StatusController::detail($age,$weight);
 	  		}
 	  	}else{
 			StatusController::read();
