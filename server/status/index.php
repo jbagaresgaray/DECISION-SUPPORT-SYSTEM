@@ -22,9 +22,9 @@
 
 	  		}else if($request[0] == 'severe-under-total'){
 	  			StatusController::printSeverelyUnderTotal();
-	  			
+
 	  		}else if($request[0] == 'rank'){
-	  			if ($request[1] == 'normal'){ 
+	  			if ($request[1] == 'normal'){
 		  			StatusController::printNormalRank();
 		  		}else if($request[1] == 'under'){
 		  			StatusController::printSeverelyUnderRank();
@@ -47,7 +47,7 @@
 		  			StatusController::printOverLocation($locationID);
 		  		}else if($request[1] == 'severe-under-total'){
 		  			StatusController::printSevereUnderTotalLocation($locationID);
-		  		}		
+		  		}
 	  		}else if($request[0] == 'gender'){
 		  		$gender = $request[2];
 	  			if ($request[1] == 'normal'){
@@ -60,7 +60,7 @@
 		  			StatusController::printOverGender($gender);
 		  		}else if($request[1] == 'severe-under-total'){
 		  			StatusController::printSevereUnderTotalGender($gender);
-		  		}		
+		  		}
 	  		}else{
 	  			$age = $request[0];
 		  		$weight = $request[1];
@@ -71,7 +71,7 @@
 	  	}
 	    break;
 	  default:
-	    print json_encode('ENTRANCE EXAM API v.0.1 developed by: Philip Cesar B. Garay');
+	    return print json_encode('DECISION SUPPORT SYSTEM API v.0.1 developed by: Philip Cesar B. Garay');
 	    break;
 	}
 	exit();

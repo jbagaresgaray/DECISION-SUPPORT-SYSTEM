@@ -18,7 +18,7 @@
 			$_REQUEST = array_merge($_REQUEST, $_PUT);
 
 			if(isset($request) && !empty($request) && $request[0] !== ''){
-		  		$id = $request[0];		  		
+		  		$id = $request[0];
 				YearsController::update($id,$_REQUEST);
 		  	}else{
 				header('Route Not Found', true, 404);
@@ -42,7 +42,7 @@
 	  	}
 	    break;
 	  default:
-	    return print json_encode('ENTRANCE EXAM API v.0.1 developed by: Philip Cesar B. Garay');
+	    return print json_encode('DECISION SUPPORT SYSTEM API v.0.1 developed by: Philip Cesar B. Garay');
 	    break;
 	}
 	exit();

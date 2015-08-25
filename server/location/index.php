@@ -42,8 +42,7 @@
 	  	}
 	    break;
 	  default:
-	    return print json_encode('ENTRANCE EXAM API v.0.1 developed by: Philip Cesar B. Garay');
-	    die();
+	    return print json_encode('DECISION SUPPORT SYSTEM API v.0.1 developed by: Philip Cesar B. Garay');
 	    break;
 	}
 	exit();
