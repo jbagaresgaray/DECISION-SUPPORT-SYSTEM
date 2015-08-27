@@ -180,6 +180,7 @@ CREATE TABLE IF NOT EXISTS `userdata` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `username` varchar(100) NOT NULL,
   `password` varchar(100) NOT NULL,
+  `str_password` varchar(100) NOT NULL,
   `email` varchar(60),
   `mobileno` varchar(45),
   `fname` varchar(100) NOT NULL,
@@ -191,7 +192,7 @@ CREATE TABLE IF NOT EXISTS `userdata` (
 --
 -- Dumping data for table `userdata`
 --
-INSERT INTO `userdata` VALUES ('1', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997','sample@email.com','12345678910','Admin','Admin','Admin');
+INSERT INTO `userdata` VALUES ('1', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997','admin','sample@email.com','12345678910','Admin','Admin','Admin');
 
 --
 -- Table structure for table `status`
@@ -283,4 +284,15 @@ BEGIN
   FROM location l
   GROUP BY l.id
   ORDER BY under DESC, rank ASC;
+END$$
+
+CREATE PROCEDURE printDSS(IN STATUSID VARCHAR(10),IN YEAR VARCHAR(10))
+BEGIN
+  SET @rank=0;
+  SELECT A.* ,@rank:=@rank+1 AS rank FROM (
+  SELECT l.id,l.name,l.description,l.landarea,
+  (SELECT COUNT(c.id) FROM child c WHERE c.status_id=STATUSID AND c.locationID=l.id AND c.year_id=YEAR) AS Count
+  FROM location l
+  GROUP BY l.id
+  ORDER BY Count DESC) AS A WHERE A.Count > 0 LIMIT 5;
 END$$

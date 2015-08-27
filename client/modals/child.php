@@ -68,7 +68,7 @@
                         </div>
                          <div class="col-md-4">
                             <label>Months</label>
-                            <input class="form-control" name="month" id="month" value="0"/>
+                            <input class="form-control" name="month" id="month" value="0" readonly="true" disabled="true" />
                             <span class="help-inline"></span>
                         </div>
                       </div>

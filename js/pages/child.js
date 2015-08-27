@@ -11,6 +11,10 @@ $(document).ready(function() {
     $("#weight").bind("change", Noofmonths);
 });
 
+$( "#weight" ).keyup(function() {
+  Noofmonths();
+});
+
 $(document).on("click", ".delete-icon", function() {
     var id = $(this).data('id');
 

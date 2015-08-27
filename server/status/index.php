@@ -61,6 +61,17 @@
 		  		}else if($request[1] == 'severe-under-total'){
 		  			StatusController::printSevereUnderTotalGender($gender);
 		  		}
+		  	}else if($request[0] == 'dss'){
+		  		$year = $request[2];
+	  			if($request[1] == 'severeunder'){
+		  			StatusController::printNormalDSS($year);
+		  		}else if($request[1] == 'under'){
+		  			StatusController::printUnderDSS($year);
+		  		}else if($request[1] == 'severe-under'){
+		  			StatusController::printSeverelyUnderDSS($year);
+		  		}else if($request[1] == 'severe-under-total'){
+		  			StatusController::printSevereUnderTotalDSS($year);
+		  		}
 	  		}else{
 	  			$age = $request[0];
 		  		$weight = $request[1];

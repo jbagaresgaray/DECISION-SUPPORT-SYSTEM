@@ -43,7 +43,24 @@
                       <a href="javascript:printTask('over');">Over Weight</a>
                   </li>
                   <li>
-                      <a href="javascript:printTask('severe-under-total');">Severly and Underweight (Total)</a>
+                      <a href="javascript:printTask('severe-under-total');">Severly and Underweight (TOTAL)</a>
+                  </li>
+              </ul>
+          </li>
+          <li>
+              <a href="#"><i class="fa fa-sitemap fa-3x"></i> DSS<span class="fa arrow"></span></a>
+               <ul class="nav nav-second-level">
+                  <li>
+                      <a href="javascript:printDSS('severeunder','TOP 5 BRGY. WITH SEVERELY UNDERWEIGHT CHILDREN');">Severely Underweight</a>
+                  </li>
+                   <li>
+                      <a href="javascript:printDSS('under','TOP 5 BRGY. WITH UNDERWEIGHT CHILDREN');">Underweight Malnourished</a>
+                  </li>
+                  <li>
+                      <a href="javascript:printDSS('severe-under','TOP 5 BRGY. WITH SEVERELY UNDERWEIGHT AND UNDERWEIGHT CHILDREN');">Severly Underweight and Underweight</a>
+                  </li>
+                  <li>
+                      <a href="javascript:printDSS('severe-under-total','TOP 5 BRGY. WITH SEVERELY UNDERWEIGHT AND UNDERWEIGHT TOTAL OF CHILDREN');">Severly and Underweight (AGE)(TOTAL)</a>
                   </li>
               </ul>
           </li>
@@ -60,5 +77,11 @@
   function printTask(value){
     window.sessionStorage['print'] = value;
     window.location.href="print.php";
+  }
+
+  function printDSS(value,title){
+    window.sessionStorage['dss'] = value;
+    window.sessionStorage['title'] = title;
+    window.location.href="dss.php";
   }
 </script>

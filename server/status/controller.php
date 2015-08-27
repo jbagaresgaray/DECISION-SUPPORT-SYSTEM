@@ -96,6 +96,26 @@ class StatusController {
 	public static function printSevereUnderTotalLocation($locationID){
 		Status::printStatusByLocation('23',$locationID);
 	}
+
+
+
+	
+
+	public static function printNormalDSS($year){
+		Status::printDSS('1',$year);
+	}
+
+	public static function printSeverelyUnderDSS($year){
+		Status::printDSS('2',$year);
+	}
+
+	public static function printUnderDSS($year){
+		Status::printDSS('3',$year);
+	}
+
+	public static function printSevereUnderTotalDSS($year){
+		Status::printDSS('23',$year);
+	}
 }
 
 ?>
