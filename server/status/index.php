@@ -48,20 +48,7 @@
 		  		}else if($request[1] == 'severe-under-total'){
 		  			StatusController::printSevereUnderTotalLocation($locationID);
 		  		}
-	  		}else if($request[0] == 'gender'){
-		  		$gender = $request[2];
-	  			if ($request[1] == 'normal'){
-		  			StatusController::printNormalGender($gender);
-		  		}else if($request[1] == 'under'){
-		  			StatusController::printUnderGender($gender);
-		  		}else if($request[1] == 'severe-under'){
-		  			StatusController::printSeverelyUnderGender($gender);
-		  		}else if($request[1] == 'over'){
-		  			StatusController::printOverGender($gender);
-		  		}else if($request[1] == 'severe-under-total'){
-		  			StatusController::printSevereUnderTotalGender($gender);
-		  		}
-		  	}else if($request[0] == 'dss'){
+	  		}else if($request[0] == 'dss'){
 		  		$year = $request[2];
 	  			if($request[1] == 'severeunder'){
 		  			StatusController::printNormalDSS($year);

@@ -119,29 +119,6 @@ class Status {
 		}
 	}
 
-	public function printGenderStatus($id,$gender){
-		$config= new Config();
-		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
-		if ($mysqli->connect_errno) {
-		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
-		    return;
-		}else{
-			$data = array();
-			if(strlen($id) == 2){
-				$arr1 = str_split($id);
-				
-			}else{
-				$query1 ="SELECT c.id,CONCAT(c.lname,', ',c.fname) AS Fullname,c.address,c.dob,CONCAT(c.weight,' Kg.') AS weight,c.gender,c.months,
-				(SELECT name FROM location WHERE id=c.locationID LIMIT 1) AS location,(SELECT description FROM status WHERE id=c.status_id LIMIT 1) AS status FROM child c WHERE c.gender='$gender' AND c.status_id =$id;";
-			}
-			$result1 = $mysqli->query($query1);
-			while($row = $result1->fetch_array(MYSQLI_ASSOC)){
-				array_push($data,$row);
-			}
-			return print json_encode(array('success' =>true,'status'=>200,'data' =>$data),JSON_PRETTY_PRINT);
-			print_r(json_encode($query1));
-		}
-	}
 
 	public function printStatusByLocation($id,$locationID){
 		$config= new Config();

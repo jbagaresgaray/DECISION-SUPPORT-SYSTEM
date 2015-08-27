@@ -55,28 +55,6 @@ class StatusController {
 
 
 
-	public static function printNormalGender($gender){
-		Status::printGenderStatus('1',$gender);
-	}
-
-	public static function printSeverelyUnderGender($gender){
-		Status::printGenderStatus('2',$gender);
-	}
-
-	public static function printUnderGender($gender){
-		Status::printGenderStatus('3',$gender);
-	}
-
-	public static function printOverGender($gender){
-		Status::printGenderStatus('4',$gender);
-	}
-
-	public static function printSevereUnderTotalGender($gender){
-		Status::printGenderStatus('23',$gender);
-	}
-
-
-
 	public static function printNormalLocation($locationID){
 		Status::printStatusByLocation('1',$locationID);
 	}
