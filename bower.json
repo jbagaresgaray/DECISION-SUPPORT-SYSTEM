@@ -14,10 +14,11 @@
     "tests"
   ],
   "dependencies": {
-    "eonasdan-bootstrap-datetimepicker": "~4.15.35",
-    "notifyjs": "~0.3.2",
     "bootstrap3-dialog": "~1.34.5",
+    "eonasdan-bootstrap-datetimepicker": "~4.15.35",
     "excellentexport": "*",
-    "lodash": "~3.10.1"
+    "heatmap.js-amd": "*",
+    "lodash": "~3.10.1",
+    "notifyjs": "~0.3.2"
   }
 }

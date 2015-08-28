@@ -33,7 +33,10 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
                  <!-- /. ROW  -->
                 <div class="row">
                     <div class="col-md-12 col-md-12">
-                        <img src="../map.jpg" class="thumbnail img-responsive" />
+                        <input type="hidden" name="csrf" value="<?php echo $_SESSION['form_token'];?>">
+                        <canvas id="viewport" width="1010" height="763"></canvas>
+                        <!-- <img class="thumbnail" usemap="#Map" id="heatmap"/>
+                        <map name="Map" id="Map"></map> -->
                     </div>
                 </div>
                  <!-- /. ROW  -->
@@ -54,7 +57,7 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
      <!-- /. WRAPPER  -->
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
-     <?php require_once('include/script.php'); ?>
+     <?php include('include/script.php'); ?>
     
    
 </body>
