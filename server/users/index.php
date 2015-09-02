@@ -5,7 +5,6 @@
 
 	$method = $_SERVER['REQUEST_METHOD'];
 	$request = explode("/", substr(@$_SERVER['PATH_INFO'], 1));
-
 	switch ($method) {
 	  case 'PUT':
 			$data=parse_str( file_get_contents( 'php://input' ), $_PUT );
