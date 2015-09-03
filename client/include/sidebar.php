@@ -28,7 +28,7 @@
               </ul>
             </li>
             <li>
-              <a href="#"><i class="fa fa-sitemap fa-3x"></i> Reports<span class="fa arrow"></span></a>
+              <a href="#"><i class="fa fa-file-text-o fa-3x"></i> Reports<span class="fa arrow"></span></a>
                <ul class="nav nav-second-level">
                   <li>
                       <a href="javascript:printTask('normal');">Normal Weight</a>
@@ -66,6 +66,12 @@
           </li>
           <li>
               <a href="profile.php"><i class="fa fa-cog fa-3x"></i>Settings</a>
+          </li>
+          <li>
+              <a href="contact.php"><i class="fa fa-envelope-o fa-3x"></i>Contact Us</a>
+          </li>
+          <li>
+              <a href="about.php"><i class="fa fa-info fa-3x"></i>About Us</a>
           </li>
       </ul>
 
