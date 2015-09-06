@@ -35,11 +35,8 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
                         <!-- Advanced Tables -->
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <div class="form-inline form-padding">
-                                    <form id="frmSearch" role="form">
-                                        <input type="text" class="form-control" id="inputSearch" placeholder="Search">
-                                        <a onclick="fetch_all_child()" class="btn btn-success">Search</a>
-                                    </form>
+                                <div class="input-group"> <span class="input-group-addon">Search: </span>
+                                    <input id="filter" type="text" class="form-control" placeholder="Type here...">
                                 </div>
                                 <br>
                                 <div class="table-responsive">
@@ -53,7 +50,7 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>
-                                        <tbody>
+                                        <tbody class="searchable">
                                         </tbody>
                                     </table>
                                 </div>
@@ -90,6 +87,8 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
     <script src="../assets/bower_components/bootstrap3-dialog/dist/js/bootstrap-dialog.min.js"></script>
     <!-- Lodash -->
     <script src="../assets/bower_components/lodash/lodash.min.js"></script>
+    <!-- filterTable -->
+    <script src="../assets/bower_components/filterTable/jquery.filtertable.min.js"></script>
 
     <!-- CUSTOM SCRIPTS -->
     <script src="../js/pages/child.js"></script>

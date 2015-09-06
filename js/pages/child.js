@@ -7,12 +7,25 @@ $(document).ready(function() {
     fetch_barangay();
     fetch_year();
 
+    (function ($) {
+
+        $('#filter').keyup(function () {
+            var rex = new RegExp($(this).val(), 'i');
+            $('.searchable tr').hide();
+            $('.searchable tr').filter(function () {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
+
     $("#date").bind("change", Noofmonths);
     $("#weight").bind("change", Noofmonths);
 });
 
-$( "#weight" ).keyup(function() {
-  Noofmonths();
+$("#weight").keyup(function() {
+    Noofmonths();
 });
 
 $(document).on("click", ".delete-icon", function() {
@@ -272,6 +285,7 @@ function save() {
 
 
 function fetch_all_child() {
+    console.log('fetch_all_child');
     $('#dataTables-example tbody > tr').remove();
     $.ajax({
         url: '../server/child/',
@@ -285,13 +299,7 @@ function fetch_all_child() {
             if (response) {
                 if (response.childs.length > 0) {
                     var decode = [];
-                    if ($('#inputSearch').val() !== '') {
-                        decode = _.filter(response.childs, {
-                            'lname': $('#inputSearch').val()
-                        });
-                    } else {
-                        decode = response.childs;
-                    }
+                    decode = response.childs;
                     for (var i = 0; i < decode.length; i++) {
                         var row = decode;
                         var html = '<tr class="odd gradeX">\

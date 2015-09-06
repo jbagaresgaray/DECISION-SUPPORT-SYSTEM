@@ -17,6 +17,7 @@
     "bootstrap3-dialog": "~1.34.5",
     "eonasdan-bootstrap-datetimepicker": "~4.15.35",
     "excellentexport": "*",
+    "filterTable": "jQuery.FilterTable#~1.5.5",
     "heatmap.js-amd": "*",
     "lodash": "~3.10.1",
     "notifyjs": "~0.3.2"

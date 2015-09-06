@@ -1,5 +1,18 @@
 $(document).ready(function() {
     fetch_all_barangay();
+
+    (function($) {
+
+        $('#filter').keyup(function() {
+            var rex = new RegExp($(this).val(), 'i');
+            $('.searchable tr').hide();
+            $('.searchable tr').filter(function() {
+                return rex.test($(this).text());
+            }).show();
+
+        })
+
+    }(jQuery));
 });
 
 $(document).on("click", ".delete-icon", function() {
@@ -50,20 +63,13 @@ function fetch_all_barangay() {
             if (response) {
                 if (response.locations.length > 0) {
                     var decode = [];
-                    if ($('#inputSearch').val() !== '') {
-                        decode = _.filter(response.locations, {
-                            'name': $('#inputSearch').val()
-                        });
-                    } else {
-                        decode = response.locations;
-                    }
+                    decode = response.locations;
                     for (var i = 0; i < decode.length; i++) {
                         var row = decode;
                         var html = '<tr class="odd gradeX">\
                                         <td class="">' + row[i].name + '</td>\
                                         <td class="">' + row[i].landarea + '</td>\
                                         <td class="">' + row[i].description + '</td>\
-                                        <td class="center" width="15%"> X : ' + row[i].x + ' || Y: ' + row[i].y + '</td>\
                                         <td class=" " width="20%">\
                                             <a href="#" data-id="' + row[i].id + '" class="view-icon">view</a>|\
                                             <a href="#" data-id="' + row[i].id + '" class="update-icon">update</a>|\

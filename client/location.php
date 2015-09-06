@@ -34,11 +34,8 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
                         <!-- Advanced Tables -->
                         <div class="panel panel-default">
                             <div class="panel-body">
-                                <div class="form-inline form-padding">
-                                    <form id="frmSearch" role="form">
-                                        <input type="text" class="form-control" id="inputSearch" placeholder="Search">
-                                        <a onclick="fetch_all_barangay()" class="btn btn-success">Search</a>
-                                    </form>
+                                <div class="input-group"> <span class="input-group-addon">Search: </span>
+                                    <input id="filter" type="text" class="form-control" placeholder="Type here...">
                                 </div>
                                 <br>
                                 <div class="table-responsive">
@@ -48,11 +45,10 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
                                                 <th>Name</th>
                                                 <th>Land Area</th>
                                                 <th>Description</th>
-                                                <th>Coordinates</th>
                                                 <th></th>
                                             </tr>
                                         </thead>
-                                        <tbody></tbody>
+                                        <tbody class="searchable"></tbody>
                                     </table>
                                 </div>
                             </div>

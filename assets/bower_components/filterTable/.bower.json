@@ -1,0 +1,36 @@
+{
+  "name": "filterTable",
+  "description": "Live searching/filtering for HTML tables with optional quick search buttons.",
+  "keywords": [
+    "table",
+    "search",
+    "filter"
+  ],
+  "authors": [
+    {
+      "name": "Sunny Walker",
+      "homepage": "http://www.miraclesalad.com/"
+    }
+  ],
+  "license": "MIT",
+  "homepage": "http://sunnywalker.github.io/jQuery.FilterTable/",
+  "dependencies": {
+    "jquery": ">=1.4"
+  },
+  "main": "jquery.filtertable.js",
+  "ignore": [
+    "examples/",
+    "**/.*"
+  ],
+  "version": "1.5.5",
+  "_release": "1.5.5",
+  "_resolution": {
+    "type": "version",
+    "tag": "1.5.5",
+    "commit": "d31cd14101806ae284ac80be020d4d3fc3491a58"
+  },
+  "_source": "git://github.com/sunnywalker/jQuery.FilterTable.git",
+  "_target": "~1.5.5",
+  "_originalSource": "jQuery.FilterTable",
+  "_direct": true
+}
