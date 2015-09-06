@@ -67,12 +67,6 @@
           <li>
               <a href="profile.php"><i class="fa fa-cog fa-3x"></i>Settings</a>
           </li>
-          <li>
-              <a href="contact.php"><i class="fa fa-envelope-o fa-3x"></i>Contact Us</a>
-          </li>
-          <li>
-              <a href="about.php"><i class="fa fa-info fa-3x"></i>About Us</a>
-          </li>
       </ul>
 
   </div>
