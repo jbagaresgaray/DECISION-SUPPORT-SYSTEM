@@ -36,6 +36,7 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
                 <div class="row">
                     <div class="col-md-12">
                         <h2 id="lblPrint"></h2>
+                        <input type="hidden" name="csrf" value="<?php echo $_SESSION['form_token'];?>">
                         <a class="btn btn-primary" onclick="printToPrinter()">Print Forms</a>
                         <!-- <a class="btn btn-primary" href="toprint.php">Print Forms</a> -->
                         <a class="btn btn-success" download="CNO-data.xls" onclick="exportToExcel(this, 'dataTables-example', 'CNO Sheet Data')">Export to Excel</a>

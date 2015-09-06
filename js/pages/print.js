@@ -8,6 +8,7 @@ function filters() {
     $('#cboOptions').empty();
     switch (value) {
         case 'all':
+            $('#cboOptions').hide();
             var print = window.sessionStorage['print'];
             switch (print) {
                 case 'normal':
@@ -33,6 +34,7 @@ function filters() {
             }
             break;
         case 'rank':
+            $('#cboOptions').hide();
             var print = window.sessionStorage['print'];
             switch (print) {
                 case 'normal':
@@ -58,6 +60,7 @@ function filters() {
             }
             break;
         case 'barangay':
+            $('#cboOptions').show();
             populateLocation();
             $("#cboOptions").bind("change", filterLocation);
             filterLocation();
@@ -114,6 +117,9 @@ function populateLocation() {
         url: '../server/location/',
         async: false,
         type: 'GET',
+        headers: {
+            'X-Auth-Token': $("input[name='csrf']").val()
+        },
         success: function(response) {
             var decode = response;
             for (var i = 0; i < decode.locations.length; i++) {
@@ -198,6 +204,9 @@ function loadAllByLocation(url, locationID) {
         url: url + '/' + locationID,
         async: true,
         type: 'GET',
+        headers: {
+            'X-Auth-Token': $("input[name='csrf']").val()
+        },
         dataType: 'json',
         success: function(response) {
             var decode = response;
@@ -243,6 +252,9 @@ function loadRank(url, header) {
         url: url,
         async: true,
         type: 'GET',
+        headers: {
+            'X-Auth-Token': $("input[name='csrf']").val()
+        },
         dataType: 'json',
         success: function(response) {
             var decode = response;
@@ -254,52 +266,6 @@ function loadRank(url, header) {
                                         <td class="center">' + row[i].name + '</td>\
                                         <td class="center">' + row[i].noOfchild + '</td>\
                                         <td class="center">' + row[i].rank + '</td>\
-                                </tr>';
-                        $("#dataTables-example tbody").append(html);
-                    }
-                    $.notify("All records display", "info");
-                }
-            }
-        },
-        error: function(error) {
-            console.log('error: ', error);
-            if (error.responseText) {
-                var msg = JSON.parse(error.responseText)
-                $.notify(msg.msg, "error");
-            }
-            return;
-        }
-    });
-}
-
-function loadGender(url, gender) {
-    $('#printTable').empty();
-    var table = '<table class="table table-striped table-bordered table-hover" id="dataTables-example">\
-                <thead><tr>\
-                <th>BARANGAY</th><th>MALE</th><th>FEMALE</th><th>RANK</th>\
-                </tr></thead><tbody></tbody></table>';
-
-    $('#printTable').append(table);
-
-    $('#dataTables-example tbody > tr').remove();
-    $.ajax({
-        url: url + '/' + gender,
-        async: true,
-        type: 'GET',
-        dataType: 'json',
-        success: function(response) {
-            var decode = response;
-            if (decode) {
-                if (decode.data.length > 0) {
-                    for (var i = 0; i < decode.data.length; i++) {
-                        var row = decode.data;
-                        var html = '<tr class="odd gradeX">\
-                                        <td class="">' + row[i].Fullname + '</td>\
-                                        <td class="">' + moment(row[i].dob).format('MM-DD-YYYY') + '</td>\
-                                        <td class="">' + row[i].gender + '</td>\
-                                        <td class="center">' + row[i].months + '</td>\
-                                        <td class="center">' + row[i].weight + '</td>\
-                                        <td class="center">' + row[i].status + '</td>\
                                 </tr>';
                         $("#dataTables-example tbody").append(html);
                     }
@@ -339,6 +305,9 @@ function loadTotalSevereUnder(url, locationID) {
             url: url,
             async: true,
             type: 'GET',
+            headers: {
+                'X-Auth-Token': $("input[name='csrf']").val()
+            },
             dataType: 'json',
             success: function(response) {
                 var decode = response;
@@ -373,6 +342,9 @@ function loadTotalSevereUnder(url, locationID) {
             url: url + '/' + locationID,
             async: true,
             type: 'GET',
+            headers: {
+                'X-Auth-Token': $("input[name='csrf']").val()
+            },
             dataType: 'json',
             success: function(response) {
                 var decode = response;
