@@ -168,5 +168,23 @@ class Users {
 			}
 		}
 	}
+
+	public static function getAccessList(){
+		$config= new Config();
+		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
+		if ($mysqli->connect_errno) {
+		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
+		    return;
+		}else{
+			$query ="SELECT * FROM usergroup c;";
+			$mysqli->set_charset('utf8');
+			$result = $mysqli->query($query);
+			$data = array();
+			while($row = $result->fetch_array(MYSQLI_ASSOC)){
+				array_push($data,$row);
+			}
+			print json_encode(array('success' =>true,'status'=>200,'usergroup' =>$data),JSON_PRETTY_PRINT);
+		}
+	}
 }
 ?>

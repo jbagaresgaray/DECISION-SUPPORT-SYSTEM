@@ -34,10 +34,13 @@
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		if ($request[0] == 'auth'){
 					UsersController::currentUser();
-				}else{
-			  		$id = $request[0];
-					UsersController::detail($id);
-				}
+			}else if($request[0] == 'privilege'){
+				
+			}
+			}else{
+		  		$id = $request[0];
+				UsersController::detail($id);
+			}
 	  	}
 	    break;
 	  case 'DELETE':

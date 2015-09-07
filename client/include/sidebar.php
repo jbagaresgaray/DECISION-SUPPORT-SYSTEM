@@ -68,7 +68,7 @@
                       <a href="profile.php">User Profile</a>
                   </li>
                   <li>
-                      <a href="#">User Privileges</a>
+                      <a href="groups.php">User Group Privileges</a>
                   </li>
                   <li>
                     <a href="users.php">User Accounts</a>
