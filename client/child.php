@@ -40,7 +40,7 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
                                 </div>
                                 <br>
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <table class="table table-striped table-bordered table-hover paginated" id="dataTables-example">
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
