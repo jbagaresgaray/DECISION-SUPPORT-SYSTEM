@@ -22,9 +22,6 @@
                  <li>
                     <a href="years.php">Manage Year and Terms</a>
                   </li>
-                 <li>
-                    <a href="users.php">Manage User Accounts</a>
-                </li>
               </ul>
             </li>
             <li>
@@ -65,7 +62,18 @@
               </ul>
           </li>
           <li>
-              <a href="profile.php"><i class="fa fa-cog fa-3x"></i>Settings</a>
+              <a href="#"><i class="fa fa-cog fa-3x"></i>Settings <span class="fa arrow"></span></a>
+              <ul class="nav nav-second-level">
+                  <li>
+                      <a href="profile.php">User Profile</a>
+                  </li>
+                  <li>
+                      <a href="#">User Privileges</a>
+                  </li>
+                  <li>
+                    <a href="users.php">User Accounts</a>
+                </li>
+              </ul>
           </li>
       </ul>
 
