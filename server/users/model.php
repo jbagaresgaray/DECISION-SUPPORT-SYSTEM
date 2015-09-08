@@ -39,7 +39,7 @@ class Users {
 		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
 		    return;
 		}else{
-			$query ="SELECT * FROM userdata c;";
+			$query ="SELECT * FROM userdata c LIMIT 1,1000000;";
 			$mysqli->set_charset('utf8');
 			$result = $mysqli->query($query);
 			$data = array();
@@ -78,11 +78,20 @@ class Users {
 		    return;
 		}else{
 			$id = $_SESSION['users']['id'];
+			$data = array();
+
 			$query1 ="SELECT id,username,email,mobileno,fname,lname,level FROM userdata WHERE id = '$id' LIMIT 1;";
 	        $result = $mysqli->query($query1);
 	        if($result){
 	            if($row = $result->fetch_assoc()){
-	                $_SESSION['users'] = $row;
+	            	$level = $row['level'];
+					$query1 ="SELECT * FROM usergroup c WHERE c.level='$level';";
+					$result1 = $mysqli->query($query1);			
+					while($row1 = $result1->fetch_array(MYSQLI_ASSOC)){
+						array_push($data,$row1);
+					}
+					$row['access'] = $data;
+					$_SESSION['users'] = $row;
 	                return print_r(json_encode($_SESSION['users']));
 	            }
 	        }
@@ -176,15 +185,53 @@ class Users {
 		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
 		    return;
 		}else{
+			$data = array();
 			$query ="SELECT * FROM usergroup c;";
 			$mysqli->set_charset('utf8');
-			$result = $mysqli->query($query);
-			$data = array();
+			$result = $mysqli->query($query);			
 			while($row = $result->fetch_array(MYSQLI_ASSOC)){
 				array_push($data,$row);
 			}
 			print json_encode(array('success' =>true,'status'=>200,'usergroup' =>$data),JSON_PRETTY_PRINT);
 		}
 	}
+
+	public static function getAccessDetails($id){
+		$config= new Config();
+		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
+		if ($mysqli->connect_errno) {
+		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
+		    return;
+		}else{
+			$query ="SELECT * FROM usergroup c WHERE id=$id LIMIT 1;";
+			$mysqli->set_charset('utf8');
+			$result = $mysqli->query($query);
+			if($row = $result->fetch_array(MYSQLI_ASSOC)){
+				print json_encode(array('success' =>true,'status'=>200,'access' =>$row),JSON_PRETTY_PRINT);
+			}else{
+				print json_encode(array('success' =>false,'status'=>200,'msg' =>'No record found!'),JSON_PRETTY_PRINT);
+			}
+		}
+	}
+
+	public static function updateAccess($id,$data){
+		$config= new Config();
+		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
+		if ($mysqli->connect_errno) {
+		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
+		    return;
+		}else{
+			$allow = $data['allow'];
+			$query ="UPDATE usergroup SET `allow`=$allow WHERE id=$id";
+			$result = $mysqli->query($query);
+			if ($result){
+				print json_encode(array('success' =>true,'status'=>200,'msg' =>'User Account successfully updated'),JSON_PRETTY_PRINT);
+			}else{
+				print json_encode(array('success' =>false,'status'=>200,'msg' =>'Error message: %s\n', $mysqli->error),JSON_PRETTY_PRINT);
+			}
+			// print_r(json_encode($query));
+		}
+	}
+
 }
 ?>

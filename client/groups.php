@@ -3,6 +3,10 @@ session_start();
 
 if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
     header("Location: index.php");
+}elseif (isset($_SESSION['users']) && !empty($_SESSION['users'])) {
+    if($_SESSION['users']['access'][8]['allow'] != 1){
+        header("Location: index.php");
+    }
 }
 ?>
 
@@ -35,15 +39,13 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
                         <div class="panel panel-default">
                             <div class="panel-body">
                                 <div class="table-responsive">
-                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example">
+                                    <table class="table table-striped table-bordered table-hover" id="dataTables-example" cellpadding="3" cellspacing="0">
                                         <thead>
                                             <tr>
                                                 <th>Level</th>
                                                 <th>Module</th>
-                                                <th>Read</th>
-                                                <th>Write</th>
-                                                <th>Delete</th>
-                                                <th>Print</th>
+                                                <th>Allow</th>
+                                                <th width="5%"></th>
                                             </tr>
                                         </thead>
                                         <tbody class="searchable">
@@ -58,7 +60,7 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
             </div>
         </div>
         <!-- /. PAGE INNER  -->
-         <?php require_once('modals/user.php'); ?>
+         <?php require_once('modals/groups.php'); ?>
     </div>
     <!-- /. PAGE WRAPPER  -->
     <!-- /. WRAPPER  -->
@@ -85,7 +87,7 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
     <script src="../assets/bower_components/lodash/lodash.min.js"></script>
 
     <!-- CUSTOM SCRIPTS -->
-    <script src="../js/pages/users.js"></script>
+    <script src="../js/pages/groups.js"></script>
     <script src="../assets/js/custom.js"></script>
 </body>
 

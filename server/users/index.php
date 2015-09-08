@@ -21,6 +21,9 @@
 				}else if ($request[0] == 'profile'){
 					$id = $request[1];
 					UsersController::updateProfile($id,$_REQUEST);
+				}else if ($request[0] == 'privilege'){
+					$id = $request[1];
+					UsersController::updateAccess($id,$_REQUEST);
 				}else{
 					$id = $request[0];
 					UsersController::update($id,$_REQUEST);
@@ -33,14 +36,20 @@
 	  case 'GET':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		if ($request[0] == 'auth'){
-					UsersController::currentUser();
+				UsersController::currentUser();
 			}else if($request[0] == 'privilege'){
-				
-			}
+				if(isset($request[1]) && !empty($request[1]) && $request[1] !== ''){
+					$id = $request[1];
+					UsersController::getAccessDetails($id);
+				}else{
+					UsersController::getAccessList();
+				}
 			}else{
 		  		$id = $request[0];
 				UsersController::detail($id);
 			}
+	  	}else{
+	  		UsersController::read();
 	  	}
 	    break;
 	  case 'DELETE':

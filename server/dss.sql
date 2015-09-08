@@ -205,37 +205,34 @@ CREATE TABLE IF NOT EXISTS `usergroup` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `module` varchar(100) NOT NULL,
   `level`  varchar(100) NOT NULL,
-  `read` tinyint(2),
-  `write` tinyint(2),
-  `delete` tinyint(2) NOT NULL,
-  `print` tinyint(2) NOT NULL,
+  `allow` tinyint(2),
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
 
 --
 -- Dumping data for table `usergroup`
 --
-INSERT INTO `usergroup` VALUES ('1', 'Dashboard','Admin', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('2', 'CNO','Admin', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('3', 'Child','Admin', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('4', 'Location','Admin', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('5', 'YearTerms','Admin', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('6', 'Reports','Admin', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('7', 'DSS','Admin', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('8', 'Profile','Admin', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('9', 'UserGroup','Admin', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('10', 'UserAccount','Admin', '1','1','1','1');
+INSERT INTO `usergroup` VALUES ('1', 'Dashboard','Admin', '1');
+INSERT INTO `usergroup` VALUES ('2', 'CNO','Admin', '1');
+INSERT INTO `usergroup` VALUES ('3', 'Child','Admin', '1');
+INSERT INTO `usergroup` VALUES ('4', 'Location','Admin', '1');
+INSERT INTO `usergroup` VALUES ('5', 'YearTerms','Admin', '1');
+INSERT INTO `usergroup` VALUES ('6', 'Reports','Admin', '1');
+INSERT INTO `usergroup` VALUES ('7', 'DSS','Admin', '1');
+INSERT INTO `usergroup` VALUES ('8', 'Profile','Admin', '1');
+INSERT INTO `usergroup` VALUES ('9', 'UserGroup','Admin', '1');
+INSERT INTO `usergroup` VALUES ('10', 'UserAccount','Admin', '1');
 
-INSERT INTO `usergroup` VALUES ('11', 'Dashboard','User', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('12', 'CNO','User', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('13', 'Child','User', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('14', 'Location','User', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('15', 'YearTerms','User', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('16', 'Reports','User', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('17', 'DSS','User', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('18', 'Profile','User', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('19', 'UserGroup','User', '1','1','1','1');
-INSERT INTO `usergroup` VALUES ('20', 'UserAccount','User', '1','1','1','1');
+INSERT INTO `usergroup` VALUES ('11', 'Dashboard','User', '1');
+INSERT INTO `usergroup` VALUES ('12', 'CNO','User', '0');
+INSERT INTO `usergroup` VALUES ('13', 'Child','User', '1');
+INSERT INTO `usergroup` VALUES ('14', 'Location','User', '1');
+INSERT INTO `usergroup` VALUES ('15', 'YearTerms','User', '1');
+INSERT INTO `usergroup` VALUES ('16', 'Reports','User', '0');
+INSERT INTO `usergroup` VALUES ('17', 'DSS','User', '0');
+INSERT INTO `usergroup` VALUES ('18', 'Profile','User', '1');
+INSERT INTO `usergroup` VALUES ('19', 'UserGroup','User', '0');
+INSERT INTO `usergroup` VALUES ('20', 'UserAccount','User', '0');
 
 --
 -- Table structure for table `status`

@@ -25,6 +25,7 @@ function currentUser() {
             $("#fname").val(response.fname);
             $("#lname").val(response.lname);
             $("#email").val(response.email);
+            $("#username").val(response.username);
             $('#mobileno').val(response.mobileno);
         },
         error: function(error) {

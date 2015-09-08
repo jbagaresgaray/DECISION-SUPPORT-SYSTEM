@@ -31,8 +31,8 @@
                   <div class="form-group">
                       <label>Level:</label>
                       <select class="form-control" name="level" id= "level">
-                        <option value="admin"> Admin</option>
-                        <option value="user"> User</option>
+                        <option value="Admin"> Admin</option>
+                        <option value="User"> User</option>
                       </select>
                   </div>
                   <div class="form-group">

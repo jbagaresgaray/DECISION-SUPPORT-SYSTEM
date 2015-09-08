@@ -3,7 +3,12 @@ session_start();
 
 if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
     header("Location: index.php");
+}elseif (isset($_SESSION['users']) && !empty($_SESSION['users'])) {
+    if($_SESSION['users']['access'][2]['allow'] != 1){
+        header("Location: index.php");
+    }
 }
+
 ?>
 
 

@@ -2,7 +2,38 @@ var circles = [];
 
 $(document).ready(function() {
     showHeatMap();
+
+    currentUser();
 });
+
+
+function currentUser() {
+    $.ajax({
+        url: '../server/users/auth/',
+        async: false,
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
+        type: 'GET',
+        success: function(response) {
+            $("#fname").val(response.fname);
+            $("#lname").val(response.lname);
+            $("#email").val(response.email);
+            $("#username").val(response.username);
+            $('#mobileno').val(response.mobileno);
+        },
+        error: function(error) {
+            console.log("Error:");
+            console.log(error.responseText);
+            console.log(error.message);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
+            return;
+        }
+    });
+}
 
 var Circle = function(x, y, radius, name) {
     this.left = x - radius;

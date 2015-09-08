@@ -38,14 +38,17 @@ if($_SERVER['REQUEST_METHOD'] =='POST'){
                 $result = $mysqli->query($query1);
                 if ($result) {
                     if($row = $result->fetch_assoc()){
-                        /*** set the session user_id variable ***/
+                        $level = $row['level'];
+                        $query1 ="SELECT * FROM usergroup c WHERE c.level='$level';";
+                        $result1 = $mysqli->query($query1);         
+                        while($row1 = $result1->fetch_array(MYSQLI_ASSOC)){
+                            array_push($data,$row1);
+                        }
+                        $row['access'] = $data;
                         $_SESSION['users'] = $row;
-                        /*** set a form token ***/
-                        $form_token = md5( uniqid('auth', true) );
 
-                        /** set the session form token **/
+                        $form_token = md5(uniqid('auth', true));
                         $_SESSION['form_token'] = $form_token;
-                        /*** tell the user we are logged in ***/
                         header("Location: main.php");
                     }else{
                         $message = 'Login Failed';

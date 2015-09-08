@@ -76,8 +76,6 @@ class UsersController {
 			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Invalid CSRF Token / Bad Request / Unauthorized ... Please Login again'),JSON_PRETTY_PRINT);
 		}else if(isset($data['username']) && empty($data['username'])){
 			return print json_encode(array('success'=>false,'status'=>200,'msg'=>'Username is required'),JSON_PRETTY_PRINT);
-		}else if(isset($data['password']) && empty($data['password'])){
-			return print json_encode(array('success'=>false,'status'=>200,'msg'=>'Password is required'),JSON_PRETTY_PRINT);
 		}else if(isset($data['email']) && empty($data['email'])){
 			return print json_encode(array('success'=>false,'status'=>200,'msg'=>'Email is required'),JSON_PRETTY_PRINT);
 		}else if(isset($data['fname']) && empty($data['fname'])){
@@ -87,7 +85,6 @@ class UsersController {
 		}else{
 			$var = [
 				"username" => $data['username'],
-				"password" => $data['password'],
 				"email" => $data['email'],
 				"mobileno" => $data['mobileno'],
 				"fname" => $data['fname'],
@@ -167,7 +164,39 @@ class UsersController {
 			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Invalid CSRF Token / Bad Request / Unauthorized ... Please Login again'),JSON_PRETTY_PRINT);
 			die();
 		}else{
-			Users::getAccessList($id);
+			Users::getAccessList();
+		}
+	}
+
+	public static function getAccessDetails($id){
+		session_start();
+		$headers = apache_request_headers();	
+		$token = $headers['X-Auth-Token'];
+
+		if($token != $_SESSION['form_token']){
+			header('Invalid CSRF Token', true, 401);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Invalid CSRF Token / Bad Request / Unauthorized ... Please Login again'),JSON_PRETTY_PRINT);
+			die();
+		}else{
+			Users::getAccessDetails($id);
+		}
+	}
+
+	public static function updateAccess($id,$data){
+		session_start();
+		$headers = apache_request_headers();	
+		$token = $headers['X-Auth-Token'];
+
+		if($token != $_SESSION['form_token']){
+			header('Invalid CSRF Token', true, 401);
+			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Invalid CSRF Token / Bad Request / Unauthorized ... Please Login again'),JSON_PRETTY_PRINT);
+			die();
+		}else{
+			$var = [
+				"allow" => (($data['allow'] == 'true') ? 1:0)
+			];
+
+			Users::updateAccess($id,$var);
 		}
 	}
 }
