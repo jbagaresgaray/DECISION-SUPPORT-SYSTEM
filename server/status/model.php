@@ -141,6 +141,7 @@ class Status {
 				array_push($data,$row);
 			}
 			return print json_encode(array('success' =>true,'status'=>200,'data' =>$data),JSON_PRETTY_PRINT);
+			// return print_r(json_encode($query1));
 		}
 	}
 

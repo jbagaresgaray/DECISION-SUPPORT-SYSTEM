@@ -45,7 +45,7 @@
                     <li>
                         <a href="index.php">Home</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="about.php">About Us</a>
                     </li>
                     <li>
@@ -55,7 +55,10 @@
                         <a href="vmgo.php">VMGO</a>
                     </li>
                     <li>
-                        <a href="client/index.php">Heat Map</a>
+                        <a href="heat.php">Heat Map</a>
+                    </li>
+                    <li>
+                        <a href="client/index.php">Login</a>
                     </li>
                 </ul>
             </div>

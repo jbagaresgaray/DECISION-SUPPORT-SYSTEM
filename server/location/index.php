@@ -30,9 +30,9 @@
 	  case 'GET':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		$id = $request[0];
-				LocationController::detail($id);
+			LocationController::detail($id);
 	  	}else{
-				LocationController::read();
+			LocationController::read();
 	  	}
 	    break;
 	  case 'DELETE':

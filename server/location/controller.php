@@ -32,16 +32,16 @@ class LocationController {
 
 
 	public static function read(){
-		session_start();
+		/*session_start();
 		$headers = apache_request_headers();	
 		$token = $headers['X-Auth-Token'];
 
 		if($token != $_SESSION['form_token']){
 			header('Invalid CSRF Token', true, 401);
 			return print json_encode(array('success'=>false,'status'=>400,'msg'=>'Invalid CSRF Token / Bad Request / Unauthorized ... Please Login again'),JSON_PRETTY_PRINT);
-		}else{
+		}else{*/
 			Location::read();
-		}
+		// }
 	}
 
 	public static function detail($id){

@@ -49,14 +49,17 @@
                     <li>
                         <a href="about.php">About Us</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="contact.php">Contact</a>
                     </li>
                     <li>
                         <a href="vmgo.php">VMGO</a>
                     </li>
                     <li>
-                        <a href="client/index.php">Heat Map</a>
+                        <a href="heat.php">Heat Map</a>
+                    </li>
+                    <li>
+                        <a href="client/index.php">Login</a>
                     </li>
                 </ul>
             </div>

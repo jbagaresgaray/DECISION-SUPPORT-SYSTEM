@@ -16,12 +16,41 @@
     <!-- Custom CSS -->
     <link href="assets/css/slider.css" rel="stylesheet">
 
-    <!-- HTML5 Shim and Respond.js IE8 support of HTML5 elements and media queries -->
-    <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
-    <!--[if lt IE 9]>
-        <script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
-        <script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
-    <![endif]-->
+    <style type="text/css">
+        canvas, img { display:block; margin:1em auto; }
+        canvas { background:url('map.png') }
+        .color-swatch {
+            float: left;
+            width: 60px;
+            height: 60px;
+            margin: 0 5px;
+            border-radius: 3px;
+        }
+        .bg-normal{
+            text-align: center;
+            font-size: 12px;
+            color: #fff;
+            background-color: #0070C0;
+        }
+        .bg-underweight{
+            text-align: center;
+            font-size: 12px;
+            color: #fff;
+            background-color: #A8D08D;
+        }
+        .bg-severely{
+            text-align: center;
+            font-size: 12px;
+            color: #fff;
+            background-color: #E97E37;
+        }
+        .bg-over{
+            text-align: center;
+            font-size: 12px;
+            color: #fff;
+            background-color: #CF000F;
+        }
+ </style>
 
 </head>
 <body id="about">
@@ -51,10 +80,10 @@
                     <li>
                         <a href="contact.php">Contact</a>
                     </li>
-                    <li class="active">
+                    <li>
                         <a href="vmgo.php">VMGO</a>
                     </li>
-                    <li>
+                    <li class="active">
                         <a href="heat.php">Heat Map</a>
                     </li>
                     <li>
@@ -67,20 +96,29 @@
         <!-- /.container -->
     </nav>
     <div class="container">
-        <h1>VMGO</h1>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
-        </p>
-        <p>Lorem ipsum dolor sit amet, consectetur adipisicing elit, sed do eiusmod
-        tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim veniam,
-        quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo
-        consequat. Duis aute irure dolor in reprehenderit in voluptate velit esse
-        cillum dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non
-        proident, sunt in culpa qui officia deserunt mollit anim id est laborum.</p>
+        <div class="row">
+            <div class="col-md-12 text-center">
+                <img src="assets/img/logo1.png" alt="DS System" style="width:80px;" class="pull-left">
+                <img src="assets/img/logo2.png" alt="DS System" style="width:80px;" class="pull-right">
+                <h2>NUTRITION OFFICE MANAGEMENT INFORMATION SYSTEM WITH DECISION SUPPORT SYSTEM</h2>   
+            </div>
+        </div> 
+        <hr />
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <div class="color-swatches">
+                    <div class="color-swatch bg-normal">Normal</div>
+                    <div class="color-swatch bg-underweight">Under Weight</div>
+                    <div class="color-swatch bg-severely">Severely Under Weight</div>
+                    <div class="color-swatch bg-over">Over Weight</div>
+                </div>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-md-12 col-lg-12">
+                <canvas id="viewport" width="1010" height="763"></canvas>
+            </div>
+        </div>   
     </div>
     <!-- /. PAGE WRAPPER  -->
     <!-- /. WRAPPER  -->
@@ -88,6 +126,7 @@
     <script src="assets/js/jquery-1.10.2.js"></script>
     <!-- BOOTSTRAP SCRIPTS -->
     <script src="assets/js/bootstrap.min.js"></script>
+    <script src="js/heat.js"></script>
 </body>
 
 </html>

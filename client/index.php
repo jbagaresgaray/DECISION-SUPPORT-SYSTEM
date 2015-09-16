@@ -9,7 +9,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
 
-    <title></title>
+    <title>Web App</title>
 
     <!-- Bootstrap core CSS -->
     <link rel="stylesheet" href="../assets/css/bootstrap.css">
@@ -91,7 +91,10 @@
                         <a href="../vmgo.php">VMGO</a>
                     </li>
                     <li>
-                        <a href="index.php">Heat Map</a>
+                        <a href="../heat.php">Heat Map</a>
+                    </li>
+                    <li class="active">
+                        <a href="index.php">Login</a>
                     </li>
                 </ul>
             </div>

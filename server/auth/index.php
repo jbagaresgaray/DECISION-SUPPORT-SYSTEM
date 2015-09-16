@@ -33,7 +33,7 @@ if($_SERVER['REQUEST_METHOD'] =='POST'){
                 print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
                 return;
             }else{
-
+                $data = array();
                 $query1 ="SELECT id,username,email,mobileno,fname,lname,level FROM userdata WHERE username = '$username' AND password = '$phpro_password' LIMIT 1;";
                 $result = $mysqli->query($query1);
                 if ($result) {

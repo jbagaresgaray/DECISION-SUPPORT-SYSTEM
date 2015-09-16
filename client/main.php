@@ -54,13 +54,13 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
             <div id="page-inner">
                 <div class="row">
                     <div class="col-md-12 text-center">
-                         <img src="../assets/img/logo1.png" alt="DS System" style="width:80px;" class="pull-left">
+                        <img src="../assets/img/logo1.png" alt="DS System" style="width:80px;" class="pull-left">
                         <img src="../assets/img/logo2.png" alt="DS System" style="width:80px;" class="pull-right">
                         <h2>NUTRITION OFFICE MANAGEMENT INFORMATION SYSTEM WITH DECISION SUPPORT SYSTEM</h2>   
                     </div>
                 </div>              
                  <!-- /. ROW  -->
-                  <hr />
+                <hr />
                 <div class="row">
                     <div class="col-md-12 col-lg-12">
                         <div class="color-swatches">
@@ -99,7 +99,9 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
     <!-- SCRIPTS -AT THE BOTOM TO REDUCE THE LOAD TIME-->
     <!-- JQUERY SCRIPTS -->
      <?php include('include/script.php'); ?>
-    
+    <script type="text/javascript">
+        // window.location.reload();
+    </script>
    
 </body>
 </html>

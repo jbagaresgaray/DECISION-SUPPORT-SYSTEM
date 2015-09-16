@@ -1,7 +1,16 @@
 $(document).ready(function() {
     filters();
     $("#cboFilters").bind("change", filters);
+    $("#cboOptions").bind("change", filterLocation);
 });
+
+function refresh() {
+    filters();
+}
+
+function exportToExcel(obj, elem, sheetname) {
+    return ExcellentExport.excel(obj, elem, sheetname);
+}
 
 function filters() {
     var value = $("#cboFilters").val();
@@ -62,7 +71,6 @@ function filters() {
         case 'barangay':
             $('#cboOptions').show();
             populateLocation();
-            $("#cboOptions").bind("change", filterLocation);
             filterLocation();
             break;
             /*case 'gender':
@@ -102,16 +110,6 @@ function filterLocation() {
     }
 }
 
-
-function refresh() {
-
-}
-
-
-function exportToExcel(obj, elem, sheetname) {
-    return ExcellentExport.excel(obj, elem, sheetname);
-}
-
 function populateLocation() {
     $.ajax({
         url: '../server/location/',
@@ -140,7 +138,6 @@ function populateLocation() {
         }
     });
 }
-
 
 function loadAll(url) {
     $('#printTable').empty();
@@ -316,11 +313,11 @@ function loadTotalSevereUnder(url, locationID) {
                         for (var i = 0; i < decode.data.length; i++) {
                             var row = decode.data;
                             var html = '<tr class="odd gradeX">\
-                                        <td class="center">' + row[i].name + '</td>\
-                                        <td class="center">' + row[i].under + '</td>\
-                                        <td class="center">' + row[i].severely + '</td>\
-                                        <td class="center">' + row[i].total + '</td>\
-                                        <td class="center">' + row[i].rank + '</td>\
+                                        <td class="text-left">' + row[i].name + '</td>\
+                                        <td class="text-center">' + row[i].under + '</td>\
+                                        <td class="text-center">' + row[i].severely + '</td>\
+                                        <td class="text-center">' + row[i].Total + '</td>\
+                                        <td class="text-center">' + row[i].rank + '</td>\
                                 </tr>';
                             $("#dataTables-example tbody").append(html);
                         }
@@ -356,7 +353,7 @@ function loadTotalSevereUnder(url, locationID) {
                                         <td class="center">' + row[i].name + '</td>\
                                         <td class="center">' + row[i].under + '</td>\
                                         <td class="center">' + row[i].severely + '</td>\
-                                        <td class="center">' + row[i].total + '</td>\
+                                        <td class="center">' + row[i].Total + '</td>\
                                         <td class="center">' + row[i].rank + '</td>\
                                 </tr>';
                             $("#dataTables-example tbody").append(html);

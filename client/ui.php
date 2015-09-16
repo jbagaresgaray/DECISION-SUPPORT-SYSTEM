@@ -326,7 +326,7 @@ td
                                     <tr height=20 style='height:15.0pt'>
                                     </tr>
                                     <tr height=20 style='height:15.0pt'>
-                                        <td colspan=7 height=20 class='xl85' style='height:15.0pt'>Weight (kg) for Age of Boys 0-71 Months</td>
+                                        <td colspan=7 height=20 class='xl85' style='height:15.0pt'>Weight (kg) for Age of Child 0-71 Months</td>
                                     </tr>
                                     <tr height=20 style='height:15.0pt'>
                                         <td height=20 class='xl70' style='height:15.0pt'>&nbsp;</td>

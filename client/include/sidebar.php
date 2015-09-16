@@ -1,3 +1,4 @@
+
 <nav class="navbar-default navbar-side" role="navigation">
   <div class="sidebar-collapse">
       <?php if (isset($_SESSION['users']) && !empty($_SESSION['users'])): ?>

@@ -292,9 +292,26 @@ BEGIN
     ((SELECT COUNT(c.id) FROM child c WHERE c.status_id=2 AND c.locationID=l.id) + (SELECT COUNT(c.id) FROM child c WHERE c.status_id=3 AND c.locationID=l.id)) AS  Total
     FROM location l
     GROUP BY l.id
-    ORDER By under DESC
+    ORDER By Total DESC
   ) AS A ORDER BY rank ASC;
 END$$
+
+DELIMITER $$
+CREATE PROCEDURE printSevereUnderLocation (IN ID INTEGER)
+BEGIN
+  SET @rank=0;
+  SELECT A.*,@rank:=@rank+1 AS rank FROM 
+  (
+    SELECT l.id,l.name,l.description,l.landarea,
+    (SELECT COUNT(c.id) FROM child c WHERE c.status_id=2 AND c.locationID=l.id) AS under,
+    (SELECT COUNT(c.id) FROM child c WHERE c.status_id=3 AND c.locationID=l.id) AS severely,
+    ((SELECT COUNT(c.id) FROM child c WHERE c.status_id=2 AND c.locationID=l.id) + (SELECT COUNT(c.id) FROM child c WHERE c.status_id=3 AND c.locationID=l.id)) AS  Total
+    FROM location l WHERE l.id=ID
+    GROUP BY l.id
+    ORDER By Total DESC
+  ) AS A ORDER BY rank ASC;
+END$$
+
 
 CREATE PROCEDURE printDSS(IN STATUSID VARCHAR(10),IN YEAR VARCHAR(10))
 BEGIN
