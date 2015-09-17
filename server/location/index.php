@@ -19,18 +19,23 @@
 
 		if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		$id = $request[0];
-				LocationController::update($id,$_REQUEST);
+			LocationController::update($id,$_REQUEST);
 	  	}else{
-				header('Route Not Found', true, 404);
+			header('Route Not Found', true, 404);
 	  	}
 	    break;
 	  case 'POST':
-				LocationController::create($_POST);
+			LocationController::create($_POST);
 	    break;
 	  case 'GET':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
-	  		$id = $request[0];
-			LocationController::detail($id);
+	  		if ($request[0] == 'heatmap'){
+	  			$id = $request[1];
+	  			LocationController::heatmap($id);
+	  		}else{
+	  			$id = $request[0];
+				LocationController::detail($id);
+	  		}
 	  	}else{
 			LocationController::read();
 	  	}

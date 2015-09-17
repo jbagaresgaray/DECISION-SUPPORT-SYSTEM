@@ -31,6 +31,34 @@ class Location {
 		}
 	}
 
+	public static function heatmap($id){
+		$config= new Config();
+		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
+		if ($mysqli->connect_errno) {
+		    print json_encode(array('success' =>false,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
+		    return;
+		}else{
+			$query ="SELECT A.id,A.name,A.description,A.landarea,A.diameter,
+					IF(A.NW_Count > 0,A.nw_path,'') AS nw_path,A.NW_Count,
+					IF(A.SUW_Count > 0,A.suw_path,'') AS suw_path,A.SUW_Count,
+					IF(A.UW_Count > 0,A.uw_path,'') AS uw_path,A.UW_Count,
+					IF(A.OW_Count > 0,A.ow_path,'') AS ow_path,A.OW_Count
+					FROM ( SELECT l.id,l.name,l.description,l.landarea, l.nw_path,l.suw_path,l.uw_path,l.ow_path,l.diameter,
+					(SELECT COUNT(c.id) FROM child c WHERE c.locationID = l.id AND c.status_id =1 AND c.year_id = $id) AS NW_Count,
+					(SELECT COUNT(c.id) FROM child c WHERE c.locationID = l.id AND c.status_id =2 AND c.year_id = $id) AS SUW_Count,
+					(SELECT COUNT(c.id) FROM child c WHERE c.locationID = l.id AND c.status_id =3 AND c.year_id = $id) AS UW_Count,
+					(SELECT COUNT(c.id) FROM child c WHERE c.locationID = l.id AND c.status_id =4 AND c.year_id = $id) AS OW_Count
+					FROM location l GROUP BY l.id ORDER BY l.name ASC) AS A;";
+
+			$result = $mysqli->query($query);
+			$data = array();
+			while($row = $result->fetch_array(MYSQLI_ASSOC)){
+				array_push($data,$row);
+			}
+			print_r(json_encode(array('success' =>true,'locations' =>$data),JSON_PRETTY_PRINT));
+		}
+	}
+
 	public static function read(){
 		$config= new Config();
 		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);

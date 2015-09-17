@@ -44,6 +44,10 @@ class LocationController {
 		// }
 	}
 
+	public static function heatmap($id){
+		Location::heatmap($id);
+	}
+
 	public static function detail($id){
 		session_start();
 		$headers = apache_request_headers();	

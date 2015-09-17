@@ -105,13 +105,16 @@
         </div> 
         <hr />
         <div class="row">
-            <div class="col-md-12 col-lg-12">
+            <div class="col-md-9 col-lg-9">
                 <div class="color-swatches">
                     <div class="color-swatch bg-normal">Normal</div>
                     <div class="color-swatch bg-underweight">Under Weight</div>
                     <div class="color-swatch bg-severely">Severely Under Weight</div>
                     <div class="color-swatch bg-over">Over Weight</div>
                 </div>
+            </div>
+            <div class="col-lg-3 pull-right">
+                <select class="form-control" id="cboFilters"></select>
             </div>
         </div>
         <div class="row">

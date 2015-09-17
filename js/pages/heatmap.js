@@ -1,9 +1,11 @@
 var circles = [];
 
 $(document).ready(function() {
-    showHeatMap();
-
+    populateYear();
     currentUser();
+
+    $("#cboFilters").bind("change", showHeatMap);
+    showHeatMap();
 });
 
 
@@ -12,7 +14,7 @@ function currentUser() {
         url: '../server/users/auth/',
         async: false,
         headers: {
-            'X-Auth-Token' : $("input[name='csrf']" ).val()
+            'X-Auth-Token': $("input[name='csrf']").val()
         },
         type: 'GET',
         success: function(response) {
@@ -21,6 +23,36 @@ function currentUser() {
             $("#email").val(response.email);
             $("#username").val(response.username);
             $('#mobileno').val(response.mobileno);
+        },
+        error: function(error) {
+            console.log("Error:");
+            console.log(error.responseText);
+            console.log(error.message);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
+            return;
+        }
+    });
+}
+
+function populateYear() {
+    $("#cboFilters").empty();
+    $.ajax({
+        url: '../server/yearterms/',
+        async: false,
+        headers: {
+            'X-Auth-Token': $("input[name='csrf']").val()
+        },
+        type: 'GET',
+        success: function(response) {
+            var decode = response;
+            for (var i = 0; i < decode.yearterms.length; i++) {
+                var row = decode.yearterms;
+                var html = '<option id="' + row[i].id + '" value="' + row[i].id + '">' + row[i].year + '</option>';
+                $("#cboFilters").append(html);
+            }
         },
         error: function(error) {
             console.log("Error:");
@@ -52,30 +84,46 @@ function showHeatMap() {
     ];
 
     $.ajax({
-        url: '../server/location/',
+        url: '../server/location/heatmap/' + $('#cboFilters').val(),
         async: false,
         type: 'GET',
-        headers: {
-            'X-Auth-Token': $("input[name='csrf']").val()
-        },
         success: function(response) {
             var decode = response;
 
             var canvas = document.getElementById('viewport');
             var context = canvas.getContext('2d');
+            context.clearRect(0, 0, canvas.width, canvas.height);
 
             for (var i = 0; i < decode.locations.length; i++) {
-                var row = decode.locations;
+                var row = decode.locations;                 
 
-                var str = row[i].nw_path.split(',');
-                var str1 = row[i].ow_path.split(',');
-                var str2 = row[i].suw_path.split(',');
-                var str3 = row[i].uw_path.split(',');
+                if (row[i].nw_path !== '') {
+                    console.log('nw_path: ',row[i].nw_path);
+                    var str = row[i].nw_path.split(',');
+                     console.log('str: ',str);
+                    drawCircle(context, parseInt(str[0]), parseInt(str[1]), color_array[0], row[i].diameter, 1, "#003300", "white", "center", "bold 12px Arial", row[i].NW_Count, circles, row[i].name + '-Normal');
+                }
 
-                drawCircle(context, parseInt(str[0]), parseInt(str[1]), color_array[0], row[i].diameter, 1, "#003300", "white", "center", "bold 12px Arial", "", circles, row[i].name + '-Normal');
-                drawCircle(context, parseInt(str1[0]), parseInt(str1[1]), color_array[1], row[i].diameter, 1, "#003300", "white", "center", "bold 32px Arial", "", circles, row[i].name + '-Underweight');
-                drawCircle(context, parseInt(str2[0]), parseInt(str2[1]), color_array[2], row[i].diameter, 1, "#003300", "white", "center", "bold 32px Arial", "", circles, row[i].name + '-Severely');
-                drawCircle(context, parseInt(str3[0]), parseInt(str3[1]), color_array[3], row[i].diameter, 1, "#003300", "white", "center", "bold 32px Arial", "", circles, row[i].name + '-Over');
+                if (row[i].ow_path !== '') {
+                    console.log('ow_path: ',row[i].ow_path);
+                    var str1 = row[i].ow_path.split(',');
+                    console.log('str1: ',str1);
+                    drawCircle(context, parseInt(str1[0]), parseInt(str1[1]), color_array[3], row[i].diameter, 1, "#003300", "white", "center", "bold 12px Arial", row[i].OW_Count, circles, row[i].name + '-Over');
+                }
+
+                if (row[i].suw_path !== '') {
+                    console.log('suw_path: ',row[i].suw_path);
+                    var str2 = row[i].suw_path.split(',');
+                    console.log('str2: ',str2);
+                    drawCircle(context, parseInt(str2[0]), parseInt(str2[1]), color_array[2], row[i].diameter, 1, "#003300", "white", "center", "bold 12px Arial",row[i].SUW_Count, circles, row[i].name + '-Severely');
+                }
+
+                if (row[i].uw_path !== '') {
+                    console.log('uw_path: ',row[i].uw_path);
+                    var str3 = row[i].uw_path.split(',');
+                    console.log('str3: ',str3);
+                    drawCircle(context, parseInt(str3[0]), parseInt(str3[1]), color_array[1], row[i].diameter, 1, "#003300", "white", "center", "bold 12px Arial", row[i].UW_Count, circles, row[i].name + '-Underweight');
+                }
             }
         },
         error: function(error) {
@@ -108,9 +156,13 @@ var draw = function(context, x, y, fillcolor, radius, linewidth, strokestyle, fo
 };
 
 var drawCircle = function(context, x, y, fillcolor, radius, linewidth, strokestyle, fontcolor, textalign, fonttype, filltext, circles, name) {
+    console.log('x: ',x);
+    console.log('y: ',y);
+    console.log('radius: ',radius);
+
     draw(context, x, y, fillcolor, radius, linewidth, strokestyle, fontcolor, textalign, fonttype, filltext);
     var circle = new Circle(parseInt(x), parseInt(y), parseFloat(radius), name);
-    console.log('circle: ', circle);
+    console.log('circle: ',circle);
     circles.push(circle);
 };
 

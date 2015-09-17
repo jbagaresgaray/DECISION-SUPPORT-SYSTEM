@@ -174,7 +174,76 @@ CREATE TABLE IF NOT EXISTS `child` (
 -- Dumping data for table `student`
 --
 -- --------------------------------------------------------
+INSERT INTO `child` (`id`, `fname`, `lname`, `mname`, `address`, `locationID`, `dob`, `height`, `weight`, `gender`, `months`, `status_id`, `year_id`, `createddate`, `updateddate`) VALUES
+(1, 'Audrey', 'Mercado', 'Villa', 'Escalante City', 7, '2013-02-08 00:00:00', '67', '17', 'Female', 31, 1, 1, '2015-09-01 13:42:08', '2015-09-04 13:59:20'),
+(2, 'Patric', 'Dela Cruz', 'Tan', 'Esc.', 20, '2012-10-26 00:00:00', '34', '9.1', 'Male', 34, 2, 1, '2015-09-01 13:55:43', NULL),
+(3, 'Glezza', 'Balopenas', 'Patan', 'Escalanate', 17, '2011-11-12 00:00:00', '111', '11.2', 'Female', 46, 3, 1, '2015-09-01 14:14:44', '2015-09-01 14:33:56'),
+(4, 'Gean', 'Gracia', 'Alcos', 'Escalante City', 2, '2014-11-10 00:00:00', '53', '4.4', 'Male', 10, 2, 1, '2015-09-01 14:33:09', NULL),
+(5, 'Jon Lester', 'Lester', 'HOn', 'Escalante', 9, '2011-05-02 00:00:00', '38', '67', 'Male', 52, 4, 1, '2015-09-01 14:39:10', '2015-09-04 15:31:37'),
+(6, 'Garpes', 'Chris', 'ponyo', 'Escalante', 7, '2009-12-28 00:00:00', '66', '17.0', 'Male', 68, 1, 1, '2015-09-01 14:51:00', NULL),
+(7, 'rubelyn', 'uy', 'villa', 'esc', 17, '2010-03-04 00:00:00', '124', '28', 'Female', 66, 4, 1, '2015-09-02 09:36:39', NULL),
+(8, 'Asley Gwapo', 'Mahilum', 'Malaay', 'Escalante City', 9, '2012-11-21 00:00:00', '124', '46', 'Male', 33, 4, 1, '2015-09-04 11:44:40', '2015-09-04 15:16:18'),
+(9, 'John Jeirod', 'Salusdaquit', 'Pacina', 'Escalante City', 5, '2014-11-10 00:00:00', '59', '8', 'Male', 10, 1, 1, '2015-09-04 11:48:26', NULL),
+(10, 'Rose Marie', 'Cabarabias', 'Bulahan', 'Escalante City', 5, '2009-11-24 00:00:00', '70', '15', 'Female', 69, 3, 1, '2015-09-04 11:51:04', NULL),
+(11, 'Jenny Love', 'Carbaquel', 'Luneta', 'Escalante City', 5, '2011-03-03 00:00:00', '53', '23', 'Female', 54, 4, 1, '2015-09-04 11:53:36', NULL),
+(12, 'Jan', 'Cuberos', 'Aponte', 'Escalante City', 5, '2012-01-13 00:00:00', '47', '8', 'Male', 44, 2, 1, '2015-09-04 11:55:11', NULL),
+(13, 'Pauline Mae ', 'Tabuada', 'Segovia ', 'Escalante City', 5, '2012-02-28 00:00:00', '45', '9.5', 'Female', 42, 2, 1, '2015-09-04 11:58:41', NULL),
+(14, 'Vicente', 'Tabotabo', 'Pelayo', 'Escalante City', 16, '2010-04-24 00:00:00', '56', '11', 'Male', 64, 2, 1, '2015-09-04 12:00:30', '2015-09-04 15:48:45'),
+(15, 'Thirdy', 'Zaragoza', 'Bachoco', 'Escalante City', 5, '2013-10-24 00:00:00', '34', '12', 'Male', 22, 1, 1, '2015-09-04 12:02:38', NULL),
+(16, 'Karen', 'Salvadaquit', 'Paclibar', 'Esacalante City', 5, '2014-11-10 00:00:00', '53', '7', 'Female', 10, 3, 1, '2015-09-04 12:04:52', NULL),
+(17, 'Ranalyn', 'Albarico', 'Lopez', 'Escalante City', 5, '2014-05-09 00:00:00', '45', '9.3', 'Female', 16, 1, 1, '2015-09-04 12:15:14', NULL),
+(18, 'Brushel Jay', 'Lobaton', 'Aloria', 'Escalante City', 5, '2014-07-09 00:00:00', '35', '6', 'Female', 14, 2, 1, '2015-09-04 12:17:03', NULL),
+(19, 'Rhea', 'Soberano', 'Ingalla', 'Escalante City', 4, '2012-06-29 00:00:00', '78', '30.4', 'Female', 38, 4, 1, '2015-09-04 12:31:52', NULL),
+(20, 'Mely', 'Luneta', 'Abello', 'Escalante City', 4, '2013-06-29 00:00:00', '67', '34', 'Female', 26, 4, 1, '2015-09-04 12:33:49', NULL),
+(21, 'Sheila', 'Gillana', 'Jarabelo', 'Escalante City', 4, '2012-01-03 00:00:00', '84', '18.8', 'Female', 44, 1, 1, '2015-09-04 12:35:22', NULL),
+(22, 'Loren', 'Mapa', 'aducal', 'Escalante City', 4, '2013-04-03 00:00:00', '68', '20.5', 'Female', 29, 4, 1, '2015-09-04 12:36:38', NULL),
+(23, 'Rena', 'Villanueva', 'Silva', 'Escalante', 5, '2010-08-09 00:00:00', '87', '20.5', 'Female', 61, 1, 1, '2015-09-04 12:38:04', NULL),
+(24, 'Mac Jiro', 'Agabon', 'Sanchez', 'Escalante City', 18, '2012-09-30 00:00:00', '81', '9.8', 'Male', 35, 2, 1, '2015-09-04 12:40:57', NULL),
+(25, 'Rodave', 'Canoy', 'Tan-awan', 'Escalante City', 18, '2012-06-12 00:00:00', '84', '14.5', 'Male', 39, 1, 1, '2015-09-04 12:42:54', NULL),
+(26, 'Rose', 'Cadalso', 'Lozano', 'Escalante City', 18, '2013-12-27 00:00:00', '82', '11.6', 'Female', 20, 1, 1, '2015-09-04 12:44:12', NULL),
+(27, 'Arianne', 'Cabuhat', 'Villa', 'Escalante City', 18, '2014-05-25 00:00:00', '34', '12.6', 'Female', 15, 1, 1, '2015-09-04 12:45:49', NULL),
+(28, 'Angel', 'Moral', 'Mahusay', 'Escalante City', 18, '2012-12-23 00:00:00', '69', '9.9', 'Female', 32, 3, 1, '2015-09-04 12:47:41', NULL),
+(29, 'Roland', 'Baluado', 'Calopez', 'Escalante City', 18, '2013-11-02 00:00:00', '54', '13.9', 'Male', 22, 1, 1, '2015-09-04 12:49:25', NULL),
+(30, 'Mary Grace', 'Idullan', 'Cabag', 'Escalante City', 10, '2010-03-04 00:00:00', '89', '24.9', 'Female', 66, 1, 1, '2015-09-04 12:56:28', NULL),
+(31, 'Randy', 'Jarabelo', 'Bachoco', 'Escalante City', 10, '2012-05-26 00:00:00', '75', '11.5', 'Male', 39, 3, 1, '2015-09-04 12:58:46', NULL),
+(32, 'Rassel', 'Dela Cruz', 'Cabo', 'Escalante City', 10, '2012-09-09 00:00:00', '78', '9.15', 'Female', 36, 2, 1, '2015-09-04 13:00:51', NULL),
+(33, 'Dayna', 'Lapastora', 'Clarin', 'Escalante City', 10, '2011-04-26 00:00:00', '89', '25.6', 'Female', 52, 4, 1, '2015-09-04 13:04:12', NULL),
+(34, 'Jon Jon', 'Damalerio', 'Cabuguason', 'Escalante City', 10, '2012-03-08 00:00:00', '71.5', '13', 'Male', 42, 1, 1, '2015-09-04 13:10:01', NULL),
+(35, 'Carlo', 'Serios', 'Villar', 'Escalante City', 10, '2011-11-12 00:00:00', '94', '15', 'Male', 46, 1, 1, '2015-09-04 13:11:15', NULL),
+(36, 'Raven', 'Cedona', 'Ibanos', 'Escalante City', 10, '2011-10-07 00:00:00', '89', '11', 'Male', 47, 2, 1, '2015-09-04 13:12:47', NULL),
+(37, 'Kent ', 'Liavao', 'Palmares', 'Escalante City', 10, '2011-10-12 00:00:00', '94', '13.4', 'Male', 47, 1, 1, '2015-09-04 13:13:55', NULL),
+(38, 'Kyla', 'Hernandez', 'Palma', 'Escalante City', 10, '2011-03-14 00:00:00', '107', '17', 'Female', 54, 1, 1, '2015-09-04 13:16:03', NULL),
+(39, 'Nathaniel', 'Sivilla', 'Blanco', 'Escalante City', 1, '2011-04-28 00:00:00', '93', '17.8', 'Male', 52, 1, 1, '2015-09-04 13:20:10', NULL),
+(40, 'Joecel Joy ', 'Guanzon', 'Legaspi', 'Escalnte City', 1, '2010-01-20 00:00:00', '99', '14.9', 'Female', 67, 3, 1, '2015-09-04 13:21:54', NULL),
+(41, 'Jovelito', 'Maquiza', 'Yee', 'Escalante City', 1, '2009-12-17 00:00:00', '99.5', '13.6', 'Male', 69, 2, 1, '2015-09-04 13:23:40', NULL),
+(42, 'Anne', 'Binonggo', 'Sipalo', 'Escalante City', 1, '2012-12-08 00:00:00', '56', '17.9', 'Female', 33, 4, 1, '2015-09-04 13:25:26', NULL),
+(43, 'Andrew', 'Pahilanga', 'Sevallos', 'Escalante City', 1, '2009-11-22 00:00:00', '105', '16.0', 'Male', 69, 1, 1, '2015-09-04 13:27:13', NULL),
+(44, 'Angelo', 'Siblag', 'Cortes', 'Escalante City', 21, '2009-11-17 00:00:00', '98', '18.9', 'Male', 70, 1, 1, '2015-09-04 13:29:25', NULL),
+(45, 'Annabelle', 'Bautista', 'Alvarez', 'Escalante City', 21, '2012-01-17 00:00:00', '78', '10.8', 'Female', 44, 2, 1, '2015-09-04 13:30:40', NULL),
+(46, 'Loren', 'Hachuela', 'Hernandez', 'Escalante City', 21, '2013-09-04 00:00:00', '53', '12.4', 'Female', 24, 1, 1, '2015-09-04 13:32:04', NULL),
+(47, 'Renz', 'Vilchez', 'Mahinay', 'Escalante City', 21, '2009-10-09 00:00:00', '102', '16.0', 'Male', 71, 1, 1, '2015-09-04 13:33:24', NULL),
+(48, 'Joemarie', 'Pelaez', 'Santillan', 'Escalante City', 2, '2010-02-15 00:00:00', '113', '17.5', 'Male', 67, 1, 1, '2015-09-04 13:37:37', NULL),
+(49, 'Vina', 'Mahusay', 'Bacolod', 'Escalante City', 2, '2010-06-12 00:00:00', '89', '14.2', 'Female', 63, 3, 1, '2015-09-04 13:39:34', NULL),
+(50, 'Yllie', 'Rama', 'Lacang', 'Escalante City', 2, '2009-09-23 00:00:00', '99', '17.7', 'Female', 71, 1, 1, '2015-09-04 13:41:02', NULL),
+(51, 'Rosell', 'Garcia', 'Pascual', 'Escalante City', 2, '2010-09-02 00:00:00', '99', '12.2', 'Female', 60, 2, 1, '2015-09-04 13:42:27', NULL),
+(52, 'Romela', 'Lumbo', 'Ledesma', 'Escalante City', 2, '2012-06-23 00:00:00', '89', '18.9', 'Female', 38, 4, 1, '2015-09-04 13:44:28', NULL),
+(53, 'Donnel John', 'Ometer', 'Ganancial', 'Escalanta City', 12, '2011-06-23 00:00:00', '112', '20.8', 'Male', 50, 1, 1, '2015-09-04 13:47:19', NULL),
+(54, 'Rowelyn', 'Redido', 'Paes', 'Escalante City', 12, '2011-08-09 00:00:00', '78', '11.9', 'Female', 49, 3, 1, '2015-09-04 13:49:02', NULL),
+(55, 'Grace', 'Morales', 'Teodosio', 'Escalante City', 12, '2011-01-22 00:00:00', '89', '11.7', 'Female', 55, 2, 1, '2015-09-04 13:50:25', NULL),
+(56, 'Lyndon', 'Jumantoc', 'Lucero ', 'Escalante City', 12, '2012-07-08 00:00:00', '97', '19.9', 'Male', 38, 4, 1, '2015-09-04 13:51:57', NULL),
+(57, 'Edzel', 'Londres', 'Naranjo', 'Escalante City', 12, '2013-05-07 00:00:00', '87', '12.9', 'Male', 28, 1, 1, '2015-09-04 13:53:35', NULL),
+(58, 'Charles Adrian', 'Herroro', 'Lamique', 'Escalante City', 7, '2012-02-28 00:00:00', '90', '19', 'Male', 42, 1, 1, '2015-09-04 13:55:13', NULL),
+(59, 'Irez Belle', 'Calvo', 'Moronez', 'Escalante City', 7, '2009-12-09 00:00:00', '77', '13.9', 'Female', 69, 3, 1, '2015-09-04 13:57:47', NULL),
+(60, 'Mars Jhon', 'Ticala ', 'Lop', 'Escalante', 9, '2010-12-08 00:00:00', '99', '13.1', 'Male', 57, 3, 1, '2015-09-04 15:09:09', '2015-09-04 15:40:44'),
+(61, 'Kristel', 'Kristal Jean', 'Mon', 'Escalante City', 9, '2014-06-22 00:00:00', '67', '15.9', 'Female', 14, 4, 1, '2015-09-04 15:14:33', '2015-09-04 15:41:00'),
+(62, 'Marie', 'Supilanas', 'Jean', 'Escalante City', 9, '2013-07-11 00:00:00', '123', '15.9', 'Female', 26, 4, 1, '2015-09-04 15:19:41', '2015-09-04 15:41:54'),
+(63, 'Jean', 'Guilonas', 'Lopez', 'Escalante City', 9, '2009-12-07 00:00:00', '89', '78', 'Female', 69, 4, 1, '2015-09-04 15:22:29', NULL),
+(64, 'Kristel', 'Habilis', 'Honas', 'Escalante City', 9, '2012-02-10 00:00:00', '80', '47', 'Female', 43, 4, 1, '2015-09-04 15:29:16', NULL),
+(65, 'Katherine', 'Sante', 'lonas', 'Escalante City', 16, '2010-10-04 00:00:00', '99', '13.1', 'Female', 59, 3, 1, '2015-09-04 15:34:52', NULL),
+(66, 'Jean', 'Aldanta', 'Kilo', 'Escalanate City', 16, '2011-02-09 00:00:00', '99', '56', 'Female', 55, 4, 1, '2015-09-04 15:39:54', NULL),
+(67, 'Kris', 'Intok', 'Jen', 'Escalante City', 17, '2010-04-05 00:00:00', '59', '13', 'Female', 65, 2, 1, '2015-09-04 15:46:14', '2015-09-04 15:48:11');
 
+-- --------------------------------------------------------
 --
 -- Table structure for table `userdata`
 --
@@ -196,7 +265,7 @@ CREATE TABLE IF NOT EXISTS `userdata` (
 --
 -- Dumping data for table `userdata`
 --
-INSERT INTO `userdata` VALUES ('1', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997','admin','sample@email.com','12345678910','Admin','Admin','Admin');
+INSERT INTO `userdata` VALUES ('1', 'admin', 'd033e22ae348aeb5660fc2140aec35850c4da997','admin','sample@email.com','12345678910','Admin','Admin','','Admin');
 
 --
 -- Table structure for table `usergroup`

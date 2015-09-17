@@ -38,6 +38,10 @@ class YearsController {
 		}
 	}
 
+	public static function dssYear(){
+		YearTerms::read();
+	}
+
 	public static function detail($id){
 		session_start();
 		$headers = apache_request_headers();	

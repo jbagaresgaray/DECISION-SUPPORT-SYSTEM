@@ -29,8 +29,12 @@
 	    break;
 	  case 'GET':
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
-	  		$id = $request[0];
-			YearsController::detail($id);
+	  		if ($request[0] == 'dss'){
+	  			YearsController::dssYear();
+	  		}else{
+		  		$id = $request[0];
+				YearsController::detail($id);
+	  		}
 	  	}else{
 			YearsController::read();
 	  	}

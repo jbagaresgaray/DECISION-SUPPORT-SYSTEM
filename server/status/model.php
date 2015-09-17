@@ -156,7 +156,7 @@ class Status {
 			$data = array();
 			if(strlen($id) == 2){
 				$var = str_split($id);
-				$query1 = "SET @rank=0; SELECT A.* ,@rank:=@rank+1 AS rank FROM (SELECT l.id,l.name,l.description,l.landarea,(SELECT COUNT(c.id) FROM child c WHERE c.status_id IN ('$var[0]','$var[1]') AND c.locationID=l.id AND c.year_id=$year) AS Count FROM location l GROUP BY l.id ORDER BY Count DESC) AS A WHERE A.Count > 0 LIMIT 5;";				
+				$query1 = "SET @rank=0; SELECT A.* ,@rank:=@rank+1 AS rank FROM (SELECT l.id,l.name,l.description,l.landarea,(SELECT COUNT(c.id) FROM child c WHERE c.status_id IN ('$var[0]','$var[1]') AND c.locationID=l.id AND c.year_id=$year) AS Count FROM location l GROUP BY l.id ORDER BY Count DESC) AS A WHERE A.Count > 0 LIMIT 5;";
 				if ($result1 = $mysqli->multi_query($query1)) {
 					do {
 						if ($result1 = $mysqli->store_result()) {
