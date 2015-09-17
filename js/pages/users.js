@@ -1,5 +1,12 @@
 $(document).ready(function() {
+
     fetch_all_users();
+
+    fetch_barangay();
+
+    $("#level").bind("change",isAdmin);
+
+    isAdmin();
 
     $('table.paginated').each(function() {
         var currentPage = 0;
@@ -71,6 +78,13 @@ $(document).on("click", ".view-icon", function() {
     getData('view', id);
 });
 
+function isAdmin(){
+    if ($("#level").val() == 'Admin'){
+        $("#location").prop('disabled', true);
+    }else{
+        $("#location").prop('disabled', false);
+    }
+}
 
 function create_user() {
     $("#fname").val('');
@@ -80,6 +94,8 @@ function create_user() {
     $("#email").val('');
     $("#mobileno").val('');
     $("#level").val('');
+    $("#user_id").val('');
+    $("#location").val('');
 
     $("#password").show();
     $("#password2").show();
@@ -166,6 +182,7 @@ function save() {
                 username: $('#username').val(),
                 password: $('#password').val(),
                 mobileno: $('#mobileno').val(),
+                location: (($("#level").val() == 'Admin') ? '': $('#location').val()),
                 email: $('#email').val(),
                 level: $('#level').val()
             },
@@ -206,6 +223,7 @@ function save() {
                 lname: $('#lname').val(),
                 username: $('#username').val(),
                 mobileno: $('#mobileno').val(),
+                location: (($("#level").val() == 'Admin') ? '': $('#location').val()),
                 email: $('#email').val(),
                 level: $('#level').val()
             },
@@ -256,6 +274,7 @@ function fetch_all_users() {
                                         <td class="">' + row[i].lname + ', ' + row[i].fname + '</td>\
                                         <td class="">' + row[i].email + '</td>\
                                         <td class="">' + row[i].mobileno + '</td>\
+                                        <td class="">' + row[i].location + '</td>\
                                         <td class="center" width="15%">' + row[i].level + '</td>\
                                         <td class=" " width="20%">\
                                             <a href="#" data-id="' + row[i].id + '" class="view-icon">view</a>|\
@@ -331,6 +350,7 @@ function getData(status, id) {
                 $("#username").val(data.username);
                 $("#email").val(data.email);
                 $("#mobileno").val(data.mobileno);
+                $("#location").val(data.locationID);
 
                 if (status === 'view') {
                     $("#fname").prop('disabled', true);
@@ -343,6 +363,7 @@ function getData(status, id) {
                     $("#password2").prev('label').hide();
                     $("#email").prop('disabled', true);
                     $("#mobileno").prop('disabled', true);
+                    $("#location").prop('disabled', true);
 
                     $("#btn-save").attr('disabled', true);
                 } else {
@@ -356,6 +377,7 @@ function getData(status, id) {
                     $("#password2").prev('label').hide();
                     $("#email").prop('disabled', false);
                     $("#mobileno").prop('disabled', false);
+                    $("#location").prop('disabled', false);
 
                     $("#btn-save").removeAttr('disabled');
                 }
@@ -367,6 +389,36 @@ function getData(status, id) {
         },
         error: function(error) {
             console.log('error: ', error);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
+            return;
+        }
+    });
+}
+
+function fetch_barangay() {
+    $.ajax({
+        url: '../server/location/',
+        async: true,
+        type: 'GET',
+        headers: {
+            'X-Auth-Token': $("input[name='csrf']").val()
+        },
+        success: function(response) {
+            var decode = response;
+            $('#location').empty();
+            for (var i = 0; i < decode.locations.length; i++) {
+                var row = decode.locations;
+                var html = '<option id="' + row[i].id + '" value="' + row[i].id + '">' + row[i].name + '</option>';
+                $("#location").append(html);
+            }
+        },
+        error: function(error) {
+            console.log("Error:");
+            console.log(error.responseText);
+            console.log(error.message);
             if (error.responseText) {
                 var msg = JSON.parse(error.responseText)
                 $.notify(msg.msg, "error");

@@ -188,6 +188,7 @@ CREATE TABLE IF NOT EXISTS `userdata` (
   `mobileno` varchar(45),
   `fname` varchar(100) NOT NULL,
   `lname` varchar(100) NOT NULL,
+  `locationID` int(11) NULL,
   `level` varchar(100) NOT NULL,
   PRIMARY KEY (`id`)
 ) ENGINE=InnoDB  DEFAULT CHARSET=latin1 AUTO_INCREMENT=0 ;
@@ -226,8 +227,8 @@ INSERT INTO `usergroup` VALUES ('10', 'UserAccount','Admin', '1');
 INSERT INTO `usergroup` VALUES ('11', 'Dashboard','User', '1');
 INSERT INTO `usergroup` VALUES ('12', 'CNO','User', '0');
 INSERT INTO `usergroup` VALUES ('13', 'Child','User', '1');
-INSERT INTO `usergroup` VALUES ('14', 'Location','User', '1');
-INSERT INTO `usergroup` VALUES ('15', 'YearTerms','User', '1');
+INSERT INTO `usergroup` VALUES ('14', 'Location','User', '0');
+INSERT INTO `usergroup` VALUES ('15', 'YearTerms','User', '0');
 INSERT INTO `usergroup` VALUES ('16', 'Reports','User', '0');
 INSERT INTO `usergroup` VALUES ('17', 'DSS','User', '0');
 INSERT INTO `usergroup` VALUES ('18', 'Profile','User', '1');

@@ -50,6 +50,7 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
                                                 <th>Name</th>
                                                 <th>Email</th>
                                                 <th>Mobile No.</th>
+                                                <th>Location</th>
                                                 <th>Level</th>
                                                 <th>Actions</th>
                                             </tr>

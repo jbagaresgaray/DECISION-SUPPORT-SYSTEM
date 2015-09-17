@@ -45,13 +45,18 @@ class Child {
 		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
 		    return;
 		}else{
-			$query1 ="SELECT *,(SELECT description FROM status WHERE id = c.status_id LIMIT 1) AS status FROM child c;";
+			if ($_SESSION['users']['level'] == 'User') {
+				$locationID = $_SESSION['users']['locationID'];
+				$query1 ="SELECT *,(SELECT description FROM status WHERE id = c.status_id LIMIT 1) AS status FROM child c WHERE c.locationID=$locationID;";
+			}else{
+				$query1 ="SELECT *,(SELECT description FROM status WHERE id = c.status_id LIMIT 1) AS status FROM child c;";
+			}			
 			$result1 = $mysqli->query($query1);
 			$data = array();
 			while($row = $result1->fetch_array(MYSQLI_ASSOC)){
 				array_push($data,$row);
 			}
-			print json_encode(array('success' =>true,'status'=>200,'childs' =>$data),JSON_PRETTY_PRINT);
+			print json_encode(array('success' =>true,'status'=>200,'childs' =>$data, 'query'=>$query1),JSON_PRETTY_PRINT);
 		}
 	}
 

@@ -7,6 +7,7 @@
             <div class="modal-body">
               <form role="form"  id="formchild">
                   <input type="hidden" id="child_id" name="child_id">
+                  <input type="hidden" id="location" name="location" value="<?php echo $_SESSION['users']['locationID'];?>">
                   <input type="hidden" name="csrf" value="<?php echo $_SESSION['form_token'];?>">
                   <div class="form-group">
                       <label>Years / Terms</label>
@@ -43,8 +44,8 @@
                           </select>
                         </div>
                         <div class="col-md-4">
-                          <label>Barangay</label>
-                          <select class="form-control" name="location" id= "location"></select>
+                          <label>Barangay</label><br>
+                          <label class="text-primary" id="lblBarangay"><?php echo $_SESSION['users']['location']; ?></label>
                           <span class="help-inline"></span>
                         </div>
                         <div class="col-md-4">

@@ -29,11 +29,20 @@
                       <span class="help-inline"></span>
                   </div>
                   <div class="form-group">
-                      <label>Level:</label>
-                      <select class="form-control" name="level" id= "level">
-                        <option value="Admin"> Admin</option>
-                        <option value="User"> User</option>
-                      </select>
+                    <div class="row">
+                      <div class="col-md-6">
+                        <label>Level:</label>
+                        <select class="form-control" name="level" id= "level">
+                          <option value="Admin"> Admin</option>
+                          <option value="User"> User</option>
+                        </select>
+                      </div>
+                      <div class="col-md-6">
+                        <label>Barangay</label>
+                        <select class="form-control" name="location" id= "location"></select>
+                        <span class="help-inline"></span>
+                      </div>
+                    </div>
                   </div>
                   <div class="form-group">
                       <div class="row">

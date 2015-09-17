@@ -4,6 +4,10 @@ $(document).ready(function() {
     $("#cboFilters").bind("change", filters);
 });
 
+function refresh(){
+    filters();
+}
+
 function filters() {
     var value = $("#cboFilters").val();
     var title = window.sessionStorage['title'];
@@ -25,7 +29,6 @@ function filters() {
             break;
     }
 }
-
 
 function populateYear() {
     $("#cboFilters").empty();

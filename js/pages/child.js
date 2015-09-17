@@ -4,7 +4,6 @@ $(document).ready(function() {
     });
 
     fetch_all_child();
-    fetch_barangay();
     fetch_year();
 
     $("#date").bind("change", Noofmonths);
@@ -96,6 +95,30 @@ function Noofmonths() {
     getStatus(Nomonths, weight);
 }
 
+function currentUser() {
+    $.ajax({
+        url: '../server/users/auth/',
+        async: false,
+        headers: {
+            'X-Auth-Token' : $("input[name='csrf']" ).val()
+        },
+        type: 'GET',
+        success: function(response) {
+            $("#location").val(response.locationID);
+            $("#lblBarangay").text(response.location);
+        },
+        error: function(error) {
+            console.log("Error:");
+            console.log(error.responseText);
+            console.log(error.message);
+            if (error.responseText) {
+                var msg = JSON.parse(error.responseText)
+                $.notify(msg.msg, "error");
+            }
+            return;
+        }
+    });
+}
 
 function create_child() {
     $("#fname").val('');
@@ -109,6 +132,7 @@ function create_child() {
     $("#gender").val('');
     $("#status_id").val('');
     $("#lblStatus").text('');
+    $('#lblBarangay').text('');
 
     $("#fname").prop('disabled', false);
     $("#mname").prop('disabled', false);
@@ -124,6 +148,8 @@ function create_child() {
     $("#cboyears").prop('disabled', false);
 
     $("#btn-save").removeAttr('disabled');
+
+    currentUser();
 
     $('#childModal').modal('show');
 }
@@ -460,36 +486,6 @@ function getData(status, id) {
         },
         error: function(error) {
             console.log('error: ', error);
-            if (error.responseText) {
-                var msg = JSON.parse(error.responseText)
-                $.notify(msg.msg, "error");
-            }
-            return;
-        }
-    });
-}
-
-function fetch_barangay() {
-    $.ajax({
-        url: '../server/location/',
-        async: true,
-        type: 'GET',
-        headers: {
-            'X-Auth-Token': $("input[name='csrf']").val()
-        },
-        success: function(response) {
-            var decode = response;
-            $('#location').empty();
-            for (var i = 0; i < decode.locations.length; i++) {
-                var row = decode.locations;
-                var html = '<option id="' + row[i].id + '" value="' + row[i].id + '">' + row[i].name + '</option>';
-                $("#location").append(html);
-            }
-        },
-        error: function(error) {
-            console.log("Error:");
-            console.log(error.responseText);
-            console.log(error.message);
             if (error.responseText) {
                 var msg = JSON.parse(error.responseText)
                 $.notify(msg.msg, "error");

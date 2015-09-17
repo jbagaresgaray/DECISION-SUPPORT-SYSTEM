@@ -9,7 +9,7 @@
         <a class="navbar-brand" href="index.php">DSS v1</a>
     </div>
     <?php if( isset( $_SESSION['users'] ) ): ?>
-    <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">Welcome <?php echo $_SESSION['users']['fname'];?>
+    <div style="color: white;padding: 15px 50px 5px 50px;float: right;font-size: 16px;">Welcome <?php echo $_SESSION['users']['fname'] . " ( ".$_SESSION['users']['location'] . " )" ;?>
       <a href="logout.php" class="btn btn-danger square-btn-adjust">Logout</a>
     </div>
     <?php endif; ?>

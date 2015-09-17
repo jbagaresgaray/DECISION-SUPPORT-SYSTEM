@@ -20,10 +20,11 @@ class Users {
 			$password = $mysqli->real_escape_string($data['password']);
 			$email = $mysqli->real_escape_string($data['email']);
 			$mobileno = $mysqli->real_escape_string($data['mobileno']);
+			$location = $mysqli->real_escape_string($data['location']);
 			$level = $mysqli->real_escape_string($data['level']);
 
-			if ($stmt = $mysqli->prepare('INSERT INTO userdata(fname,lname,username,password,str_password,email,mobileno,level) VALUES(?,?,?,?,?,?,?,?)')){
-				$stmt->bind_param('ssssssss', $fname,$lname,$username,sha1($password),$password,$email,$mobileno,$level);
+			if ($stmt = $mysqli->prepare('INSERT INTO userdata(fname,lname,username,password,str_password,email,mobileno,locationID,level) VALUES(?,?,?,?,?,?,?,?,?)')){
+				$stmt->bind_param('sssssssss', $fname,$lname,$username,sha1($password),$password,$email,$mobileno,$location,$level);
 				$stmt->execute();
 				print json_encode(array('success' =>true,'status'=>200,'msg' =>'Record successfully saved'),JSON_PRETTY_PRINT);
 			}else{
@@ -39,7 +40,7 @@ class Users {
 		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
 		    return;
 		}else{
-			$query ="SELECT * FROM userdata c LIMIT 1,1000000;";
+			$query ="SELECT c.id,c.fname,c.lname,c.email,c.mobileno,c.level,c.locationID,IFNULL((SELECT name FROM location WHERE id=c.locationID LIMIT 1),'') as location FROM userdata c LIMIT 1,1000000;";
 			$mysqli->set_charset('utf8');
 			$result = $mysqli->query($query);
 			$data = array();
@@ -80,7 +81,7 @@ class Users {
 			$id = $_SESSION['users']['id'];
 			$data = array();
 
-			$query1 ="SELECT id,username,email,mobileno,fname,lname,level FROM userdata WHERE id = '$id' LIMIT 1;";
+			$query1 ="SELECT id,username,email,mobileno,fname,lname,level,(SELECT name FROM location WHERE id=locationID LIMIT 1) as location, locationID FROM userdata WHERE id = '$id' LIMIT 1;";
 	        $result = $mysqli->query($query1);
 	        if($result){
 	            if($row = $result->fetch_assoc()){
@@ -110,10 +111,11 @@ class Users {
 			$username = $mysqli->real_escape_string($data['username']);
 			$email = $mysqli->real_escape_string($data['email']);
 			$mobileno = $mysqli->real_escape_string($data['mobileno']);
+			$location = $mysqli->real_escape_string($data['location']);
 			$level = $mysqli->real_escape_string($data['level']);
 
-			if ($stmt = $mysqli->prepare('UPDATE userdata SET fname=?,lname=?,username=?,email=?,mobileno=?,level=? WHERE id=?')){
-				$stmt->bind_param('sssssss', $fname,$lname,$username,$email,$mobileno,$level,$id);
+			if ($stmt = $mysqli->prepare('UPDATE userdata SET fname=?,lname=?,username=?,email=?,mobileno=?,locationID=?,level=? WHERE id=?')){
+				$stmt->bind_param('ssssssss', $fname,$lname,$username,$email,$mobileno,$location,$level,$id);
 				$stmt->execute();
 				print json_encode(array('success' =>true,'status'=>200,'msg' =>'Record successfully updated'),JSON_PRETTY_PRINT);
 			}else{
@@ -203,7 +205,7 @@ class Users {
 		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
 		    return;
 		}else{
-			$query ="SELECT * FROM usergroup c WHERE id=$id LIMIT 1;";
+			$query ="SELECT c.* FROM usergroup c WHERE id=$id LIMIT 1;";
 			$mysqli->set_charset('utf8');
 			$result = $mysqli->query($query);
 			if($row = $result->fetch_array(MYSQLI_ASSOC)){

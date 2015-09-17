@@ -25,6 +25,8 @@ class UsersController {
 			return print json_encode(array('success'=>false,'status'=>200,'msg'=>'First Name is required'),JSON_PRETTY_PRINT);
 		}else if(isset($data['lname']) && empty($data['lname'])){
 			return print json_encode(array('success'=>false,'status'=>200,'msg'=>'Last Name is required'),JSON_PRETTY_PRINT);
+		}else if(isset($data['location']) && empty($data['location']) && $data['level'] == 'User'){
+			return print json_encode(array('success'=>false,'status'=>200,'msg'=>'Barangay Location is required'),JSON_PRETTY_PRINT);
 		}else{
 			$var = [
 				"username" => $data['username'],
@@ -33,6 +35,7 @@ class UsersController {
 				"mobileno" => $data['mobileno'],
 				"fname" => $data['fname'],
 				"lname" => $data['lname'],
+				"location" => $data['location'],
 				"level" => $data['level']
 			];
 			Users::create($var);
@@ -82,6 +85,8 @@ class UsersController {
 			return print json_encode(array('success'=>false,'status'=>200,'msg'=>'First Name is required'),JSON_PRETTY_PRINT);
 		}else if(isset($data['lname']) && empty($data['lname'])){
 			return print json_encode(array('success'=>false,'status'=>200,'msg'=>'Last Name is required'),JSON_PRETTY_PRINT);
+		}else if(isset($data['location']) && empty($data['location']) && $data['level'] == 'User'){
+			return print json_encode(array('success'=>false,'status'=>200,'msg'=>'Barangay Location is required'),JSON_PRETTY_PRINT);
 		}else{
 			$var = [
 				"username" => $data['username'],
@@ -89,6 +94,7 @@ class UsersController {
 				"mobileno" => $data['mobileno'],
 				"fname" => $data['fname'],
 				"lname" => $data['lname'],
+				"location" => $data['location'],
 				"level" => $data['level']
 			];
 			Users::update($id,$var);

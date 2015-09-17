@@ -34,7 +34,7 @@ if($_SERVER['REQUEST_METHOD'] =='POST'){
                 return;
             }else{
                 $data = array();
-                $query1 ="SELECT id,username,email,mobileno,fname,lname,level FROM userdata WHERE username = '$username' AND password = '$phpro_password' LIMIT 1;";
+                $query1 ="SELECT id,username,email,mobileno,fname,lname,level,(SELECT name FROM location WHERE id=locationID LIMIT 1) as location, locationID FROM userdata WHERE username = '$username' AND password = '$phpro_password' LIMIT 1;";
                 $result = $mysqli->query($query1);
                 if ($result) {
                     if($row = $result->fetch_assoc()){
