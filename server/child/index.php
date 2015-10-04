@@ -26,8 +26,13 @@
 	    	break;
 	  	case 'GET':
 		  	if(isset($request) && !empty($request) && $request[0] !== ''){
-		  		$id = $request[0];
-				ChildController::detail($id);
+		  		if ($request[0] == 'filter'){
+		  			$value = $request[1];
+		  			ChildController::filter($value);
+		  		}else{
+		  			$id = $request[0];
+					ChildController::detail($id);
+		  		}
 		  	}else{
 				ChildController::read();
 		  	}

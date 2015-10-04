@@ -42,7 +42,6 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
                         <h2 id="lblPrint"></h2>
                         <input type="hidden" name="csrf" value="<?php echo $_SESSION['form_token'];?>">
                         <a class="btn btn-primary" onclick="printToPrinter()">Print Forms</a>
-                        <!-- <a class="btn btn-primary" href="toprint.php">Print Forms</a> -->
                         <a class="btn btn-success" download="CNO-data.xls" onclick="exportToExcel(this, 'dataTables-example', 'CNO Sheet Data')">Export to Excel</a>
                         <a class="btn btn-info" onclick="refresh()">Refresh</a>
                         <div class="col-lg-4 pull-right">
@@ -54,7 +53,8 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
                                 <option value="all">All</option>
                                 <option value="rank"> Rank</option>
                                 <option value="barangay"> Barangay</option>
-                                <!-- <option value="gender"> Gender</option> -->
+                                <option value="gender"> Gender</option>
+                                <option value="brackets"> Brackets</option>
                             </select>
                         </div>
                     </div>

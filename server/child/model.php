@@ -60,6 +60,29 @@ class Child {
 		}
 	}
 
+	public static function filter($value){
+		$config= new Config();
+		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);
+		if ($mysqli->connect_errno) {
+		    print json_encode(array('success' =>false,'status'=>400,'msg' =>'Failed to connect to MySQL: (' . $mysqli->connect_errno . ') ' . $mysqli->connect_error));
+		    return;
+		}else{
+			$arr = explode('-',$value);
+			if ($_SESSION['users']['level'] == 'User') {
+				$locationID = $_SESSION['users']['locationID'];
+				$query1 ="SELECT *,(SELECT description FROM status WHERE id = c.status_id LIMIT 1) AS status FROM child c WHERE (c.locationID=$locationID AND (c.months BETWEEN $arr[0] AND $arr[1]));";
+			}else{
+				$query1 ="SELECT *,(SELECT description FROM status WHERE id = c.status_id LIMIT 1) AS status FROM child c WHERE (c.months BETWEEN $arr[0] AND $arr[1]);";
+			}
+			$result1 = $mysqli->query($query1);
+			$data = array();
+			while($row = $result1->fetch_array(MYSQLI_ASSOC)){
+				array_push($data,$row);
+			}
+			print json_encode(array('success' =>true,'status'=>200,'childs' =>$data, 'query'=>$query1),JSON_PRETTY_PRINT);
+		}
+	}
+
 	public static function detail($id){
 		$config= new Config();
 		$mysqli = new mysqli($config->host, $config->user, $config->pass, $config->db);

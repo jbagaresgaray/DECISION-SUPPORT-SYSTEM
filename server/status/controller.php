@@ -94,6 +94,51 @@ class StatusController {
 	public static function printSevereUnderTotalDSS($year){
 		Status::printDSS('23',$year);
 	}
+
+
+
+
+	public static function printGenderNormalDSS($gender){
+		Status::printGenderStatus('1',$gender);
+	}
+
+	public static function printGenderSeverelyUnderDSS($gender){
+		Status::printGenderStatus('2',$gender);
+	}
+
+	public static function printGenderUnderDSS($gender){
+		Status::printGenderStatus('3',$gender);
+	}
+
+	public static function printGenderOverDSS($gender){
+		Status::printGenderStatus('4',$gender);
+	}
+
+	public static function printGenderSevereUnderTotalDSS($gender){
+		Status::printGenderStatus('23',$gender);
+	}
+
+
+
+	public static function printBracketsNormalDSS($value){
+		Status::printBracketsStatus('1',$value);
+	}
+
+	public static function printBracketsSeverelyUnderDSS($value){
+		Status::printBracketsStatus('2',$value);
+	}
+
+	public static function printBracketsUnderDSS($value){
+		Status::printBracketsStatus('3',$value);
+	}
+
+	public static function printBracketsOverDSS($value){
+		Status::printBracketsStatus('4',$value);
+	}
+
+	public static function printBracketsSevereUnderTotalDSS($value){
+		Status::printBracketsStatus('23',$value);
+	}
 }
 
 ?>

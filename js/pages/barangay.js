@@ -1,29 +1,5 @@
 $(document).ready(function() {
     fetch_all_barangay();
-
-    $('table.paginated').each(function() {
-        var currentPage = 0;
-        var numPerPage = 10;
-        var $table = $(this);
-        $table.bind('repaginate', function() {
-            $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
-        });
-        $table.trigger('repaginate');
-        var numRows = $table.find('tbody tr').length;
-        var numPages = Math.ceil(numRows / numPerPage);
-        var $pager = $('<div class="pager"></div>');
-        for (var page = 0; page < numPages; page++) {
-            $('<span class="page-number"></span>').text(page + 1).bind('click', {
-                newPage: page
-            }, function(event) {
-                currentPage = event.data['newPage'];
-                $table.trigger('repaginate');
-                $(this).addClass('active').siblings().removeClass('active');
-            }).appendTo($pager).addClass('clickable');
-        }
-        $pager.insertBefore($table).find('span.page-number:first').addClass('active');
-    });
-
 });
 
 $('#filter').keyup(function() {
@@ -90,10 +66,10 @@ function fetch_all_barangay() {
                                         <td class="">' + row[i].name + '</td>\
                                         <td class="">' + row[i].landarea + '</td>\
                                         <td class="">' + row[i].description + '</td>\
-                                        <td class=" " width="20%">\
-                                            <a href="#" data-id="' + row[i].id + '" class="view-icon">view</a>|\
-                                            <a href="#" data-id="' + row[i].id + '" class="update-icon">update</a>|\
-                                            <a href="#" data-id="' + row[i].id + '" class="delete-icon">delete</a>\
+                                        <td width="10%">\
+                                            <a data-id="' + row[i].id + '" href="#" class="view-icon btn btn-success btn-xs"><i class="fa fa-search"></i></a>\
+                                            <a data-id="' + row[i].id + '" href="#" class="update-icon btn btn-primary btn-xs"> <i class="fa fa-pencil"></i></a>\
+                                            <a data-id="' + row[i].id + '" href="#" class="delete-icon btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>\
                                         </td>\
                                 </tr>';
                         $("#dataTables-example tbody").append(html);
@@ -110,6 +86,30 @@ function fetch_all_barangay() {
             }
             return;
         }
+    }).done(function() {
+        $('.pager').remove(); //clears pagination
+        $('table.paginated').each(function() {
+            var currentPage = 0;
+            var numPerPage = 10;
+            var $table = $(this);
+            $table.bind('repaginate', function() {
+                $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+            });
+            $table.trigger('repaginate');
+            var numRows = $table.find('tbody tr').length;
+            var numPages = Math.ceil(numRows / numPerPage);
+            var $pager = $('<div class="pager"></div>');
+            for (var page = 0; page < numPages; page++) {
+                $('<span class="page-number"></span>').text(page + 1).bind('click', {
+                    newPage: page
+                }, function(event) {
+                    currentPage = event.data['newPage'];
+                    $table.trigger('repaginate');
+                    $(this).addClass('active').siblings().removeClass('active');
+                }).appendTo($pager).addClass('clickable');
+            }
+            $pager.insertBefore($table).find('span.page-number:first').addClass('active');
+        });
     });
 }
 

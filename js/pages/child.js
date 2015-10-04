@@ -3,35 +3,18 @@ $(document).ready(function() {
         locale: 'en'
     });
 
-    fetch_all_child();
+    fetch_all_child('All');
     fetch_year();
 
     $("#date").bind("change", Noofmonths);
     $("#weight").bind("change", Noofmonths);
+});
 
-
-    $('table.paginated').each(function() {
-        var currentPage = 0;
-        var numPerPage = 10;
-        var $table = $(this);
-        $table.bind('repaginate', function() {
-            $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
-        });
-        $table.trigger('repaginate');
-        var numRows = $table.find('tbody tr').length;
-        var numPages = Math.ceil(numRows / numPerPage);
-        var $pager = $('<div class="pager"></div>');
-        for (var page = 0; page < numPages; page++) {
-            $('<span class="page-number"></span>').text(page + 1).bind('click', {
-                newPage: page
-            }, function(event) {
-                currentPage = event.data['newPage'];
-                $table.trigger('repaginate');
-                $(this).addClass('active').siblings().removeClass('active');
-            }).appendTo($pager).addClass('clickable');
-        }
-        $pager.insertBefore($table).find('span.page-number:first').addClass('active');
-    });
+$('.button-group').click(function() {
+    $(this).addClass('active').siblings().removeClass('active');
+    var val = this.innerHTML;
+    console.log(val);
+    fetch_all_child(val);
 });
 
 $("#weight").keyup(function() {
@@ -100,7 +83,7 @@ function currentUser() {
         url: '../server/users/auth/',
         async: false,
         headers: {
-            'X-Auth-Token' : $("input[name='csrf']" ).val()
+            'X-Auth-Token': $("input[name='csrf']").val()
         },
         type: 'GET',
         success: function(response) {
@@ -331,11 +314,20 @@ function save() {
 }
 
 
-function fetch_all_child() {
+function fetch_all_child(val) {
     console.log('fetch_all_child');
     $('#dataTables-example tbody > tr').remove();
+
+    var urlString = null;
+
+    if (val == 'All') {
+        urlString = '../server/child/';
+    } else {
+        urlString = '../server/child/filter/' + val;
+    }
+    console.log('urlString: ', urlString);
     $.ajax({
-        url: '../server/child/',
+        url: urlString,
         async: false,
         type: 'GET',
         headers: {
@@ -353,11 +345,13 @@ function fetch_all_child() {
                                         <td class="">' + row[i].lname + ', ' + row[i].fname + '</td>\
                                         <td class="">' + moment(row[i].dob).format('MM-DD-YYYY') + '</td>\
                                         <td class="">' + row[i].gender + '</td>\
+                                        <td class="text-center">' + row[i].months + '</td>\
                                         <td class="center">' + row[i].status + '</td>\
-                                        <td class=" " width="20%">\
-                                            <a data-id="' + row[i].id + '" href="#" class="view-icon">view</a>|\
-                                            <a data-id="' + row[i].id + '" href="#" class="update-icon">update</a>|\
-                                            <a data-id="' + row[i].id + '" href="#" class="delete-icon">delete</a>\
+                                        <td class="center">' + (row[i].updateddate == null ? '' : row[i].updateddate) + '</td>\
+                                        <td width="10%">\
+                                            <a data-id="' + row[i].id + '" href="#" class="view-icon btn btn-success btn-xs"><i class="fa fa-search"></i></a>\
+                                            <a data-id="' + row[i].id + '" href="#" class="update-icon btn btn-primary btn-xs"> <i class="fa fa-pencil"></i></a>\
+                                            <a data-id="' + row[i].id + '" href="#" class="delete-icon btn btn-danger btn-xs"><i class="fa fa-trash-o"></i></a>\
                                         </td>\
                                 </tr>';
                         $("#dataTables-example tbody").append(html);
@@ -373,7 +367,31 @@ function fetch_all_child() {
                 $.notify(msg.msg, "error");
             }
             return;
-        }
+        },
+    }).done(function() {
+        $('.pager').remove(); //clears pagination
+        $('table.paginated').each(function() {
+            var currentPage = 0;
+            var numPerPage = 10;
+            var $table = $(this);
+            $table.bind('repaginate', function() {
+                $table.find('tbody tr').hide().slice(currentPage * numPerPage, (currentPage + 1) * numPerPage).show();
+            });
+            $table.trigger('repaginate');
+            var numRows = $table.find('tbody tr').length;
+            var numPages = Math.ceil(numRows / numPerPage);
+            var $pager = $('<div class="pager"></div>');
+            for (var page = 0; page < numPages; page++) {
+                $('<span class="page-number"></span>').text(page + 1).bind('click', {
+                    newPage: page
+                }, function(event) {
+                    currentPage = event.data['newPage'];
+                    $table.trigger('repaginate');
+                    $(this).addClass('active').siblings().removeClass('active');
+                }).appendTo($pager).addClass('clickable');
+            }
+            $pager.insertBefore($table).find('span.page-number:first').addClass('active');
+        });
     });
 }
 

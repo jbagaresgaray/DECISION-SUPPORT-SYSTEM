@@ -10,19 +10,14 @@
 	  	if(isset($request) && !empty($request) && $request[0] !== ''){
 	  		if ($request[0] == 'normal'){
 	  			StatusController::printNormal();
-
 	  		}else if($request[0] == 'under'){
 	  			StatusController::printUnder();
-
 	  		}else if($request[0] == 'severe-under'){
 	  			StatusController::printSeverelyUnder();
-
 	  		}else if($request[0] == 'over'){
 	  			StatusController::printOver();
-
 	  		}else if($request[0] == 'severe-under-total'){
 	  			StatusController::printSeverelyUnderTotal();
-
 	  		}else if($request[0] == 'rank'){
 	  			if ($request[1] == 'normal'){
 		  			StatusController::printNormalRank();
@@ -58,6 +53,32 @@
 		  			StatusController::printSeverelyUnderDSS($year);
 		  		}else if($request[1] == 'severe-under-total'){
 		  			StatusController::printSevereUnderTotalDSS($year);
+		  		}
+		  	}else if($request[0] == 'gender'){
+		  		$gender = $request[2];
+	  			if ($request[1] == 'normal'){
+		  			StatusController::printGenderNormalDSS($gender);
+		  		}else if($request[1] == 'under'){
+		  			StatusController::printGenderSeverelyUnderDSS($gender);
+		  		}else if($request[1] == 'severe-under'){
+		  			StatusController::printGenderUnderDSS($gender);
+		  		}else if($request[1] == 'over'){
+		  			StatusController::printGenderOverDSS($gender);
+		  		}else if($request[1] == 'severe-under-total'){
+		  			StatusController::printGenderSevereUnderTotalDSS($gender);
+		  		}
+		  	}else if($request[0] == 'brackets'){
+		  		$value = $request[2];
+	  			if ($request[1] == 'normal'){
+		  			StatusController::printBracketsNormalDSS($value);
+		  		}else if($request[1] == 'under'){
+		  			StatusController::printBracketsSeverelyUnderDSS($value);
+		  		}else if($request[1] == 'severe-under'){
+		  			StatusController::printBracketsUnderDSS($value);
+		  		}else if($request[1] == 'over'){
+		  			StatusController::printBracketsOverDSS($value);
+		  		}else if($request[1] == 'severe-under-total'){
+		  			StatusController::printBracketsSevereUnderTotalDSS($value);
 		  		}
 	  		}else{
 	  			$age = $request[0];

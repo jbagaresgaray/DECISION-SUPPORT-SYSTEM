@@ -45,13 +45,33 @@ if(!isset($_SESSION['users']) || empty($_SESSION['users'])){
                                 </div>
                                 <br>
                                 <div class="table-responsive">
+                                    <div class="btn-group" role="group">
+                                        <button type="button" class="btn button-group btn-default active">All</button>
+                                        <button type="button" class="btn button-group btn-default">0-5</button>
+                                        <button type="button" class="btn button-group btn-default">6-10</button>
+                                        <button type="button" class="btn button-group btn-default">11-15</button>
+                                        <button type="button" class="btn button-group btn-default">16-20</button>
+                                        <button type="button" class="btn button-group btn-default">21-25</button>
+                                        <button type="button" class="btn button-group btn-default">26-30</button>
+                                        <button type="button" class="btn button-group btn-default">31-35</button>
+                                        <button type="button" class="btn button-group btn-default">36-40</button>
+                                        <button type="button" class="btn button-group btn-default">41-45</button>
+                                        <button type="button" class="btn button-group btn-default">46-50</button>
+                                        <button type="button" class="btn button-group btn-default">51-55</button>
+                                        <button type="button" class="btn button-group btn-default">56-60</button>
+                                        <button type="button" class="btn button-group btn-default">61-65</button>
+                                        <button type="button" class="btn button-group btn-default">66-71</button>
+                                    </div>
+                                    <br>
                                     <table class="table table-striped table-bordered table-hover paginated" id="dataTables-example">
                                         <thead>
                                             <tr>
                                                 <th>Name</th>
                                                 <th>Birthdate</th>
                                                 <th>Gender</th>
+                                                <th>Age (Months)</th>
                                                 <th>Status</th>
+                                                <th>Date Updated</th>
                                                 <th>Actions</th>
                                             </tr>
                                         </thead>

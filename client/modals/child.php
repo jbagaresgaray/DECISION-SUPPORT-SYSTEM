@@ -9,6 +9,7 @@
                   <input type="hidden" id="child_id" name="child_id">
                   <input type="hidden" id="location" name="location" value="<?php echo $_SESSION['users']['locationID'];?>">
                   <input type="hidden" name="csrf" value="<?php echo $_SESSION['form_token'];?>">
+                  <input type="hidden" name="month" id="month"/>
                   <div class="form-group">
                       <label>Years / Terms</label>
                       <select class="form-control" name="cboyears" id= "cboyears"></select>
@@ -59,17 +60,12 @@
                       <div class="row">
                         <div class="col-md-4">
                             <label>Height</label>
-                            <input class="form-control" name="height" id="height" placeholder="Height" />
+                            <input class="form-control" name="height" id="height" placeholder="Height (cm)" />
                             <span class="help-inline"></span>
                         </div>
                         <div class="col-md-4">
                             <label>Weight</label>
-                            <input class="form-control" name="weight" id="weight" placeholder="Weight" />
-                            <span class="help-inline"></span>
-                        </div>
-                         <div class="col-md-4">
-                            <label>Months</label>
-                            <input class="form-control" name="month" id="month" value="0" readonly="true" disabled="true" />
+                            <input class="form-control" name="weight" id="weight" placeholder="Weight (kg)" />
                             <span class="help-inline"></span>
                         </div>
                       </div>
